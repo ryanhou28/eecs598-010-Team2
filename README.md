@@ -14,7 +14,7 @@
   - [ ] Investigate Mapping of Weights onto Accelerator
 
 # Helpful Links:
-- Project [Google Drive]([https://drive.google.com/drive/folders/1uPDy3XhJRFEJeeibYW9oZqEFc4YMdVj7](https://drive.google.com/drive/u/1/folders/1lGD-EbEd5oGc7vOjrX4MHmwefSjBNjo0))
+- Project [Google Drive](https://drive.google.com/drive/u/1/folders/1lGD-EbEd5oGc7vOjrX4MHmwefSjBNjo0)
 - PyLSE [Github](https://github.com/UCSBarchlab/PyLSE)
 - GraphViz [Visualizer](https://dreampuf.github.io/GraphvizOnline/) (Helpful for PyLSE)
 - Paper Links:
