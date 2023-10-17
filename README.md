@@ -9,8 +9,7 @@
   - [ ] 8-bit MAC unit
     - [ ] Design 8-bit Adder
     - [ ] Design 8-bit Multiplier
-  - [ ] Investigate Dataflow
-    - [ ] Weight Stationary Dataflow (seems to be the best choice for FNN)
+  - [ ] Investigate Dataflow, NoC to use
   - [ ] Investigate Mapping of Weights onto Accelerator
 
 # Helpful Links:
