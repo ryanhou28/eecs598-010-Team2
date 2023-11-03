@@ -1,0 +1,8 @@
+In order to pipeline and comb and back:
+pipe -L 2
+retime -M 4
+strash
+zero // regs set to init 1 cause issue after 2combs
+comb
+comb -L {number of latches}
+dsec should pass

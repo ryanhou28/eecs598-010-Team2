@@ -1,0 +1,7 @@
+py-aiger
+matplotlib
+networkx
+numpy
+pyverilog
+seaborn
+ipython

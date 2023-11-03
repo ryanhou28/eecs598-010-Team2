@@ -1,0 +1,13 @@
+read_library gmap.genlib
+strash
+&get -n
+&fraig -x
+&put
+scorr
+dc2
+dretime
+strash
+&get -n
+&dch -f
+&nf
+&put

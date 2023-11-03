@@ -1,0 +1,6 @@
+strash
+&get -n
+&fraig -x
+&put
+dc2
+strash

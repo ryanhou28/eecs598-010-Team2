@@ -1,0 +1,6 @@
+pipe -L 4
+retime -M 4
+print_stats
+strash
+zero
+comb
