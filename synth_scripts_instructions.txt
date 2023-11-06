@@ -10,3 +10,4 @@ And/Or gates at the resulting files correspond to LastArrival/FirstArrival in xs
 
 In order for the scripts to run, you will need a recent version of yosys for yosys-abc, the utility aig2aig from https://github.com/arminbiere/aiger , and the pip packages in requirements.txt.
 
+The outputs are single rail, since it is assumed they will be connected to either a complementary output DRO or an alternating signal to single signal converter, and so only one of the polarities of each output is needed and we can reduce duplication costs by not calculating the other.
