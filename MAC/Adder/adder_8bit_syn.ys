@@ -10,9 +10,13 @@ proc; opt
 # translate design to gate logic and perform optimizations
 techmap; opt
 
-dfflibmap -liberty ../../Cells/cmos_cells.lib
+dfflibmap -liberty ../../Cells/cells.lib
 
-abc -liberty ../../Cells/cmos_cells.lib
+abc -liberty ../../Cells/cells.lib
+
+# Test this command...
+techmap -map ../../Cells/all2nand.v
+
 
 # perform cleanup
 clean
@@ -21,3 +25,5 @@ clean
 write_verilog adder_8bit_str.v
 
 # To run: yosys adder_8bit_syn.ys
+
+show -format svg -prefix idk
