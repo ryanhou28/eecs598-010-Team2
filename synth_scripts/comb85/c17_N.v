@@ -121,8 +121,8 @@ module mymod
 
   (
     g6_n,
-    G3_n,
-    G1_n
+    G1_n,
+    G3_n
   );
 
 
@@ -130,8 +130,8 @@ module mymod
 
   (
     g7_p,
-    G4_p,
-    G3_p
+    G3_p,
+    G4_p
   );
 
 
@@ -139,8 +139,8 @@ module mymod
 
   (
     g8_n,
-    g7_p_spl_,
-    G2_n
+    G2_n,
+    g7_p_spl_
   );
 
 
@@ -148,8 +148,8 @@ module mymod
 
   (
     g9_p,
-    g8_n_spl_,
-    g6_n
+    g6_n,
+    g8_n_spl_
   );
 
 
@@ -157,8 +157,8 @@ module mymod
 
   (
     g10_n,
-    g7_p_spl_,
-    G5_n
+    G5_n,
+    g7_p_spl_
   );
 
 
@@ -166,8 +166,8 @@ module mymod
 
   (
     g11_p,
-    g10_n,
-    g8_n_spl_
+    g8_n_spl_,
+    g10_n
   );
 
 

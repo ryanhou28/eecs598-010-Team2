@@ -12,6 +12,8 @@ strash
 &put
 retime -M 4
 print_stats
+print_io
+print_supp -w
 strash
 zero
 comb

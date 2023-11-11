@@ -2,13 +2,23 @@ file=$1
 sed -i -E -e 's/clock,//g' -e 's/input +clock;//g' -e 's/@ +(posedge +clock)//g' $file
 faig="${file%.v}_comb.aig"
 faag="${file%.v}_comb.aag"
-lcnt=$(yosys-abc -f pline.script -o $faig $file |  grep -Po "lat =\s+\d+" | grep -Po "\d+")
+yosys-abc -f pline.script -o $faig $file > yoout.txt
+lcnt=$(cat yoout.txt |  grep -Po "lat =\s+\d+" | grep -Po "\d+")
+sed -n 's/.*\(([0-9]*)\).*/\1/p' yoout.txt > iol.txt
+sed -n '/^[01]\+$/p' yoout.txt > bin.txt
+hj=$(ipython parselvl.py)
+rm yoout.txt
+rm iol.txt
+rm bin.txt
+echo "$hj"
 echo "$lcnt latches"
 aigtoaig $faig $faag
 fdup="${file%.v}_N.v"
+fdro="${file%.v}_DRO.v"
 fout="${file%.v}_SEQ.v"
 fmap="${file%.v}_MAP.v"
 ipython -c "from aig2cell import *;dumpscr(\"$faag\", \"$fdup\")" && echo "Split: $file"
+ipython -c "from aig2cell import *;dumpscr(\"$faag\", \"$fdro\", L_cnt=$lcnt, Non_dbg=True, levels=$hj)" && echo "DRO: $file"
 yosys-abc -c "read $fdup; comb -L $lcnt; write $fout"
 sed -i -E -e 's/clock,//g' -e 's/input +clock;//g' -e 's/@ +(posedge +clock)//g' $fout
 yosys-abc -c "read $fout; read_library builtin.genlib; sop; attach; write $fmap"

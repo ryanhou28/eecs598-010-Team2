@@ -1,0 +1,6 @@
+GATE not1   100   dout=!din;                      PIN * NONINV 1 1 2000 0 2000 0
+GATE buf   0   dout=din;                       PIN * NONINV 1 1 0 0 0 0
+GATE LA   1   dout=dina*dinb;                 PIN * NONINV 1 1 2 0 2 0
+GATE FA   1   dout=dina|dinb;           PIN * NONINV 1 1 2 0 2 0
+GATE zero1   0   dout=CONST0;
+GATE one1    0   dout=CONST1;

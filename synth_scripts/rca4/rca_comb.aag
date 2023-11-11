@@ -1,0 +1,67 @@
+aag 35 11 0 8 24
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+22
+28
+40
+52
+64
+67
+24
+69
+71
+24 4 2
+26 5 3
+28 27 25
+30 8 6
+32 9 7
+34 33 31
+36 34 18
+38 35 19
+40 39 37
+42 12 10
+44 13 11
+46 45 43
+48 46 20
+50 47 21
+52 51 49
+54 16 14
+56 17 15
+58 57 55
+60 58 22
+62 59 23
+64 63 61
+66 61 55
+68 37 31
+70 49 43
+i0 X_0
+i1 Y_0
+i2 X_1
+i3 Y_1
+i4 X_2
+i5 Y_2
+i6 X_3
+i7 Y_3
+i8 rippe_adder|xw1
+i9 rippe_adder|xw2
+i10 rippe_adder|xw3
+o0 S_0
+o1 S_1
+o2 S_2
+o3 S_3
+o4 Co
+o5 n34_li0_li0
+o6 n37_li1_li1
+o7 n40_li2_li2
+c
+rippe_adder
+This file was written by ABC on Thu Nov  2 00:21:37 2023
+For information about AIGER format, refer to http://fmv.jku.at/aiger
