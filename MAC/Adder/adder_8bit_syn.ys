@@ -1,0 +1,23 @@
+# Specify the input Verilog file (behavioral)
+read_verilog adder_8bit.v
+
+# set top level module of design
+hierarchy -top adder8
+
+# convert processes to netlist elements and perform optimizations
+proc; opt
+
+# translate design to gate logic and perform optimizations
+techmap; opt
+
+dfflibmap -liberty ../../Cells/osu018_stdcells.lib
+
+abc -liberty ../../Cells/osu018_stdcells.lib
+
+# perform cleanup
+clean
+
+# Specify the output Verilog file
+write_verilog adder_8bit_str.v
+
+# To run: yosys adder_8bit_syn.ys
