@@ -10,9 +10,9 @@ proc; opt
 # translate design to gate logic and perform optimizations
 techmap; opt
 
-dfflibmap -liberty ../../Cells/osu018_stdcells.lib
+dfflibmap -liberty ../../Cells/cmos_cells.lib
 
-abc -liberty ../../Cells/osu018_stdcells.lib
+abc -liberty ../../Cells/cmos_cells.lib
 
 # perform cleanup
 clean
