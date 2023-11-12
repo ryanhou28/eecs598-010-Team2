@@ -21,6 +21,6 @@ techmap -map ../../Cells/all2nand.v
 clean
 
 # Specify the output Verilog file
-write_verilog adder_8bit_str.v
+write_verilog adder_8bit_syn.v
 
 # To run: yosys adder_8bit_syn.ys
