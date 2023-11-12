@@ -702,6 +702,9 @@ if verilog_code == '':
     print(f"Error: Could not open file {verilog_file}")
     exit()
 
+# Format the code to replace [ and ] characters with _ characters
+verilog_code = verilog_code.replace('[', '_').replace(']', '_')
+
 # Parse the input Verilog code
 result = parser.parse(verilog_code, lexer=lexer)
 
