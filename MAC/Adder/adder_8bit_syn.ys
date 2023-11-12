@@ -17,7 +17,6 @@ abc -liberty ../../Cells/cells.lib
 # Test this command...
 techmap -map ../../Cells/all2nand.v
 
-
 # perform cleanup
 clean
 
@@ -25,5 +24,3 @@ clean
 write_verilog adder_8bit_str.v
 
 # To run: yosys adder_8bit_syn.ys
-
-show -format svg -prefix idk
