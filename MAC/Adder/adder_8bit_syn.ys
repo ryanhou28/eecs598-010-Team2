@@ -10,6 +10,9 @@ proc; opt
 # translate design to gate logic and perform optimizations
 techmap; opt
 
+# Flatten the design into one single module
+flatten
+
 dfflibmap -liberty ../../Cells/cells.lib
 
 abc -liberty ../../Cells/cells.lib

@@ -3,541 +3,827 @@
 (* top =  1  *)
 (* src = "adder_8bit.v:1.1-19.10" *)
 module adder8(A, B, SUM);
-  (* src = "../../Cells/all2nand.v:8.7-8.11" *)
-  wire _00_;
-  wire _01_;
-  wire _02_;
-  wire _03_;
-  wire _04_;
-  wire _05_;
-  wire _06_;
-  wire _07_;
-  wire _08_;
-  wire _09_;
-  wire _10_;
-  wire _11_;
-  wire _12_;
-  wire _13_;
-  wire _14_;
-  wire _15_;
-  wire _16_;
+  wire _000_;
+  wire _001_;
+  wire _002_;
+  wire _003_;
+  wire _004_;
+  wire _005_;
+  wire _006_;
+  wire _007_;
+  wire _008_;
+  wire _009_;
+  wire _010_;
+  wire _011_;
+  wire _012_;
+  wire _013_;
+  wire _014_;
+  wire _015_;
+  wire _016_;
+  wire _017_;
+  wire _018_;
+  wire _019_;
+  wire _020_;
+  wire _021_;
+  wire _022_;
+  wire _023_;
+  wire _024_;
+  wire _025_;
+  wire _026_;
+  wire _027_;
+  wire _028_;
+  wire _029_;
+  wire _030_;
+  wire _031_;
+  wire _032_;
+  wire _033_;
+  wire _034_;
+  wire _035_;
+  wire _036_;
+  wire _037_;
+  wire _038_;
+  wire _039_;
+  wire _040_;
+  wire _041_;
+  wire _042_;
+  wire _043_;
+  wire _044_;
+  wire _045_;
+  wire _046_;
+  wire _047_;
+  wire _048_;
+  wire _049_;
+  wire _050_;
+  wire _051_;
+  wire _052_;
+  wire _053_;
+  wire _054_;
+  wire _055_;
+  wire _056_;
+  wire _057_;
+  wire _058_;
+  wire _059_;
+  wire _060_;
+  wire _061_;
+  wire _062_;
+  wire _063_;
+  wire _064_;
+  wire _065_;
+  wire _066_;
+  wire _067_;
+  wire _068_;
+  wire _069_;
+  wire _070_;
+  wire _071_;
+  wire _072_;
+  wire _073_;
+  wire _074_;
+  wire _075_;
+  wire _076_;
+  wire _077_;
+  wire _078_;
+  wire _079_;
+  wire _080_;
+  wire _081_;
+  wire _082_;
+  wire _083_;
+  wire _084_;
+  wire _085_;
+  wire _086_;
+  wire _087_;
+  wire _088_;
+  wire _089_;
+  wire _090_;
+  wire _091_;
+  wire _092_;
+  wire _093_;
+  wire _094_;
+  wire _095_;
+  wire _096_;
+  wire _097_;
+  wire _098_;
+  wire _099_;
+  wire _100_;
+  wire _101_;
+  wire _102_;
   (* src = "adder_8bit.v:2.17-2.18" *)
   input [7:0] A;
   wire [7:0] A;
   (* src = "adder_8bit.v:3.17-3.18" *)
   input [7:0] B;
   wire [7:0] B;
-  (* src = "adder_8bit.v:7.16-7.17" *)
-  (* unused_bits = "1" *)
-  wire [1:0] C;
   (* src = "adder_8bit.v:4.18-4.21" *)
   output [7:0] SUM;
   wire [7:0] SUM;
-  (* src = "adder_8bit.v:8.16-8.23" *)
-  wire [7:0] int_sum;
+  (* hdlname = "cla1 A" *)
+  (* src = "adder_8bit.v:11.10-11.83|adder_8bit.v:23.17-23.18" *)
+  wire [3:0] \cla1.A ;
+  (* hdlname = "cla1 B" *)
+  (* src = "adder_8bit.v:11.10-11.83|adder_8bit.v:24.17-24.18" *)
+  wire [3:0] \cla1.B ;
+  (* hdlname = "cla1 CIN" *)
+  (* src = "adder_8bit.v:11.10-11.83|adder_8bit.v:25.11-25.14" *)
+  wire \cla1.CIN ;
+  (* hdlname = "cla1 fa0 a" *)
+  (* src = "adder_8bit.v:11.10-11.83|adder_8bit.v:57.11-57.12|adder_8bit.v:32.16-32.77" *)
+  wire \cla1.fa0.a ;
+  (* hdlname = "cla1 fa0 b" *)
+  (* src = "adder_8bit.v:11.10-11.83|adder_8bit.v:57.13-57.14|adder_8bit.v:32.16-32.77" *)
+  wire \cla1.fa0.b ;
+  (* hdlname = "cla1 fa0 cin" *)
+  (* src = "adder_8bit.v:11.10-11.83|adder_8bit.v:57.15-57.18|adder_8bit.v:32.16-32.77" *)
+  wire \cla1.fa0.cin ;
+  (* hdlname = "cla1 fa1 a" *)
+  (* src = "adder_8bit.v:11.10-11.83|adder_8bit.v:57.11-57.12|adder_8bit.v:33.16-33.78" *)
+  wire \cla1.fa1.a ;
+  (* hdlname = "cla1 fa1 b" *)
+  (* src = "adder_8bit.v:11.10-11.83|adder_8bit.v:57.13-57.14|adder_8bit.v:33.16-33.78" *)
+  wire \cla1.fa1.b ;
+  (* hdlname = "cla1 fa2 a" *)
+  (* src = "adder_8bit.v:11.10-11.83|adder_8bit.v:57.11-57.12|adder_8bit.v:34.16-34.78" *)
+  wire \cla1.fa2.a ;
+  (* hdlname = "cla1 fa2 b" *)
+  (* src = "adder_8bit.v:11.10-11.83|adder_8bit.v:57.13-57.14|adder_8bit.v:34.16-34.78" *)
+  wire \cla1.fa2.b ;
+  (* hdlname = "cla1 fa3 a" *)
+  (* src = "adder_8bit.v:11.10-11.83|adder_8bit.v:57.11-57.12|adder_8bit.v:35.16-35.74" *)
+  wire \cla1.fa3.a ;
+  (* hdlname = "cla1 fa3 b" *)
+  (* src = "adder_8bit.v:11.10-11.83|adder_8bit.v:57.13-57.14|adder_8bit.v:35.16-35.74" *)
+  wire \cla1.fa3.b ;
+  (* hdlname = "cla2 A" *)
+  (* src = "adder_8bit.v:12.10-12.83|adder_8bit.v:23.17-23.18" *)
+  wire [3:0] \cla2.A ;
+  (* hdlname = "cla2 B" *)
+  (* src = "adder_8bit.v:12.10-12.83|adder_8bit.v:24.17-24.18" *)
+  wire [3:0] \cla2.B ;
+  (* hdlname = "cla2 fa0 a" *)
+  (* src = "adder_8bit.v:12.10-12.83|adder_8bit.v:57.11-57.12|adder_8bit.v:32.16-32.77" *)
+  wire \cla2.fa0.a ;
+  (* hdlname = "cla2 fa0 b" *)
+  (* src = "adder_8bit.v:12.10-12.83|adder_8bit.v:57.13-57.14|adder_8bit.v:32.16-32.77" *)
+  wire \cla2.fa0.b ;
+  (* hdlname = "cla2 fa1 a" *)
+  (* src = "adder_8bit.v:12.10-12.83|adder_8bit.v:57.11-57.12|adder_8bit.v:33.16-33.78" *)
+  wire \cla2.fa1.a ;
+  (* hdlname = "cla2 fa1 b" *)
+  (* src = "adder_8bit.v:12.10-12.83|adder_8bit.v:57.13-57.14|adder_8bit.v:33.16-33.78" *)
+  wire \cla2.fa1.b ;
+  (* hdlname = "cla2 fa2 a" *)
+  (* src = "adder_8bit.v:12.10-12.83|adder_8bit.v:57.11-57.12|adder_8bit.v:34.16-34.78" *)
+  wire \cla2.fa2.a ;
+  (* hdlname = "cla2 fa2 b" *)
+  (* src = "adder_8bit.v:12.10-12.83|adder_8bit.v:57.13-57.14|adder_8bit.v:34.16-34.78" *)
+  wire \cla2.fa2.b ;
+  (* hdlname = "cla2 fa3 a" *)
+  (* src = "adder_8bit.v:12.10-12.83|adder_8bit.v:57.11-57.12|adder_8bit.v:35.16-35.74" *)
+  wire \cla2.fa3.a ;
+  (* hdlname = "cla2 fa3 b" *)
+  (* src = "adder_8bit.v:12.10-12.83|adder_8bit.v:57.13-57.14|adder_8bit.v:35.16-35.74" *)
+  wire \cla2.fa3.b ;
   (* src = "adder_8bit.v:10.16-10.23" *)
   (* unused_bits = "7" *)
   wire [7:0] sat_sum;
   (* module_not_derived = 32'd1 *)
   (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _17_ (
-    .A(A[7]),
-    .B(A[7]),
-    .Y(_01_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _18_ (
-    .A(int_sum[7]),
-    .B(int_sum[7]),
-    .Y(_02_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _19_ (
-    .A(B[7]),
-    .B(B[7]),
-    .Y(_03_)
-  );
-  NAND _20_ (
-    .A(A[7]),
-    .B(B[7]),
-    .Y(_04_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _21_ (
-    .A(_04_),
-    .B(_04_),
-    .Y(_05_)
-  );
-  NAND _22_ (
-    .A(_02_),
-    .B(_05_),
-    .Y(_06_)
-  );
-  NAND _23_ (
-    .A(_01_),
-    .B(int_sum[7]),
-    .Y(_07_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _24_ (
-    .A(_07_),
-    .B(_07_),
-    .Y(_08_)
-  );
-  NAND _25_ (
-    .A(_03_),
-    .B(_08_),
-    .Y(_09_)
-  );
-  NAND _26_ (
-    .A(int_sum[0]),
-    .B(_09_),
-    .Y(_10_)
-  );
-  NAND _27_ (
-    .A(_06_),
-    .B(_10_),
-    .Y(SUM[0])
-  );
-  NAND _28_ (
-    .A(int_sum[1]),
-    .B(_09_),
-    .Y(_11_)
-  );
-  NAND _29_ (
-    .A(_06_),
-    .B(_11_),
-    .Y(SUM[1])
-  );
-  NAND _30_ (
-    .A(int_sum[2]),
-    .B(_09_),
-    .Y(_12_)
-  );
-  NAND _31_ (
-    .A(_06_),
-    .B(_12_),
-    .Y(SUM[2])
-  );
-  NAND _32_ (
-    .A(int_sum[3]),
-    .B(_09_),
-    .Y(_13_)
-  );
-  NAND _33_ (
-    .A(_06_),
-    .B(_13_),
-    .Y(SUM[3])
-  );
-  NAND _34_ (
-    .A(int_sum[4]),
-    .B(_09_),
-    .Y(_14_)
-  );
-  NAND _35_ (
-    .A(_06_),
-    .B(_14_),
-    .Y(SUM[4])
-  );
-  NAND _36_ (
-    .A(int_sum[5]),
-    .B(_09_),
-    .Y(_15_)
-  );
-  NAND _37_ (
-    .A(_06_),
-    .B(_15_),
-    .Y(SUM[5])
-  );
-  NAND _38_ (
-    .A(int_sum[6]),
-    .B(_09_),
-    .Y(_16_)
-  );
-  NAND _39_ (
-    .A(_06_),
-    .B(_16_),
-    .Y(SUM[6])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:9.6-9.26|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _40_ (
-    .A(int_sum[7]),
-    .B(int_sum[7]),
-    .Y(_00_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:10.6-10.23|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _41_ (
-    .A(int_sum[7]),
-    .B(int_sum[7]),
-    .Y(SUM[7])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "adder_8bit.v:11.10-11.83" *)
-  cla4 cla1 (
-    .A(A[3:0]),
-    .B(B[3:0]),
-    .CIN(1'h0),
-    .COUT(C[0]),
-    .SUM(int_sum[3:0])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "adder_8bit.v:12.10-12.83" *)
-  cla4 cla2 (
-    .A(A[7:4]),
-    .B(B[7:4]),
-    .CIN(C[0]),
-    .COUT(C[1]),
-    .SUM(int_sum[7:4])
-  );
-  assign sat_sum[6:0] = { A[7], A[7], A[7], A[7], A[7], A[7], A[7] };
-endmodule
-
-(* src = "adder_8bit.v:22.1-52.10" *)
-module cla4(A, B, CIN, SUM, COUT);
-  wire _00_;
-  wire _01_;
-  wire _02_;
-  wire _03_;
-  wire _04_;
-  wire _05_;
-  wire _06_;
-  wire _07_;
-  wire _08_;
-  wire _09_;
-  wire _10_;
-  wire _11_;
-  wire _12_;
-  wire _13_;
-  wire _14_;
-  wire _15_;
-  wire _16_;
-  wire _17_;
-  wire _18_;
-  wire _19_;
-  wire _20_;
-  wire _21_;
-  wire _22_;
-  wire _23_;
-  wire _24_;
-  wire _25_;
-  wire _26_;
-  (* src = "adder_8bit.v:23.17-23.18" *)
-  input [3:0] A;
-  wire [3:0] A;
-  (* src = "adder_8bit.v:24.17-24.18" *)
-  input [3:0] B;
-  wire [3:0] B;
-  (* src = "adder_8bit.v:30.16-30.17" *)
-  wire [2:0] C;
-  (* src = "adder_8bit.v:25.11-25.14" *)
-  input CIN;
-  wire CIN;
-  (* src = "adder_8bit.v:27.12-27.16" *)
-  output COUT;
-  wire COUT;
-  (* src = "adder_8bit.v:26.18-26.21" *)
-  output [3:0] SUM;
-  wire [3:0] SUM;
-  (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _27_ (
-    .A(A[0]),
-    .B(A[0]),
-    .Y(_00_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _28_ (
-    .A(B[0]),
-    .B(B[0]),
-    .Y(_01_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _29_ (
-    .A(A[1]),
-    .B(A[1]),
-    .Y(_02_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _30_ (
-    .A(B[1]),
-    .B(B[1]),
-    .Y(_03_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _31_ (
-    .A(A[2]),
-    .B(A[2]),
-    .Y(_04_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _32_ (
-    .A(B[2]),
-    .B(B[2]),
-    .Y(_05_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _33_ (
+  NAND _103_ (
     .A(A[3]),
     .B(A[3]),
-    .Y(_06_)
+    .Y(_029_)
   );
   (* module_not_derived = 32'd1 *)
   (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _34_ (
+  NAND _104_ (
     .A(B[3]),
     .B(B[3]),
-    .Y(_07_)
+    .Y(_030_)
   );
   (* module_not_derived = 32'd1 *)
   (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _35_ (
-    .A(CIN),
-    .B(CIN),
-    .Y(_08_)
+  NAND _105_ (
+    .A(A[2]),
+    .B(A[2]),
+    .Y(_031_)
   );
-  NAND _36_ (
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _106_ (
+    .A(B[2]),
+    .B(B[2]),
+    .Y(_032_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _107_ (
+    .A(A[1]),
+    .B(A[1]),
+    .Y(_033_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _108_ (
+    .A(B[1]),
+    .B(B[1]),
+    .Y(_034_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _109_ (
+    .A(A[0]),
+    .B(A[0]),
+    .Y(_035_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _110_ (
+    .A(B[0]),
+    .B(B[0]),
+    .Y(_036_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _111_ (
+    .A(A[7]),
+    .B(A[7]),
+    .Y(_037_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _112_ (
+    .A(B[7]),
+    .B(B[7]),
+    .Y(_038_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _113_ (
+    .A(A[6]),
+    .B(A[6]),
+    .Y(_039_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _114_ (
+    .A(B[6]),
+    .B(B[6]),
+    .Y(_040_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _115_ (
+    .A(A[5]),
+    .B(A[5]),
+    .Y(_041_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _116_ (
+    .A(B[5]),
+    .B(B[5]),
+    .Y(_042_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _117_ (
+    .A(A[4]),
+    .B(A[4]),
+    .Y(_043_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _118_ (
+    .A(B[4]),
+    .B(B[4]),
+    .Y(_044_)
+  );
+  NAND _119_ (
+    .A(A[7]),
+    .B(_038_),
+    .Y(_045_)
+  );
+  NAND _120_ (
+    .A(A[6]),
+    .B(B[6]),
+    .Y(_046_)
+  );
+  NAND _121_ (
+    .A(A[5]),
+    .B(B[5]),
+    .Y(_047_)
+  );
+  NAND _122_ (
+    .A(A[4]),
+    .B(B[4]),
+    .Y(_048_)
+  );
+  NAND _123_ (
+    .A(_043_),
+    .B(_044_),
+    .Y(_049_)
+  );
+  NAND _124_ (
+    .A(_048_),
+    .B(_049_),
+    .Y(_050_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _125_ (
+    .A(_050_),
+    .B(_050_),
+    .Y(_051_)
+  );
+  NAND _126_ (
     .A(A[3]),
     .B(B[3]),
-    .Y(_09_)
+    .Y(_052_)
   );
-  NAND _37_ (
+  NAND _127_ (
+    .A(_029_),
+    .B(_030_),
+    .Y(_053_)
+  );
+  NAND _128_ (
     .A(A[2]),
     .B(B[2]),
-    .Y(_10_)
+    .Y(_054_)
   );
-  NAND _38_ (
+  NAND _129_ (
+    .A(_031_),
+    .B(_032_),
+    .Y(_055_)
+  );
+  NAND _130_ (
     .A(A[1]),
     .B(B[1]),
-    .Y(_11_)
+    .Y(_056_)
   );
-  NAND _39_ (
-    .A(_10_),
-    .B(_11_),
-    .Y(_12_)
+  NAND _131_ (
+    .A(_033_),
+    .B(_034_),
+    .Y(_057_)
   );
-  (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _40_ (
-    .A(_12_),
-    .B(_12_),
-    .Y(_13_)
-  );
-  NAND _41_ (
+  NAND _132_ (
     .A(A[0]),
-    .B(CIN),
-    .Y(_14_)
-  );
-  NAND _42_ (
-    .A(_01_),
-    .B(_14_),
-    .Y(_15_)
-  );
-  NAND _43_ (
-    .A(_00_),
-    .B(_08_),
-    .Y(_16_)
-  );
-  NAND _44_ (
-    .A(_15_),
-    .B(_16_),
-    .Y(_17_)
-  );
-  NAND _45_ (
-    .A(_13_),
-    .B(_17_),
-    .Y(_18_)
-  );
-  NAND _46_ (
-    .A(_02_),
-    .B(_03_),
-    .Y(_19_)
-  );
-  NAND _47_ (
-    .A(_06_),
-    .B(_07_),
-    .Y(_20_)
-  );
-  NAND _48_ (
-    .A(_04_),
-    .B(_05_),
-    .Y(_21_)
-  );
-  NAND _49_ (
-    .A(_19_),
-    .B(_21_),
-    .Y(_22_)
-  );
-  NAND _50_ (
-    .A(_10_),
-    .B(_22_),
-    .Y(_23_)
-  );
-  NAND _51_ (
-    .A(_20_),
-    .B(_23_),
-    .Y(_24_)
+    .B(B[0]),
+    .Y(_058_)
   );
   (* module_not_derived = 32'd1 *)
   (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _52_ (
-    .A(_24_),
-    .B(_24_),
-    .Y(_25_)
+  NAND _133_ (
+    .A(_058_),
+    .B(_058_),
+    .Y(_059_)
   );
-  NAND _53_ (
-    .A(_18_),
-    .B(_25_),
-    .Y(_26_)
+  NAND _134_ (
+    .A(_057_),
+    .B(_059_),
+    .Y(_060_)
   );
-  NAND _54_ (
-    .A(_09_),
-    .B(_26_),
-    .Y(COUT)
+  NAND _135_ (
+    .A(_056_),
+    .B(_058_),
+    .Y(_061_)
   );
-  (* module_not_derived = 32'd1 *)
-  (* src = "adder_8bit.v:32.16-32.77" *)
-  full_adder fa0 (
-    .a(A[0]),
-    .b(B[0]),
-    .cin(CIN),
-    .cout(C[0]),
-    .sum(SUM[0])
+  NAND _136_ (
+    .A(_057_),
+    .B(_061_),
+    .Y(_062_)
   );
-  (* module_not_derived = 32'd1 *)
-  (* src = "adder_8bit.v:33.16-33.78" *)
-  full_adder fa1 (
-    .a(A[1]),
-    .b(B[1]),
-    .cin(C[0]),
-    .cout(C[1]),
-    .sum(SUM[1])
+  NAND _137_ (
+    .A(_056_),
+    .B(_060_),
+    .Y(_063_)
   );
-  (* module_not_derived = 32'd1 *)
-  (* src = "adder_8bit.v:34.16-34.78" *)
-  full_adder fa2 (
-    .a(A[2]),
-    .b(B[2]),
-    .cin(C[1]),
-    .cout(C[2]),
-    .sum(SUM[2])
+  NAND _138_ (
+    .A(_055_),
+    .B(_063_),
+    .Y(_064_)
   );
-  (* module_not_derived = 32'd1 *)
-  (* src = "adder_8bit.v:35.16-35.74" *)
-  full_adder fa3 (
-    .a(A[3]),
-    .b(B[3]),
-    .cin(C[2]),
-    .sum(SUM[3])
+  NAND _139_ (
+    .A(_054_),
+    .B(_062_),
+    .Y(_065_)
   );
-endmodule
-
-(* src = "adder_8bit.v:56.1-65.10" *)
-module full_adder(a, b, cin, sum, cout);
-  wire _00_;
-  wire _01_;
-  wire _02_;
-  wire _03_;
-  wire _04_;
-  wire _05_;
-  wire _06_;
-  wire _07_;
-  wire _08_;
-  wire _09_;
-  (* src = "adder_8bit.v:57.11-57.12" *)
-  input a;
-  wire a;
-  (* src = "adder_8bit.v:57.13-57.14" *)
-  input b;
-  wire b;
-  (* src = "adder_8bit.v:57.15-57.18" *)
-  input cin;
-  wire cin;
-  (* src = "adder_8bit.v:58.16-58.20" *)
-  output cout;
-  wire cout;
-  (* src = "adder_8bit.v:58.12-58.15" *)
-  output sum;
-  wire sum;
-  (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _10_ (
-    .A(a),
-    .B(a),
-    .Y(_06_)
+  NAND _140_ (
+    .A(_055_),
+    .B(_065_),
+    .Y(_066_)
+  );
+  NAND _141_ (
+    .A(_054_),
+    .B(_064_),
+    .Y(_067_)
+  );
+  NAND _142_ (
+    .A(_053_),
+    .B(_067_),
+    .Y(_068_)
+  );
+  NAND _143_ (
+    .A(_052_),
+    .B(_066_),
+    .Y(_069_)
+  );
+  NAND _144_ (
+    .A(_053_),
+    .B(_069_),
+    .Y(_070_)
+  );
+  NAND _145_ (
+    .A(_052_),
+    .B(_068_),
+    .Y(_071_)
+  );
+  NAND _146_ (
+    .A(_051_),
+    .B(_071_),
+    .Y(_072_)
+  );
+  NAND _147_ (
+    .A(_048_),
+    .B(_072_),
+    .Y(_073_)
   );
   (* module_not_derived = 32'd1 *)
   (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _11_ (
-    .A(b),
-    .B(b),
-    .Y(_07_)
+  NAND _148_ (
+    .A(_073_),
+    .B(_073_),
+    .Y(_074_)
+  );
+  NAND _149_ (
+    .A(_041_),
+    .B(_042_),
+    .Y(_075_)
+  );
+  NAND _150_ (
+    .A(_047_),
+    .B(_075_),
+    .Y(_076_)
   );
   (* module_not_derived = 32'd1 *)
   (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _12_ (
-    .A(cin),
-    .B(cin),
-    .Y(_08_)
+  NAND _151_ (
+    .A(_076_),
+    .B(_076_),
+    .Y(_077_)
   );
-  NAND _13_ (
-    .A(a),
-    .B(b),
-    .Y(_09_)
+  NAND _152_ (
+    .A(_073_),
+    .B(_077_),
+    .Y(_078_)
   );
-  NAND _14_ (
-    .A(_06_),
-    .B(_07_),
-    .Y(_00_)
-  );
-  NAND _15_ (
-    .A(_09_),
-    .B(_00_),
-    .Y(_01_)
+  NAND _153_ (
+    .A(_047_),
+    .B(_078_),
+    .Y(_079_)
   );
   (* module_not_derived = 32'd1 *)
   (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _16_ (
-    .A(_01_),
-    .B(_01_),
-    .Y(_02_)
+  NAND _154_ (
+    .A(_079_),
+    .B(_079_),
+    .Y(_080_)
   );
-  NAND _17_ (
-    .A(cin),
-    .B(_02_),
-    .Y(_03_)
+  NAND _155_ (
+    .A(_039_),
+    .B(_040_),
+    .Y(_081_)
   );
-  NAND _18_ (
-    .A(_08_),
-    .B(_01_),
-    .Y(_04_)
-  );
-  NAND _19_ (
-    .A(_03_),
-    .B(_04_),
-    .Y(_05_)
+  NAND _156_ (
+    .A(_046_),
+    .B(_081_),
+    .Y(_082_)
   );
   (* module_not_derived = 32'd1 *)
   (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _20_ (
-    .A(_05_),
-    .B(_05_),
-    .Y(sum)
+  NAND _157_ (
+    .A(_082_),
+    .B(_082_),
+    .Y(_083_)
   );
-  NAND _21_ (
-    .A(_09_),
-    .B(_03_),
-    .Y(cout)
+  NAND _158_ (
+    .A(_079_),
+    .B(_083_),
+    .Y(_084_)
   );
+  NAND _159_ (
+    .A(_046_),
+    .B(_084_),
+    .Y(_085_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _160_ (
+    .A(_085_),
+    .B(_085_),
+    .Y(_086_)
+  );
+  NAND _161_ (
+    .A(B[7]),
+    .B(_085_),
+    .Y(_087_)
+  );
+  NAND _162_ (
+    .A(_045_),
+    .B(_087_),
+    .Y(_088_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _163_ (
+    .A(_088_),
+    .B(_088_),
+    .Y(_089_)
+  );
+  NAND _164_ (
+    .A(A[7]),
+    .B(_089_),
+    .Y(_090_)
+  );
+  NAND _165_ (
+    .A(_037_),
+    .B(_086_),
+    .Y(_091_)
+  );
+  NAND _166_ (
+    .A(_089_),
+    .B(_091_),
+    .Y(_092_)
+  );
+  NAND _167_ (
+    .A(_035_),
+    .B(_036_),
+    .Y(_093_)
+  );
+  NAND _168_ (
+    .A(_058_),
+    .B(_093_),
+    .Y(_094_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _169_ (
+    .A(_094_),
+    .B(_094_),
+    .Y(_095_)
+  );
+  NAND _170_ (
+    .A(_092_),
+    .B(_095_),
+    .Y(_096_)
+  );
+  NAND _171_ (
+    .A(_090_),
+    .B(_096_),
+    .Y(SUM[0])
+  );
+  NAND _172_ (
+    .A(_056_),
+    .B(_057_),
+    .Y(_097_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _173_ (
+    .A(_097_),
+    .B(_097_),
+    .Y(_098_)
+  );
+  NAND _174_ (
+    .A(_058_),
+    .B(_098_),
+    .Y(_099_)
+  );
+  NAND _175_ (
+    .A(_059_),
+    .B(_097_),
+    .Y(_100_)
+  );
+  NAND _176_ (
+    .A(_099_),
+    .B(_100_),
+    .Y(_101_)
+  );
+  NAND _177_ (
+    .A(_092_),
+    .B(_101_),
+    .Y(_102_)
+  );
+  NAND _178_ (
+    .A(_090_),
+    .B(_102_),
+    .Y(SUM[1])
+  );
+  NAND _179_ (
+    .A(_054_),
+    .B(_055_),
+    .Y(_000_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _180_ (
+    .A(_000_),
+    .B(_000_),
+    .Y(_001_)
+  );
+  NAND _181_ (
+    .A(_062_),
+    .B(_001_),
+    .Y(_002_)
+  );
+  NAND _182_ (
+    .A(_063_),
+    .B(_000_),
+    .Y(_003_)
+  );
+  NAND _183_ (
+    .A(_002_),
+    .B(_003_),
+    .Y(_004_)
+  );
+  NAND _184_ (
+    .A(_092_),
+    .B(_004_),
+    .Y(_005_)
+  );
+  NAND _185_ (
+    .A(_090_),
+    .B(_005_),
+    .Y(SUM[2])
+  );
+  NAND _186_ (
+    .A(_052_),
+    .B(_053_),
+    .Y(_006_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _187_ (
+    .A(_006_),
+    .B(_006_),
+    .Y(_007_)
+  );
+  NAND _188_ (
+    .A(_066_),
+    .B(_007_),
+    .Y(_008_)
+  );
+  NAND _189_ (
+    .A(_067_),
+    .B(_006_),
+    .Y(_009_)
+  );
+  NAND _190_ (
+    .A(_008_),
+    .B(_009_),
+    .Y(_010_)
+  );
+  NAND _191_ (
+    .A(_092_),
+    .B(_010_),
+    .Y(_011_)
+  );
+  NAND _192_ (
+    .A(_090_),
+    .B(_011_),
+    .Y(SUM[3])
+  );
+  NAND _193_ (
+    .A(_050_),
+    .B(_070_),
+    .Y(_012_)
+  );
+  NAND _194_ (
+    .A(_072_),
+    .B(_012_),
+    .Y(_013_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _195_ (
+    .A(_013_),
+    .B(_013_),
+    .Y(_014_)
+  );
+  NAND _196_ (
+    .A(_092_),
+    .B(_014_),
+    .Y(_015_)
+  );
+  NAND _197_ (
+    .A(_090_),
+    .B(_015_),
+    .Y(SUM[4])
+  );
+  NAND _198_ (
+    .A(_074_),
+    .B(_076_),
+    .Y(_016_)
+  );
+  NAND _199_ (
+    .A(_078_),
+    .B(_016_),
+    .Y(_017_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _200_ (
+    .A(_017_),
+    .B(_017_),
+    .Y(_018_)
+  );
+  NAND _201_ (
+    .A(_092_),
+    .B(_018_),
+    .Y(_019_)
+  );
+  NAND _202_ (
+    .A(_090_),
+    .B(_019_),
+    .Y(SUM[5])
+  );
+  NAND _203_ (
+    .A(_080_),
+    .B(_082_),
+    .Y(_020_)
+  );
+  NAND _204_ (
+    .A(_084_),
+    .B(_020_),
+    .Y(_021_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _205_ (
+    .A(_021_),
+    .B(_021_),
+    .Y(_022_)
+  );
+  NAND _206_ (
+    .A(_092_),
+    .B(_022_),
+    .Y(_023_)
+  );
+  NAND _207_ (
+    .A(_090_),
+    .B(_023_),
+    .Y(SUM[6])
+  );
+  NAND _208_ (
+    .A(_037_),
+    .B(B[7]),
+    .Y(_024_)
+  );
+  NAND _209_ (
+    .A(_045_),
+    .B(_024_),
+    .Y(_025_)
+  );
+  (* module_not_derived = 32'd1 *)
+  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
+  NAND _210_ (
+    .A(_025_),
+    .B(_025_),
+    .Y(_026_)
+  );
+  NAND _211_ (
+    .A(_086_),
+    .B(_025_),
+    .Y(_027_)
+  );
+  NAND _212_ (
+    .A(_085_),
+    .B(_026_),
+    .Y(_028_)
+  );
+  NAND _213_ (
+    .A(_027_),
+    .B(_028_),
+    .Y(SUM[7])
+  );
+  assign \cla1.CIN  = 1'h0;
+  assign \cla1.B  = B[3:0];
+  assign \cla1.A  = A[3:0];
+  assign \cla1.fa3.a  = A[3];
+  assign \cla1.fa3.b  = B[3];
+  assign \cla1.fa2.a  = A[2];
+  assign \cla1.fa2.b  = B[2];
+  assign \cla1.fa1.a  = A[1];
+  assign \cla1.fa1.b  = B[1];
+  assign \cla1.fa0.a  = A[0];
+  assign \cla1.fa0.b  = B[0];
+  assign \cla1.fa0.cin  = 1'h0;
+  assign \cla2.B  = B[7:4];
+  assign \cla2.A  = A[7:4];
+  assign \cla2.fa3.a  = A[7];
+  assign \cla2.fa3.b  = B[7];
+  assign \cla2.fa2.a  = A[6];
+  assign \cla2.fa2.b  = B[6];
+  assign \cla2.fa1.a  = A[5];
+  assign \cla2.fa1.b  = B[5];
+  assign \cla2.fa0.a  = A[4];
+  assign \cla2.fa0.b  = B[4];
+  assign sat_sum[6:0] = { A[7], A[7], A[7], A[7], A[7], A[7], A[7] };
 endmodule
