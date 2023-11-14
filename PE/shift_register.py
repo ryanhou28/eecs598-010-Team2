@@ -28,18 +28,7 @@ def dro_pair(x, clk):
     """
     return dro(pylse.jtl(dro(pylse.jtl(x), clk[0])), clk[1])
 
-def single_bit_sr(x, clk, length):
-    """
-    A parametric shift register. Many dro's in series
-
-    TODO find a better way than recursive
-    """
-
-    clk_fo = pylse.split(clk, length)
-
-    return single_bit_sr_recursive(x, clk_fo, length)
-    
-def single_bit_sr_recursive(x, clk, length):
+def sr_single_bit_recursive(x, clk, length):
     """
     A parametric shift register. Many dro's in series
 
@@ -49,8 +38,34 @@ def single_bit_sr_recursive(x, clk, length):
     if length == 1:
         return dro(pylse.jtl(x), clk[0])
     else:
-        return dro(pylse.jtl(single_bit_sr_recursive(x,clk,length-1)), clk[length-1])
+        return dro(pylse.jtl(sr_single_bit_recursive(x,clk,length-1)), clk[length-1])
+
+def sr_single_bit(x, clk, length):
+    """
+    A parametric shift register. Many dro's in series
+
+    TODO find a better way than recursive
+    """
+
+    clk_fo = pylse.split(clk, length)
+
+    return sr_single_bit_recursive(x, clk_fo, length)
     
+def sr_N_bit(x, clk, length, n_bits):
+    """
+    A stack of parametric shift register. Many dro's in series.
+    """
+
+    # The output
+    x_out = []
+
+    # Split the clk
+    clk_split = pylse.split(clk, n_bits)
+
+    for i in range(n_bits):
+        x_out.append(sr_single_bit(x[i], clk_split[i], length))
+
+    return x_out
 
 
 if __name__ == "__main__":
@@ -62,7 +77,7 @@ if __name__ == "__main__":
     x_2 = pylse.inp_at(0*T, name='a_p')
 
     # Call single_bit_sr()
-    x_out = single_bit_sr(x_2, clk, 4)
+    x_out = sr_single_bit(x_2, clk, 4)
 
     # Probe outputs
     pylse.inspect(clk, 'clk')
