@@ -1,4 +1,4 @@
-`define XLEN 8
+`define XLEN 4
 `define MULT_DEFAULT_N_STAGES 4
 `define SD #1
 
