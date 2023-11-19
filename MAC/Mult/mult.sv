@@ -11,7 +11,8 @@
 `ifndef __MULT_SV__
 `define __MULT_SV__
 
-`include "sys_defs.svh"
+// `include "sys_defs.svh"
+`define XLEN 8
 
 `define MULT_DEFAULT_N_STAGES 4
 
