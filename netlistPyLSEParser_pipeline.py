@@ -189,7 +189,7 @@ def p_or_instantiation(p):
 
 def p_and_instantiation(p):
     'and_instantiation : AND ID LPAREN input_terminal COMMA input_terminal COMMA output_terminal RPAREN SEMI'
-    p[0] = ('or', p[4], p[6], p[8])
+    p[0] = ('and', p[4], p[6], p[8])
 
 # Define rules for output_terminal and input_terminal which are basically identifiers (IDs)
 def p_output_terminal(p):
@@ -203,6 +203,7 @@ def p_output_terminal(p):
 # GLOBAL VAR FOR TRACKING IF AN INPUT NEEDS A SPLITTER
 input_terminal_dict = {}
 input_terminal_count_dict = {} # counts the number of terminals while we assign the splitter index to it in code generation, initialize to 0 if it needs splitting
+dro_c_in_out_dict = {} # keeps track of the input and output terminals of DRO_Cs. Key: value wire name, Value: Register wiren ame
 def p_input_terminal(p):
     '''input_terminal : ID
                       | DOT ID LPAREN ID RPAREN'''
@@ -276,6 +277,9 @@ def p_always_at(p):
 def p_reg_assign(p):
     ''' reg_assign : ID NB_ASSIGN ID SEMI'''
     p[0] = ('reg_assign', p[1], p[3])
+    global dro_c_in_out_dict
+
+    dro_c_in_out_dict[p[3]] = p[1]
 
 def p_reg_assign_list(p):
     ''' reg_assign_list : reg_assign_list reg_assign
@@ -412,6 +416,7 @@ module_ports = []
 input_ports = []
 output_ports = []
 reg_list = []
+flipped_DRO_C_dict = {}
 # Used for counting how many times a wire needs to be split
 clock_split_count = 0
 
@@ -446,10 +451,13 @@ def generate_module(node):
         return pylse.s(x, firing_delay=4.3)
 
     def dro(*args):
-        return pylse.dro(*args, firing_delay=5.1)\n
+        return pylse.dro(*args, firing_delay=5.1)
         
     def dro_c(*args):
-        return pylse.dro_c(*args, firing_delay=5.1)\n'''
+        return pylse.dro_c(*args, firing_delay=5.1)
+        
+    def dro_c_inv(*args):
+        return my_dro_c_inv(*args, firing_delay=5.1)\n'''
 
     # Global variables
     global clock_split_count
@@ -561,13 +569,13 @@ def generate_buf(node):
 
     if input_terminal in input_ports:
         # Connect the positive input to the port
-        return f'{output_terminal} = {input_terminal}_p'
+        return f'{output_terminal} <<= {input_terminal}_p'
     elif output_terminal in output_ports:
         # If the output terminal is one of the module's outputs, connect the input_terminal to the output
         return f'{output_terminal} = {input_terminal}'
     elif input_terminal in reg_list:
         # If the input terminal is a register, we use the positive output of the DRO_C
-        return f'{output_terminal} = {input_terminal}_p'
+        return f'{output_terminal} <<= {input_terminal}_p'
     elif 'spl' in output_terminal:
         # This is a splitter
         # Skip splitting and deal with it with the whole module
@@ -575,7 +583,16 @@ def generate_buf(node):
         return f''
     else:
         # Straight connection
-        return f'{output_terminal} = {input_terminal}'
+
+        # global clock_split_count
+
+        # code = f'{output_terminal} = dro({input_terminal}, clks[{clock_split_count}])'
+
+        # clock_split_count += 1
+
+        # return code
+
+        return f'{output_terminal} <<= {input_terminal}' # OLD
 
 def generate_not(node):
     # node is a tuple like ('not', input_terminal, output_terminal)
@@ -585,11 +602,16 @@ def generate_not(node):
 
     input_terminal = input_terminal_add_splitter(input_terminal)
 
+    # Check if this output terminal is connected to the input of a DRO_C
+    # If it is, we need to tell DRO_C that its input is flipped
+    global dro_c_in_out_dict
+    if output_terminal in dro_c_in_out_dict:
+        flipped_DRO_C_dict[output_terminal] = True
     # Check that the input terminal is not one of the inputs to the module
     #   Since we already have dual-railed inputs, we don't need this NOT gate
     if input_terminal in input_ports:
         # Connect the negative input port to this output
-        return f'{output_terminal} = {input_terminal}_n'
+        return f'{output_terminal} <<= {input_terminal}_n'
     elif output_terminal in output_ports:
         # If the output terminal is one of the outputs to the module, we don't need this NOT gate
         #   The true output is just the input to the NOT gate
@@ -598,13 +620,14 @@ def generate_not(node):
         return f'{output_terminal} = {input_terminal}'
     elif input_terminal in reg_list:
         # If the input terminal is a register, we use the complementary output of the DRO_C
-        return f'{output_terminal} = {input_terminal}_n'
+        return f'{output_terminal} <<= {input_terminal}_n'
+    elif output_terminal in dro_c_in_out_dict:
+        # We're going to flip the output of this DRO_C, which is already dealt with earlier in this function
+        return f'{output_terminal} <<= {input_terminal}'
     else:
         # Not gate in xSFQ is just connecting the dual-railed terminals
-        # Raise exception
-        # raise Exception(f"Input terminal {input_terminal} to NOT gate does not conform to supported format")
-
-        return f'{output_terminal} = {input_terminal}'
+        # Raise exception since this is an unsupported format
+        raise Exception(f"Input terminal {input_terminal} to NOT gate does not conform to supported format")
 
 def generate_or(node):
     # node is a tuple like ('or', input_terminal, input_terminal, output_terminal)
@@ -617,7 +640,7 @@ def generate_or(node):
     input_terminal2 = input_terminal_add_splitter(input_terminal2)
 
     # OR gate in xSFQ is a first-arrival cell
-    return f'{output_terminal} = fa({input_terminal1}, {input_terminal2})'
+    return f'{output_terminal} <<= fa({input_terminal1}, {input_terminal2})'
 
 def generate_and(node):
     # node is a tuple like ('and', input_terminal, input_terminal, output_terminal)
@@ -629,7 +652,7 @@ def generate_and(node):
     input_terminal1 = input_terminal_add_splitter(input_terminal1)
     input_terminal2 = input_terminal_add_splitter(input_terminal2)
 
-    return f'{output_terminal} = la({input_terminal1}, {input_terminal2})'
+    return f'{output_terminal} <<= la({input_terminal1}, {input_terminal2})'
 
 def generate_output_terminal(node):
     # node is a single output terminal
@@ -743,7 +766,13 @@ def generate_reg_assign(node):
     global clock_split_count
     global reg_list
 
-    code = f'{reg_name}_p, {reg_name}_n = dro_c({value}, clks[{clock_split_count}])'
+    # If this DRO's input needs to be inverted, use the DRO_C_INV cell
+    if value in flipped_DRO_C_dict:
+        code = f'{reg_name} = dro_c_inv({value}, clks[{clock_split_count}])\n'
+    else:
+        code = f'{reg_name} = dro_c({value}, clks[{clock_split_count}])\n'
+    code += f'    {reg_name}_p <<= {reg_name}[0]\n'
+    code += f'    {reg_name}_n <<= {reg_name}[1]\n'
 
     clock_split_count += 1
 
@@ -769,7 +798,45 @@ def generate_pylse(result):
     print("Generating Python code")
     
     # First generate the imports needed
-    code = f'import pylse\n\n'
+    code = '''import pylse
+from collections import namedtuple
+# Custom DRO_C with inverted input, and initialized to 0
+class DRO_C_INV(pylse.SFQ):
+    # Destructive readout C-element with inverted input
+    # Essentially a DRO_C whose input is inverted
+    _setup_time = 1.2
+    _hold_time = 0.0
+
+    name = 'DRO_C_INV'
+    inputs = ['a', 'clk']
+    outputs = ['q', 'qnot']
+    transitions = [
+        {'id': '0', 'source': 'idle',      'trigger': 'a',   'dest': 'idle'},
+        {'id': '1', 'source': 'idle',      'trigger': 'clk', 'dest': 'a_absent',
+         'transition_time': _hold_time,    'past_constraints': {'*': _setup_time},
+         'firing': 'qnot'},
+        {'id': '2', 'source': 'a_absent', 'trigger': 'a',   'dest': 'idle'},
+        {'id': '3', 'source': 'a_absent', 'trigger': 'clk', 'dest': 'a_absent',
+         'transition_time': _hold_time,    'past_constraints': {'*': _setup_time},
+         'firing': 'q'},
+    ]
+    jjs = 13
+    firing_delay = 5.1
+
+def my_dro_c_inv(in0: pylse.Wire, clk: pylse.Wire, name_q=None, name_q_not=None, **overrides):
+    # Create and connect a DRO_C
+    # :param Wire in0: input wire
+    # :param Wire clk: input wire traditionally corresponding to a clock
+    # :param str name_q: Name to give the q output wire
+    # :param str name_q_not: Name to give the q_not output wire
+    # :param dict overrides: keyword arguments for overriding defaults of the element,
+    #     such as: jjs, firing_delay, transition_time, error_transitions.
+    # :return namedtuple: a tuple for accessing the outputs, .q and .q_not
+    
+    DRO_C_INV_out = namedtuple('DRO_C_INV_out', ['q', 'q_not'])
+    q, q_not = pylse.Wire(name_q), pylse.Wire(name_q_not)
+    pylse.working_circuit().add_node(DRO_C_INV(**overrides), [in0, clk], [q, q_not])
+    return DRO_C_INV_out(q=q, q_not=q_not)\n\n\n'''
 
     code += generate_code(result)
 
@@ -796,6 +863,7 @@ def inv(inp):
     # Remove the last comma and space
     code = code[:-2]
     code += f'):\n'
+    code += f'    input_delay = 50\n'
     code += f'    print("Inputs:")\n'
     # print the name of the input ports
     code += f'    print("' + ' '.join(f'{input_port}' for input_port in input_ports) + f'")\n'
@@ -805,8 +873,8 @@ def inv(inp):
         code += f'    {input_port}_n_t = {input_port}\n'
     code += f'\n'
     for input_port in input_ports:
-        code += f'    {input_port}_p = pylse.inp_at({input_port}_p_t*T, name=\'{input_port}_p\')\n'
-        code += f'    {input_port}_n = pylse.inp_at({input_port}_n_t*T, name=\'{input_port}_n\')\n'
+        code += f'    {input_port}_p = pylse.inp_at({input_port}_p_t*T + input_delay, name=\'{input_port}_p\')\n'
+        code += f'    {input_port}_n = pylse.inp_at({input_port}_n_t*T + input_delay, name=\'{input_port}_n\')\n'
     code += f'\n'
 
     code += f'    return '
@@ -822,7 +890,7 @@ def inv(inp):
     code += f'    print("' + ' '.join(f'{output_port}' for output_port in output_ports) + f'")\n'
     code += f'    print('
     for output_port in output_ports:
-        code += f'int(events[\'{output_port}\'][0] < T), '
+        code += f'int(len(events[\'{output_port}\']) > 0 and events[\'{output_port}\'][0] < T), '
     # Remove the last comma and space
     code = code[:-2]
     code += f')\n\n'
