@@ -167,426 +167,12 @@ module mult_stage(clock, reset, start, mplier_in, mcand_in, product_in, done, mp
   wire _161_;
   wire _162_;
   wire _163_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _164_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _165_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _166_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _167_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _168_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _169_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _170_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _171_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _172_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _173_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _174_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _175_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _176_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _177_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _178_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _179_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _180_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _181_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _182_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _183_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _184_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _185_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _186_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _187_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _188_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _189_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _190_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _191_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _192_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _193_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _194_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _195_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _196_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _197_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _198_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _199_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _200_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _201_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _202_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _203_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _204_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _205_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _206_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _207_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _208_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _209_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _210_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _211_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _212_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _213_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _214_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _215_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _216_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _217_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _218_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _219_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _220_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _221_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _222_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _223_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _224_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _225_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _226_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _227_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _228_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _229_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _230_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _231_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _232_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _233_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _234_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _235_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _236_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _237_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _238_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _239_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _240_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _241_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _242_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _243_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _244_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _245_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _246_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _247_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _248_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _249_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _250_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _251_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _252_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _253_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _254_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _255_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _256_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _257_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _258_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _259_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _260_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _261_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _262_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _263_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _264_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _265_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _266_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _267_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _268_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _269_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _270_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _271_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _272_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _273_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _274_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _275_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _276_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _277_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _278_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _279_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _280_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _281_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _282_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _283_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _284_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _285_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _286_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _287_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _288_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _289_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _290_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _291_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _292_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _293_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _294_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _295_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _296_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _297_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _298_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _299_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _300_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _301_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _302_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _303_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _304_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _305_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _306_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _307_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _308_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _309_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _310_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _311_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _312_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _313_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _314_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _315_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _316_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _317_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _318_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _319_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _320_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _321_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _322_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _323_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _324_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _325_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _326_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _327_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _328_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _329_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _330_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _331_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _332_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _333_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _334_;
-  (* src = "mult_stage.sv:36.2-42.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _335_;
-  (* src = "mult_stage.sv:36.2-42.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _336_;
-  (* src = "mult_stage.sv:36.2-42.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _337_;
-  (* src = "mult_stage.sv:36.2-42.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _338_;
-  (* src = "mult_stage.sv:36.2-42.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _339_;
-  (* src = "mult_stage.sv:36.2-42.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _340_;
-  (* src = "mult_stage.sv:36.2-42.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _341_;
-  (* src = "mult_stage.sv:36.2-42.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _342_;
-  (* src = "mult_stage.sv:36.2-42.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _343_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _344_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _345_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _346_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _347_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _348_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _349_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _350_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _351_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _352_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _353_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _354_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _355_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _356_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _357_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _358_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _359_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _360_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _361_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:18.10-18.22" *)
-  wire _362_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:17.10-17.25" *)
-  wire _363_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:19.10-19.16" *)
-  wire _364_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:20.10-20.16" *)
-  wire _365_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:21.10-21.16" *)
-  wire _366_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:24.10-24.19" *)
-  wire _367_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:22.10-22.20" *)
-  wire _368_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:23.10-23.20" *)
-  wire _369_;
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:15.10-15.15" *)
-  wire _370_;
   (* src = "mult_stage.sv:6.24-6.29" *)
   input clock;
   wire clock;
   (* src = "mult_stage.sv:10.31-10.35" *)
   output done;
-  wire done;
+  reg done;
   (* src = "mult_stage.sv:7.29-7.37" *)
   input [7:0] mcand_in;
   wire [7:0] mcand_in;
@@ -606,9 +192,9 @@ module mult_stage(clock, reset, start, mplier_in, mcand_in, product_in, done, mp
   (* src = "mult_stage.sv:17.45-17.65" *)
   wire [7:0] next_partial_product;
   (* src = "mult_stage.sv:17.31-17.43" *)
-  wire [7:0] partial_prod;
+  reg [7:0] partial_prod;
   (* src = "mult_stage.sv:17.18-17.29" *)
-  wire [7:0] prod_in_reg;
+  reg [7:0] prod_in_reg;
   (* src = "mult_stage.sv:8.18-8.28" *)
   input [7:0] product_in;
   wire [7:0] product_in;
@@ -622,2647 +208,1118 @@ module mult_stage(clock, reset, start, mplier_in, mcand_in, product_in, done, mp
   input start;
   wire start;
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _371_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _164_ (
     .A(reset),
     .B(reset),
     .Y(_115_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _372_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _165_ (
     .A(prod_in_reg[0]),
     .B(prod_in_reg[0]),
     .Y(_116_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _373_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _166_ (
     .A(partial_prod[0]),
     .B(partial_prod[0]),
     .Y(_117_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _374_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _167_ (
     .A(prod_in_reg[1]),
     .B(prod_in_reg[1]),
     .Y(_118_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _375_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _168_ (
     .A(partial_prod[1]),
     .B(partial_prod[1]),
     .Y(_119_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _376_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _169_ (
     .A(prod_in_reg[2]),
     .B(prod_in_reg[2]),
     .Y(_120_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _377_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _170_ (
     .A(partial_prod[2]),
     .B(partial_prod[2]),
     .Y(_121_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _378_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _171_ (
     .A(prod_in_reg[3]),
     .B(prod_in_reg[3]),
     .Y(_122_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _379_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _172_ (
     .A(partial_prod[3]),
     .B(partial_prod[3]),
     .Y(_123_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _380_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _173_ (
     .A(prod_in_reg[4]),
     .B(prod_in_reg[4]),
     .Y(_124_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _381_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _174_ (
     .A(partial_prod[4]),
     .B(partial_prod[4]),
     .Y(_125_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _382_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _175_ (
     .A(prod_in_reg[5]),
     .B(prod_in_reg[5]),
     .Y(_126_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _383_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _176_ (
     .A(partial_prod[5]),
     .B(partial_prod[5]),
     .Y(_127_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _384_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _177_ (
     .A(prod_in_reg[6]),
     .B(prod_in_reg[6]),
     .Y(_128_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _385_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _178_ (
     .A(partial_prod[6]),
     .B(partial_prod[6]),
     .Y(_129_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _386_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _179_ (
     .A(prod_in_reg[7]),
     .B(prod_in_reg[7]),
     .Y(_130_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _387_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _180_ (
     .A(partial_prod[7]),
     .B(partial_prod[7]),
     .Y(_131_)
   );
-  NAND _388_ (
+  NAND _181_ (
     .A(start),
     .B(_115_),
     .Y(_132_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _389_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _182_ (
     .A(_132_),
     .B(_132_),
     .Y(_000_)
   );
-  NAND _390_ (
+  NAND _183_ (
     .A(mcand_in[0]),
     .B(mplier_in[0]),
     .Y(_133_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _391_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _184_ (
     .A(_133_),
     .B(_133_),
     .Y(next_partial_product[0])
   );
-  NAND _392_ (
+  NAND _185_ (
     .A(prod_in_reg[0]),
     .B(partial_prod[0]),
     .Y(_134_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _393_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _186_ (
     .A(_134_),
     .B(_134_),
     .Y(_135_)
   );
-  NAND _394_ (
+  NAND _187_ (
     .A(prod_in_reg[1]),
     .B(partial_prod[1]),
     .Y(_136_)
   );
-  NAND _395_ (
+  NAND _188_ (
     .A(_118_),
     .B(_119_),
     .Y(_137_)
   );
-  NAND _396_ (
+  NAND _189_ (
     .A(_136_),
     .B(_137_),
     .Y(_138_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _397_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _190_ (
     .A(_138_),
     .B(_138_),
     .Y(_139_)
   );
-  NAND _398_ (
+  NAND _191_ (
     .A(_135_),
     .B(_139_),
     .Y(_140_)
   );
-  NAND _399_ (
+  NAND _192_ (
     .A(_134_),
     .B(_138_),
     .Y(_141_)
   );
-  NAND _400_ (
+  NAND _193_ (
     .A(_140_),
     .B(_141_),
     .Y(_142_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _401_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _194_ (
     .A(_142_),
     .B(_142_),
     .Y(product_out[1])
   );
-  NAND _402_ (
+  NAND _195_ (
     .A(_136_),
     .B(_140_),
     .Y(_143_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _403_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _196_ (
     .A(_143_),
     .B(_143_),
     .Y(_144_)
   );
-  NAND _404_ (
+  NAND _197_ (
     .A(prod_in_reg[2]),
     .B(partial_prod[2]),
     .Y(_145_)
   );
-  NAND _405_ (
+  NAND _198_ (
     .A(_120_),
     .B(_121_),
     .Y(_146_)
   );
-  NAND _406_ (
+  NAND _199_ (
     .A(_145_),
     .B(_146_),
     .Y(_147_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _407_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _200_ (
     .A(_147_),
     .B(_147_),
     .Y(_148_)
   );
-  NAND _408_ (
+  NAND _201_ (
     .A(_143_),
     .B(_148_),
     .Y(_149_)
   );
-  NAND _409_ (
+  NAND _202_ (
     .A(_144_),
     .B(_147_),
     .Y(_150_)
   );
-  NAND _410_ (
+  NAND _203_ (
     .A(_149_),
     .B(_150_),
     .Y(_151_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _411_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _204_ (
     .A(_151_),
     .B(_151_),
     .Y(product_out[2])
   );
-  NAND _412_ (
+  NAND _205_ (
     .A(_145_),
     .B(_149_),
     .Y(_152_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _413_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _206_ (
     .A(_152_),
     .B(_152_),
     .Y(_153_)
   );
-  NAND _414_ (
+  NAND _207_ (
     .A(prod_in_reg[3]),
     .B(partial_prod[3]),
     .Y(_154_)
   );
-  NAND _415_ (
+  NAND _208_ (
     .A(_122_),
     .B(_123_),
     .Y(_155_)
   );
-  NAND _416_ (
+  NAND _209_ (
     .A(_154_),
     .B(_155_),
     .Y(_156_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _417_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _210_ (
     .A(_156_),
     .B(_156_),
     .Y(_157_)
   );
-  NAND _418_ (
+  NAND _211_ (
     .A(_152_),
     .B(_157_),
     .Y(_158_)
   );
-  NAND _419_ (
+  NAND _212_ (
     .A(_153_),
     .B(_156_),
     .Y(_159_)
   );
-  NAND _420_ (
+  NAND _213_ (
     .A(_158_),
     .B(_159_),
     .Y(_160_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _421_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _214_ (
     .A(_160_),
     .B(_160_),
     .Y(product_out[3])
   );
-  NAND _422_ (
+  NAND _215_ (
     .A(_154_),
     .B(_158_),
     .Y(_161_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _423_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _216_ (
     .A(_161_),
     .B(_161_),
     .Y(_162_)
   );
-  NAND _424_ (
+  NAND _217_ (
     .A(prod_in_reg[4]),
     .B(partial_prod[4]),
     .Y(_163_)
   );
-  NAND _425_ (
+  NAND _218_ (
     .A(_124_),
     .B(_125_),
     .Y(_001_)
   );
-  NAND _426_ (
+  NAND _219_ (
     .A(_163_),
     .B(_001_),
     .Y(_002_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _427_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _220_ (
     .A(_002_),
     .B(_002_),
     .Y(_003_)
   );
-  NAND _428_ (
+  NAND _221_ (
     .A(_161_),
     .B(_003_),
     .Y(_004_)
   );
-  NAND _429_ (
+  NAND _222_ (
     .A(_162_),
     .B(_002_),
     .Y(_005_)
   );
-  NAND _430_ (
+  NAND _223_ (
     .A(_004_),
     .B(_005_),
     .Y(_006_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _431_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _224_ (
     .A(_006_),
     .B(_006_),
     .Y(product_out[4])
   );
-  NAND _432_ (
+  NAND _225_ (
     .A(_163_),
     .B(_004_),
     .Y(_007_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _433_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _226_ (
     .A(_007_),
     .B(_007_),
     .Y(_008_)
   );
-  NAND _434_ (
+  NAND _227_ (
     .A(prod_in_reg[5]),
     .B(partial_prod[5]),
     .Y(_009_)
   );
-  NAND _435_ (
+  NAND _228_ (
     .A(_126_),
     .B(_127_),
     .Y(_010_)
   );
-  NAND _436_ (
+  NAND _229_ (
     .A(_009_),
     .B(_010_),
     .Y(_011_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _437_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _230_ (
     .A(_011_),
     .B(_011_),
     .Y(_012_)
   );
-  NAND _438_ (
+  NAND _231_ (
     .A(_007_),
     .B(_012_),
     .Y(_013_)
   );
-  NAND _439_ (
+  NAND _232_ (
     .A(_008_),
     .B(_011_),
     .Y(_014_)
   );
-  NAND _440_ (
+  NAND _233_ (
     .A(_013_),
     .B(_014_),
     .Y(_015_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _441_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _234_ (
     .A(_015_),
     .B(_015_),
     .Y(product_out[5])
   );
-  NAND _442_ (
+  NAND _235_ (
     .A(_009_),
     .B(_013_),
     .Y(_016_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _443_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _236_ (
     .A(_016_),
     .B(_016_),
     .Y(_017_)
   );
-  NAND _444_ (
+  NAND _237_ (
     .A(prod_in_reg[6]),
     .B(partial_prod[6]),
     .Y(_018_)
   );
-  NAND _445_ (
+  NAND _238_ (
     .A(_128_),
     .B(_129_),
     .Y(_019_)
   );
-  NAND _446_ (
+  NAND _239_ (
     .A(_018_),
     .B(_019_),
     .Y(_020_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _447_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _240_ (
     .A(_020_),
     .B(_020_),
     .Y(_021_)
   );
-  NAND _448_ (
+  NAND _241_ (
     .A(_016_),
     .B(_021_),
     .Y(_022_)
   );
-  NAND _449_ (
+  NAND _242_ (
     .A(_017_),
     .B(_020_),
     .Y(_023_)
   );
-  NAND _450_ (
+  NAND _243_ (
     .A(_022_),
     .B(_023_),
     .Y(_024_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _451_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _244_ (
     .A(_024_),
     .B(_024_),
     .Y(product_out[6])
   );
-  NAND _452_ (
+  NAND _245_ (
     .A(_018_),
     .B(_022_),
     .Y(_025_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _453_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _246_ (
     .A(_025_),
     .B(_025_),
     .Y(_026_)
   );
-  NAND _454_ (
+  NAND _247_ (
     .A(prod_in_reg[7]),
     .B(_131_),
     .Y(_027_)
   );
-  NAND _455_ (
+  NAND _248_ (
     .A(_130_),
     .B(partial_prod[7]),
     .Y(_028_)
   );
-  NAND _456_ (
+  NAND _249_ (
     .A(_130_),
     .B(_131_),
     .Y(_029_)
   );
-  NAND _457_ (
+  NAND _250_ (
     .A(prod_in_reg[7]),
     .B(partial_prod[7]),
     .Y(_030_)
   );
-  NAND _458_ (
+  NAND _251_ (
     .A(_029_),
     .B(_030_),
     .Y(_031_)
   );
-  NAND _459_ (
+  NAND _252_ (
     .A(_027_),
     .B(_028_),
     .Y(_032_)
   );
-  NAND _460_ (
+  NAND _253_ (
     .A(_026_),
     .B(_032_),
     .Y(_033_)
   );
-  NAND _461_ (
+  NAND _254_ (
     .A(_025_),
     .B(_031_),
     .Y(_034_)
   );
-  NAND _462_ (
+  NAND _255_ (
     .A(_033_),
     .B(_034_),
     .Y(product_out[7])
   );
-  NAND _463_ (
+  NAND _256_ (
     .A(_116_),
     .B(_117_),
     .Y(_035_)
   );
-  NAND _464_ (
+  NAND _257_ (
     .A(_134_),
     .B(_035_),
     .Y(_036_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _465_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _258_ (
     .A(_036_),
     .B(_036_),
     .Y(product_out[0])
   );
-  NAND _466_ (
+  NAND _259_ (
     .A(mplier_in[0]),
     .B(mcand_in[1]),
     .Y(_037_)
   );
-  NAND _467_ (
+  NAND _260_ (
     .A(mcand_in[0]),
     .B(mplier_in[1]),
     .Y(_038_)
   );
-  NAND _468_ (
+  NAND _261_ (
     .A(mcand_in[1]),
     .B(mplier_in[1]),
     .Y(_039_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _469_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _262_ (
     .A(_039_),
     .B(_039_),
     .Y(_040_)
   );
-  NAND _470_ (
+  NAND _263_ (
     .A(next_partial_product[0]),
     .B(_040_),
     .Y(_041_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _471_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _264_ (
     .A(_041_),
     .B(_041_),
     .Y(_042_)
   );
-  NAND _472_ (
+  NAND _265_ (
     .A(mplier_in[0]),
     .B(mcand_in[2]),
     .Y(_043_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _473_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _266_ (
     .A(_043_),
     .B(_043_),
     .Y(_044_)
   );
-  NAND _474_ (
+  NAND _267_ (
     .A(mcand_in[2]),
     .B(mplier_in[1]),
     .Y(_045_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _475_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _268_ (
     .A(_045_),
     .B(_045_),
     .Y(_046_)
   );
-  NAND _476_ (
+  NAND _269_ (
     .A(_040_),
     .B(_044_),
     .Y(_047_)
   );
-  NAND _477_ (
+  NAND _270_ (
     .A(_039_),
     .B(_043_),
     .Y(_048_)
   );
-  NAND _478_ (
+  NAND _271_ (
     .A(_047_),
     .B(_048_),
     .Y(_049_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _479_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _272_ (
     .A(_049_),
     .B(_049_),
     .Y(_050_)
   );
-  NAND _480_ (
+  NAND _273_ (
     .A(_042_),
     .B(_050_),
     .Y(_051_)
   );
-  NAND _481_ (
+  NAND _274_ (
     .A(_041_),
     .B(_049_),
     .Y(_052_)
   );
-  NAND _482_ (
+  NAND _275_ (
     .A(_051_),
     .B(_052_),
     .Y(_053_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _483_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _276_ (
     .A(_053_),
     .B(_053_),
     .Y(next_partial_product[2])
   );
-  NAND _484_ (
+  NAND _277_ (
     .A(_047_),
     .B(_051_),
     .Y(_054_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _485_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _278_ (
     .A(_054_),
     .B(_054_),
     .Y(_055_)
   );
-  NAND _486_ (
+  NAND _279_ (
     .A(mplier_in[0]),
     .B(mcand_in[3]),
     .Y(_056_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _487_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _280_ (
     .A(_056_),
     .B(_056_),
     .Y(_057_)
   );
-  NAND _488_ (
+  NAND _281_ (
     .A(mcand_in[3]),
     .B(mplier_in[1]),
     .Y(_058_)
   );
-  NAND _489_ (
+  NAND _282_ (
     .A(_046_),
     .B(_057_),
     .Y(_059_)
   );
-  NAND _490_ (
+  NAND _283_ (
     .A(_045_),
     .B(_056_),
     .Y(_060_)
   );
-  NAND _491_ (
+  NAND _284_ (
     .A(_059_),
     .B(_060_),
     .Y(_061_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _492_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _285_ (
     .A(_061_),
     .B(_061_),
     .Y(_062_)
   );
-  NAND _493_ (
+  NAND _286_ (
     .A(_054_),
     .B(_062_),
     .Y(_063_)
   );
-  NAND _494_ (
+  NAND _287_ (
     .A(_055_),
     .B(_061_),
     .Y(_064_)
   );
-  NAND _495_ (
+  NAND _288_ (
     .A(_063_),
     .B(_064_),
     .Y(_065_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _496_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _289_ (
     .A(_065_),
     .B(_065_),
     .Y(next_partial_product[3])
   );
-  NAND _497_ (
+  NAND _290_ (
     .A(_059_),
     .B(_063_),
     .Y(_066_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _498_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _291_ (
     .A(_066_),
     .B(_066_),
     .Y(_067_)
   );
-  NAND _499_ (
+  NAND _292_ (
     .A(mplier_in[0]),
     .B(mcand_in[4]),
     .Y(_068_)
   );
-  NAND _500_ (
+  NAND _293_ (
     .A(mcand_in[4]),
     .B(mplier_in[1]),
     .Y(_069_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _501_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _294_ (
     .A(_069_),
     .B(_069_),
     .Y(_070_)
   );
-  NAND _502_ (
+  NAND _295_ (
     .A(_057_),
     .B(_070_),
     .Y(_071_)
   );
-  NAND _503_ (
+  NAND _296_ (
     .A(_058_),
     .B(_068_),
     .Y(_072_)
   );
-  NAND _504_ (
+  NAND _297_ (
     .A(_071_),
     .B(_072_),
     .Y(_073_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _505_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _298_ (
     .A(_073_),
     .B(_073_),
     .Y(_074_)
   );
-  NAND _506_ (
+  NAND _299_ (
     .A(_066_),
     .B(_074_),
     .Y(_075_)
   );
-  NAND _507_ (
+  NAND _300_ (
     .A(_067_),
     .B(_073_),
     .Y(_076_)
   );
-  NAND _508_ (
+  NAND _301_ (
     .A(_075_),
     .B(_076_),
     .Y(_077_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _509_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _302_ (
     .A(_077_),
     .B(_077_),
     .Y(next_partial_product[4])
   );
-  NAND _510_ (
+  NAND _303_ (
     .A(_071_),
     .B(_075_),
     .Y(_078_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _511_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _304_ (
     .A(_078_),
     .B(_078_),
     .Y(_079_)
   );
-  NAND _512_ (
+  NAND _305_ (
     .A(mplier_in[0]),
     .B(mcand_in[5]),
     .Y(_080_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _513_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _306_ (
     .A(_080_),
     .B(_080_),
     .Y(_081_)
   );
-  NAND _514_ (
+  NAND _307_ (
     .A(mcand_in[5]),
     .B(mplier_in[1]),
     .Y(_082_)
   );
-  NAND _515_ (
+  NAND _308_ (
     .A(_070_),
     .B(_081_),
     .Y(_083_)
   );
-  NAND _516_ (
+  NAND _309_ (
     .A(_069_),
     .B(_080_),
     .Y(_084_)
   );
-  NAND _517_ (
+  NAND _310_ (
     .A(_083_),
     .B(_084_),
     .Y(_085_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _518_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _311_ (
     .A(_085_),
     .B(_085_),
     .Y(_086_)
   );
-  NAND _519_ (
+  NAND _312_ (
     .A(_078_),
     .B(_086_),
     .Y(_087_)
   );
-  NAND _520_ (
+  NAND _313_ (
     .A(_079_),
     .B(_085_),
     .Y(_088_)
   );
-  NAND _521_ (
+  NAND _314_ (
     .A(_087_),
     .B(_088_),
     .Y(_089_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _522_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _315_ (
     .A(_089_),
     .B(_089_),
     .Y(next_partial_product[5])
   );
-  NAND _523_ (
+  NAND _316_ (
     .A(_083_),
     .B(_087_),
     .Y(_090_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _524_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _317_ (
     .A(_090_),
     .B(_090_),
     .Y(_091_)
   );
-  NAND _525_ (
+  NAND _318_ (
     .A(mplier_in[0]),
     .B(mcand_in[6]),
     .Y(_092_)
   );
-  NAND _526_ (
+  NAND _319_ (
     .A(mcand_in[6]),
     .B(mplier_in[1]),
     .Y(_093_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _527_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _320_ (
     .A(_093_),
     .B(_093_),
     .Y(_094_)
   );
-  NAND _528_ (
+  NAND _321_ (
     .A(_081_),
     .B(_094_),
     .Y(_095_)
   );
-  NAND _529_ (
+  NAND _322_ (
     .A(_082_),
     .B(_092_),
     .Y(_096_)
   );
-  NAND _530_ (
+  NAND _323_ (
     .A(_095_),
     .B(_096_),
     .Y(_097_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _531_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _324_ (
     .A(_097_),
     .B(_097_),
     .Y(_098_)
   );
-  NAND _532_ (
+  NAND _325_ (
     .A(_090_),
     .B(_098_),
     .Y(_099_)
   );
-  NAND _533_ (
+  NAND _326_ (
     .A(_091_),
     .B(_097_),
     .Y(_100_)
   );
-  NAND _534_ (
+  NAND _327_ (
     .A(_099_),
     .B(_100_),
     .Y(_101_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _535_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _328_ (
     .A(_101_),
     .B(_101_),
     .Y(next_partial_product[6])
   );
-  NAND _536_ (
+  NAND _329_ (
     .A(_095_),
     .B(_099_),
     .Y(_102_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _537_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _330_ (
     .A(_102_),
     .B(_102_),
     .Y(_103_)
   );
-  NAND _538_ (
+  NAND _331_ (
     .A(mplier_in[0]),
     .B(mcand_in[7]),
     .Y(_104_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _539_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _332_ (
     .A(_104_),
     .B(_104_),
     .Y(_105_)
   );
-  NAND _540_ (
+  NAND _333_ (
     .A(_093_),
     .B(_105_),
     .Y(_106_)
   );
-  NAND _541_ (
+  NAND _334_ (
     .A(_094_),
     .B(_104_),
     .Y(_107_)
   );
-  NAND _542_ (
+  NAND _335_ (
     .A(_106_),
     .B(_107_),
     .Y(_108_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _543_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _336_ (
     .A(_108_),
     .B(_108_),
     .Y(_109_)
   );
-  NAND _544_ (
+  NAND _337_ (
     .A(_103_),
     .B(_109_),
     .Y(_110_)
   );
-  NAND _545_ (
+  NAND _338_ (
     .A(_102_),
     .B(_108_),
     .Y(_111_)
   );
-  NAND _546_ (
+  NAND _339_ (
     .A(_110_),
     .B(_111_),
     .Y(_112_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _547_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _340_ (
     .A(_112_),
     .B(_112_),
     .Y(next_partial_product[7])
   );
-  NAND _548_ (
+  NAND _341_ (
     .A(_037_),
     .B(_038_),
     .Y(_113_)
   );
-  NAND _549_ (
+  NAND _342_ (
     .A(_041_),
     .B(_113_),
     .Y(_114_)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _550_ (
+  (* src = "../../Cells/all2nand_reg.v:3.7-3.31" *)
+  NAND _343_ (
     .A(_114_),
     .B(_114_),
     .Y(next_partial_product[1])
   );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _551_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_172_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _552_ (
-    .A(_172_),
-    .B(clock),
-    .Y(_164_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _553_ (
-    .A(mplier_in[5]),
-    .B(_170_),
-    .Y(_165_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _554_ (
-    .A(_165_),
-    .B(_171_),
-    .Y(_166_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _555_ (
-    .A(_166_),
-    .B(_172_),
-    .Y(_167_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _556_ (
-    .A(_167_),
-    .B(_167_),
-    .Y(_168_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _557_ (
-    .A(_167_),
-    .B(_164_),
-    .Y(_170_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _558_ (
-    .A(_168_),
-    .B(_164_),
-    .Y(_171_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _559_ (
-    .A(_170_),
-    .B(mplier_out[3]),
-    .Y(_169_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _560_ (
-    .A(_171_),
-    .B(_169_),
-    .Y(mplier_out[3])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _561_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_181_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _562_ (
-    .A(_181_),
-    .B(clock),
-    .Y(_173_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _563_ (
-    .A(mplier_in[6]),
-    .B(_179_),
-    .Y(_174_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _564_ (
-    .A(_174_),
-    .B(_180_),
-    .Y(_175_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _565_ (
-    .A(_175_),
-    .B(_181_),
-    .Y(_176_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _566_ (
-    .A(_176_),
-    .B(_176_),
-    .Y(_177_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _567_ (
-    .A(_176_),
-    .B(_173_),
-    .Y(_179_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _568_ (
-    .A(_177_),
-    .B(_173_),
-    .Y(_180_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _569_ (
-    .A(_179_),
-    .B(mplier_out[4]),
-    .Y(_178_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _570_ (
-    .A(_180_),
-    .B(_178_),
-    .Y(mplier_out[4])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _571_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_190_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _572_ (
-    .A(_190_),
-    .B(clock),
-    .Y(_182_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _573_ (
-    .A(mplier_in[7]),
-    .B(_188_),
-    .Y(_183_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _574_ (
-    .A(_183_),
-    .B(_189_),
-    .Y(_184_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _575_ (
-    .A(_184_),
-    .B(_190_),
-    .Y(_185_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _576_ (
-    .A(_185_),
-    .B(_185_),
-    .Y(_186_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _577_ (
-    .A(_185_),
-    .B(_182_),
-    .Y(_188_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _578_ (
-    .A(_186_),
-    .B(_182_),
-    .Y(_189_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _579_ (
-    .A(_188_),
-    .B(mplier_out[5]),
-    .Y(_187_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _580_ (
-    .A(_189_),
-    .B(_187_),
-    .Y(mplier_out[5])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _581_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_199_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _582_ (
-    .A(_199_),
-    .B(clock),
-    .Y(_191_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _583_ (
-    .A(product_in[0]),
-    .B(_197_),
-    .Y(_192_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _584_ (
-    .A(_192_),
-    .B(_198_),
-    .Y(_193_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _585_ (
-    .A(_193_),
-    .B(_199_),
-    .Y(_194_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _586_ (
-    .A(_194_),
-    .B(_194_),
-    .Y(_195_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _587_ (
-    .A(_194_),
-    .B(_191_),
-    .Y(_197_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _588_ (
-    .A(_195_),
-    .B(_191_),
-    .Y(_198_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _589_ (
-    .A(_197_),
-    .B(prod_in_reg[0]),
-    .Y(_196_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _590_ (
-    .A(_198_),
-    .B(_196_),
-    .Y(prod_in_reg[0])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _591_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_208_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _592_ (
-    .A(_208_),
-    .B(clock),
-    .Y(_200_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _593_ (
-    .A(product_in[1]),
-    .B(_206_),
-    .Y(_201_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _594_ (
-    .A(_201_),
-    .B(_207_),
-    .Y(_202_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _595_ (
-    .A(_202_),
-    .B(_208_),
-    .Y(_203_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _596_ (
-    .A(_203_),
-    .B(_203_),
-    .Y(_204_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _597_ (
-    .A(_203_),
-    .B(_200_),
-    .Y(_206_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _598_ (
-    .A(_204_),
-    .B(_200_),
-    .Y(_207_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _599_ (
-    .A(_206_),
-    .B(prod_in_reg[1]),
-    .Y(_205_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _600_ (
-    .A(_207_),
-    .B(_205_),
-    .Y(prod_in_reg[1])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _601_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_217_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _602_ (
-    .A(_217_),
-    .B(clock),
-    .Y(_209_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _603_ (
-    .A(product_in[2]),
-    .B(_215_),
-    .Y(_210_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _604_ (
-    .A(_210_),
-    .B(_216_),
-    .Y(_211_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _605_ (
-    .A(_211_),
-    .B(_217_),
-    .Y(_212_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _606_ (
-    .A(_212_),
-    .B(_212_),
-    .Y(_213_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _607_ (
-    .A(_212_),
-    .B(_209_),
-    .Y(_215_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _608_ (
-    .A(_213_),
-    .B(_209_),
-    .Y(_216_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _609_ (
-    .A(_215_),
-    .B(prod_in_reg[2]),
-    .Y(_214_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _610_ (
-    .A(_216_),
-    .B(_214_),
-    .Y(prod_in_reg[2])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _611_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_226_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _612_ (
-    .A(_226_),
-    .B(clock),
-    .Y(_218_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _613_ (
-    .A(product_in[3]),
-    .B(_224_),
-    .Y(_219_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _614_ (
-    .A(_219_),
-    .B(_225_),
-    .Y(_220_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _615_ (
-    .A(_220_),
-    .B(_226_),
-    .Y(_221_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _616_ (
-    .A(_221_),
-    .B(_221_),
-    .Y(_222_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _617_ (
-    .A(_221_),
-    .B(_218_),
-    .Y(_224_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _618_ (
-    .A(_222_),
-    .B(_218_),
-    .Y(_225_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _619_ (
-    .A(_224_),
-    .B(prod_in_reg[3]),
-    .Y(_223_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _620_ (
-    .A(_225_),
-    .B(_223_),
-    .Y(prod_in_reg[3])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _621_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_235_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _622_ (
-    .A(_235_),
-    .B(clock),
-    .Y(_227_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _623_ (
-    .A(product_in[4]),
-    .B(_233_),
-    .Y(_228_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _624_ (
-    .A(_228_),
-    .B(_234_),
-    .Y(_229_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _625_ (
-    .A(_229_),
-    .B(_235_),
-    .Y(_230_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _626_ (
-    .A(_230_),
-    .B(_230_),
-    .Y(_231_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _627_ (
-    .A(_230_),
-    .B(_227_),
-    .Y(_233_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _628_ (
-    .A(_231_),
-    .B(_227_),
-    .Y(_234_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _629_ (
-    .A(_233_),
-    .B(prod_in_reg[4]),
-    .Y(_232_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _630_ (
-    .A(_234_),
-    .B(_232_),
-    .Y(prod_in_reg[4])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _631_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_244_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _632_ (
-    .A(_244_),
-    .B(clock),
-    .Y(_236_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _633_ (
-    .A(product_in[5]),
-    .B(_242_),
-    .Y(_237_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _634_ (
-    .A(_237_),
-    .B(_243_),
-    .Y(_238_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _635_ (
-    .A(_238_),
-    .B(_244_),
-    .Y(_239_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _636_ (
-    .A(_239_),
-    .B(_239_),
-    .Y(_240_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _637_ (
-    .A(_239_),
-    .B(_236_),
-    .Y(_242_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _638_ (
-    .A(_240_),
-    .B(_236_),
-    .Y(_243_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _639_ (
-    .A(_242_),
-    .B(prod_in_reg[5]),
-    .Y(_241_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _640_ (
-    .A(_243_),
-    .B(_241_),
-    .Y(prod_in_reg[5])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _641_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_253_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _642_ (
-    .A(_253_),
-    .B(clock),
-    .Y(_245_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _643_ (
-    .A(product_in[6]),
-    .B(_251_),
-    .Y(_246_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _644_ (
-    .A(_246_),
-    .B(_252_),
-    .Y(_247_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _645_ (
-    .A(_247_),
-    .B(_253_),
-    .Y(_248_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _646_ (
-    .A(_248_),
-    .B(_248_),
-    .Y(_249_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _647_ (
-    .A(_248_),
-    .B(_245_),
-    .Y(_251_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _648_ (
-    .A(_249_),
-    .B(_245_),
-    .Y(_252_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _649_ (
-    .A(_251_),
-    .B(prod_in_reg[6]),
-    .Y(_250_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _650_ (
-    .A(_252_),
-    .B(_250_),
-    .Y(prod_in_reg[6])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _651_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_262_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _652_ (
-    .A(_262_),
-    .B(clock),
-    .Y(_254_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _653_ (
-    .A(product_in[7]),
-    .B(_260_),
-    .Y(_255_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _654_ (
-    .A(_255_),
-    .B(_261_),
-    .Y(_256_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _655_ (
-    .A(_256_),
-    .B(_262_),
-    .Y(_257_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _656_ (
-    .A(_257_),
-    .B(_257_),
-    .Y(_258_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _657_ (
-    .A(_257_),
-    .B(_254_),
-    .Y(_260_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _658_ (
-    .A(_258_),
-    .B(_254_),
-    .Y(_261_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _659_ (
-    .A(_260_),
-    .B(prod_in_reg[7]),
-    .Y(_259_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _660_ (
-    .A(_261_),
-    .B(_259_),
-    .Y(prod_in_reg[7])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _661_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_271_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _662_ (
-    .A(_271_),
-    .B(clock),
-    .Y(_263_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _663_ (
-    .A(next_partial_product[0]),
-    .B(_269_),
-    .Y(_264_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _664_ (
-    .A(_264_),
-    .B(_270_),
-    .Y(_265_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _665_ (
-    .A(_265_),
-    .B(_271_),
-    .Y(_266_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _666_ (
-    .A(_266_),
-    .B(_266_),
-    .Y(_267_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _667_ (
-    .A(_266_),
-    .B(_263_),
-    .Y(_269_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _668_ (
-    .A(_267_),
-    .B(_263_),
-    .Y(_270_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _669_ (
-    .A(_269_),
-    .B(partial_prod[0]),
-    .Y(_268_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _670_ (
-    .A(_270_),
-    .B(_268_),
-    .Y(partial_prod[0])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _671_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_280_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _672_ (
-    .A(_280_),
-    .B(clock),
-    .Y(_272_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _673_ (
-    .A(next_partial_product[1]),
-    .B(_278_),
-    .Y(_273_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _674_ (
-    .A(_273_),
-    .B(_279_),
-    .Y(_274_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _675_ (
-    .A(_274_),
-    .B(_280_),
-    .Y(_275_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _676_ (
-    .A(_275_),
-    .B(_275_),
-    .Y(_276_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _677_ (
-    .A(_275_),
-    .B(_272_),
-    .Y(_278_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _678_ (
-    .A(_276_),
-    .B(_272_),
-    .Y(_279_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _679_ (
-    .A(_278_),
-    .B(partial_prod[1]),
-    .Y(_277_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _680_ (
-    .A(_279_),
-    .B(_277_),
-    .Y(partial_prod[1])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _681_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_289_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _682_ (
-    .A(_289_),
-    .B(clock),
-    .Y(_281_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _683_ (
-    .A(next_partial_product[2]),
-    .B(_287_),
-    .Y(_282_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _684_ (
-    .A(_282_),
-    .B(_288_),
-    .Y(_283_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _685_ (
-    .A(_283_),
-    .B(_289_),
-    .Y(_284_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _686_ (
-    .A(_284_),
-    .B(_284_),
-    .Y(_285_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _687_ (
-    .A(_284_),
-    .B(_281_),
-    .Y(_287_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _688_ (
-    .A(_285_),
-    .B(_281_),
-    .Y(_288_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _689_ (
-    .A(_287_),
-    .B(partial_prod[2]),
-    .Y(_286_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _690_ (
-    .A(_288_),
-    .B(_286_),
-    .Y(partial_prod[2])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _691_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_298_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _692_ (
-    .A(_298_),
-    .B(clock),
-    .Y(_290_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _693_ (
-    .A(next_partial_product[3]),
-    .B(_296_),
-    .Y(_291_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _694_ (
-    .A(_291_),
-    .B(_297_),
-    .Y(_292_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _695_ (
-    .A(_292_),
-    .B(_298_),
-    .Y(_293_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _696_ (
-    .A(_293_),
-    .B(_293_),
-    .Y(_294_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _697_ (
-    .A(_293_),
-    .B(_290_),
-    .Y(_296_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _698_ (
-    .A(_294_),
-    .B(_290_),
-    .Y(_297_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _699_ (
-    .A(_296_),
-    .B(partial_prod[3]),
-    .Y(_295_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _700_ (
-    .A(_297_),
-    .B(_295_),
-    .Y(partial_prod[3])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _701_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_307_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _702_ (
-    .A(_307_),
-    .B(clock),
-    .Y(_299_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _703_ (
-    .A(next_partial_product[4]),
-    .B(_305_),
-    .Y(_300_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _704_ (
-    .A(_300_),
-    .B(_306_),
-    .Y(_301_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _705_ (
-    .A(_301_),
-    .B(_307_),
-    .Y(_302_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _706_ (
-    .A(_302_),
-    .B(_302_),
-    .Y(_303_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _707_ (
-    .A(_302_),
-    .B(_299_),
-    .Y(_305_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _708_ (
-    .A(_303_),
-    .B(_299_),
-    .Y(_306_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _709_ (
-    .A(_305_),
-    .B(partial_prod[4]),
-    .Y(_304_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _710_ (
-    .A(_306_),
-    .B(_304_),
-    .Y(partial_prod[4])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _711_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_316_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _712_ (
-    .A(_316_),
-    .B(clock),
-    .Y(_308_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _713_ (
-    .A(next_partial_product[5]),
-    .B(_314_),
-    .Y(_309_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _714_ (
-    .A(_309_),
-    .B(_315_),
-    .Y(_310_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _715_ (
-    .A(_310_),
-    .B(_316_),
-    .Y(_311_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _716_ (
-    .A(_311_),
-    .B(_311_),
-    .Y(_312_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _717_ (
-    .A(_311_),
-    .B(_308_),
-    .Y(_314_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _718_ (
-    .A(_312_),
-    .B(_308_),
-    .Y(_315_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _719_ (
-    .A(_314_),
-    .B(partial_prod[5]),
-    .Y(_313_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _720_ (
-    .A(_315_),
-    .B(_313_),
-    .Y(partial_prod[5])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _721_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_325_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _722_ (
-    .A(_325_),
-    .B(clock),
-    .Y(_317_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _723_ (
-    .A(next_partial_product[6]),
-    .B(_323_),
-    .Y(_318_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _724_ (
-    .A(_318_),
-    .B(_324_),
-    .Y(_319_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _725_ (
-    .A(_319_),
-    .B(_325_),
-    .Y(_320_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _726_ (
-    .A(_320_),
-    .B(_320_),
-    .Y(_321_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _727_ (
-    .A(_320_),
-    .B(_317_),
-    .Y(_323_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _728_ (
-    .A(_321_),
-    .B(_317_),
-    .Y(_324_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _729_ (
-    .A(_323_),
-    .B(partial_prod[6]),
-    .Y(_322_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _730_ (
-    .A(_324_),
-    .B(_322_),
-    .Y(partial_prod[6])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _731_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_334_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _732_ (
-    .A(_334_),
-    .B(clock),
-    .Y(_326_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _733_ (
-    .A(next_partial_product[7]),
-    .B(_332_),
-    .Y(_327_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _734_ (
-    .A(_327_),
-    .B(_333_),
-    .Y(_328_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _735_ (
-    .A(_328_),
-    .B(_334_),
-    .Y(_329_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _736_ (
-    .A(_329_),
-    .B(_329_),
-    .Y(_330_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _737_ (
-    .A(_329_),
-    .B(_326_),
-    .Y(_332_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _738_ (
-    .A(_330_),
-    .B(_326_),
-    .Y(_333_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _739_ (
-    .A(_332_),
-    .B(partial_prod[7]),
-    .Y(_331_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _740_ (
-    .A(_333_),
-    .B(_331_),
-    .Y(partial_prod[7])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:36.2-42.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _741_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_343_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:36.2-42.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _742_ (
-    .A(_343_),
-    .B(clock),
-    .Y(_335_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:36.2-42.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _743_ (
-    .A(_000_),
-    .B(_341_),
-    .Y(_336_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:36.2-42.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _744_ (
-    .A(_336_),
-    .B(_342_),
-    .Y(_337_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:36.2-42.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _745_ (
-    .A(_337_),
-    .B(_343_),
-    .Y(_338_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:36.2-42.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _746_ (
-    .A(_338_),
-    .B(_338_),
-    .Y(_339_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:36.2-42.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _747_ (
-    .A(_338_),
-    .B(_335_),
-    .Y(_341_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:36.2-42.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _748_ (
-    .A(_339_),
-    .B(_335_),
-    .Y(_342_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:36.2-42.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _749_ (
-    .A(_341_),
-    .B(done),
-    .Y(_340_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:36.2-42.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _750_ (
-    .A(_342_),
-    .B(_340_),
-    .Y(done)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _751_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_352_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _752_ (
-    .A(_352_),
-    .B(clock),
-    .Y(_344_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _753_ (
-    .A(mplier_in[2]),
-    .B(_350_),
-    .Y(_345_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _754_ (
-    .A(_345_),
-    .B(_351_),
-    .Y(_346_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _755_ (
-    .A(_346_),
-    .B(_352_),
-    .Y(_347_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _756_ (
-    .A(_347_),
-    .B(_347_),
-    .Y(_348_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _757_ (
-    .A(_347_),
-    .B(_344_),
-    .Y(_350_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _758_ (
-    .A(_348_),
-    .B(_344_),
-    .Y(_351_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _759_ (
-    .A(_350_),
-    .B(mplier_out[0]),
-    .Y(_349_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _760_ (
-    .A(_351_),
-    .B(_349_),
-    .Y(mplier_out[0])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _761_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_361_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _762_ (
-    .A(_361_),
-    .B(clock),
-    .Y(_353_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _763_ (
-    .A(mplier_in[3]),
-    .B(_359_),
-    .Y(_354_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _764_ (
-    .A(_354_),
-    .B(_360_),
-    .Y(_355_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _765_ (
-    .A(_355_),
-    .B(_361_),
-    .Y(_356_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _766_ (
-    .A(_356_),
-    .B(_356_),
-    .Y(_357_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _767_ (
-    .A(_356_),
-    .B(_353_),
-    .Y(_359_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _768_ (
-    .A(_357_),
-    .B(_353_),
-    .Y(_360_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _769_ (
-    .A(_359_),
-    .B(mplier_out[1]),
-    .Y(_358_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _770_ (
-    .A(_360_),
-    .B(_358_),
-    .Y(mplier_out[1])
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:26.9-26.30|../../Cells/all2nand.v:3.7-3.31" *)
-  NAND _771_ (
-    .A(1'h0),
-    .B(1'h0),
-    .Y(_370_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:27.10-27.49" *)
-  NAND _772_ (
-    .A(_370_),
-    .B(clock),
-    .Y(_362_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:28.10-28.57" *)
-  NAND _773_ (
-    .A(mplier_in[4]),
-    .B(_368_),
-    .Y(_363_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:29.10-29.62" *)
-  NAND _774_ (
-    .A(_363_),
-    .B(_369_),
-    .Y(_364_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:30.10-30.48" *)
-  NAND _775_ (
-    .A(_364_),
-    .B(_370_),
-    .Y(_365_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:31.10-31.49" *)
-  NAND _776_ (
-    .A(_365_),
-    .B(_365_),
-    .Y(_366_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:32.10-32.59" *)
-  NAND _777_ (
-    .A(_365_),
-    .B(_362_),
-    .Y(_368_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:33.10-33.59" *)
-  NAND _778_ (
-    .A(_366_),
-    .B(_362_),
-    .Y(_369_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:34.10-34.51" *)
-  NAND _779_ (
-    .A(_368_),
-    .B(mplier_out[2]),
-    .Y(_367_)
-  );
-  (* module_not_derived = 32'd1 *)
-  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand.v:35.10-35.51" *)
-  NAND _780_ (
-    .A(_369_),
-    .B(_367_),
-    .Y(mplier_out[2])
-  );
+  reg \mplier_out_reg[3] ;
+  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    \mplier_out_reg[3]  <= mplier_in[5];
+  assign mplier_out[3] = \mplier_out_reg[3] ;
+  reg \mplier_out_reg[4] ;
+  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    \mplier_out_reg[4]  <= mplier_in[6];
+  assign mplier_out[4] = \mplier_out_reg[4] ;
+  reg \mplier_out_reg[5] ;
+  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    \mplier_out_reg[5]  <= mplier_in[7];
+  assign mplier_out[5] = \mplier_out_reg[5] ;
+  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    prod_in_reg[0] <= product_in[0];
+  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    prod_in_reg[1] <= product_in[1];
+  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    prod_in_reg[2] <= product_in[2];
+  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    prod_in_reg[3] <= product_in[3];
+  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    prod_in_reg[4] <= product_in[4];
+  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    prod_in_reg[5] <= product_in[5];
+  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    prod_in_reg[6] <= product_in[6];
+  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    prod_in_reg[7] <= product_in[7];
+  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    partial_prod[0] <= next_partial_product[0];
+  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    partial_prod[1] <= next_partial_product[1];
+  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    partial_prod[2] <= next_partial_product[2];
+  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    partial_prod[3] <= next_partial_product[3];
+  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    partial_prod[4] <= next_partial_product[4];
+  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    partial_prod[5] <= next_partial_product[5];
+  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    partial_prod[6] <= next_partial_product[6];
+  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    partial_prod[7] <= next_partial_product[7];
+  (* src = "mult_stage.sv:36.2-42.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    done <= _000_;
+  reg \mplier_out_reg[0] ;
+  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    \mplier_out_reg[0]  <= mplier_in[2];
+  assign mplier_out[0] = \mplier_out_reg[0] ;
+  reg \mplier_out_reg[1] ;
+  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    \mplier_out_reg[1]  <= mplier_in[3];
+  assign mplier_out[1] = \mplier_out_reg[1] ;
+  reg \mplier_out_reg[2] ;
+  (* src = "mult_stage.sv:28.2-33.5|../../Cells/all2nand_reg.v:17.1-18.9" *)
+  always @(posedge clock)
+    \mplier_out_reg[2]  <= mplier_in[4];
+  assign mplier_out[2] = \mplier_out_reg[2] ;
   assign mcand_out = 8'h00;
   assign mplier_out[7:6] = 2'h0;
   assign next_mcand = 8'h00;
