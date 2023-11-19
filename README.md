@@ -86,3 +86,18 @@ Note: Currently only supports combinational design. TODO: Support pipelined desi
   - This generates a file with the name file_name_structural_PyLSE.py
 - Note that some bits in the output are flipped from the actual output. Check the netlist to see whether the output wires are connected through an inverter or a buffer. Inverter means the PyLSE output bit is flipped, and buffer means the PyLSE output bit is correct.
 - The time period in the PyLSE simulation should also be changed.
+
+
+# Pipelined Verilog to PyLSE Workflow:
+- Steps: Behavioral -> Structural -> Synthesis Script -> PyLSE:
+- Source oss-cad-suite
+- Run yosys script to synthesize into a netlist full of NAND gates and registers
+  - Example is provided in MAC/Mult/mult_stage.ys
+- Use nand_to_str.py to convert this into structural Verilog
+  - Read "Behavioral Verilog to PyLSE Workflow" to see how instructions on some hand-fixing of the structural Verilog needed for the script to work
+- Use synthesis script "pline.sh" to synthesize this to dual-rail netlist. (Use pline_ryan_version.sh if ipython doesn't work)
+  - This generates a file with the name file_name_sturctural_MAP.v
+- Use netlistPyLSEParser_pipeline.py to convert to PyLSE
+  - This generates a file with the name file_name_sturctural_MAP_PyLSE.py
+- Same as the behavioral version, some bits to the output are flipped. Note that this is still work in progress and needs more testing.
+- The time period in the PyLSE simulation also needs to be changed.
