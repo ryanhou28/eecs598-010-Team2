@@ -90,7 +90,7 @@ def t_newline(t):
 # Token rule with some action code, checking for reserved words
 def t_ID(t):
     # ID can be alphabetical characters, numbers, or the character \ and | 
-    r'[a-zA-Z\\][a-zA-Z0-9_|\\]*'
+    r'[a-zA-Z\\_][a-zA-Z0-9_|\\]*'
     t.type = reserved.get(t.value, 'ID')    # Check for reserved words
     return t
 
