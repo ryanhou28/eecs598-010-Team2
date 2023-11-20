@@ -1,6 +1,6 @@
 import pylse
 
-def mymod(A_0__p, A_0__n, A_1__p, A_1__n, A_2__p, A_2__n, A_3__p, A_3__n, A_4__p, A_4__n, A_5__p, A_5__n, A_6__p, A_6__n, A_7__p, A_7__n, B_0__p, B_0__n, B_1__p, B_1__n, B_2__p, B_2__n, B_3__p, B_3__n, B_4__p, B_4__n, B_5__p, B_5__n, B_6__p, B_6__n, B_7__p, B_7__n):
+def adder(A_0__p, A_0__n, A_1__p, A_1__n, A_2__p, A_2__n, A_3__p, A_3__n, A_4__p, A_4__n, A_5__p, A_5__n, A_6__p, A_6__n, A_7__p, A_7__n, B_0__p, B_0__n, B_1__p, B_1__n, B_2__p, B_2__n, B_3__p, B_3__n, B_4__p, B_4__n, B_5__p, B_5__n, B_6__p, B_6__n, B_7__p, B_7__n):
 
     # Define helpers to ensure same delay numbers (currently the same as PyLSE example)
     def jtl(*args):
@@ -295,14 +295,85 @@ def test_single_input(A_0_, A_1_, A_2_, A_3_, A_4_, A_5_, A_6_, A_7_, B_0_, B_1_
 def check_events(events, T):
     print("Output Events:")
     print("SUM_0_ SUM_1_ SUM_2_ SUM_3_ SUM_4_ SUM_5_ SUM_6_ SUM_7_")
-    print(int(events['SUM_0_'][0] < T), int(events['SUM_1_'][0] < T), int(events['SUM_2_'][0] < T), int(events['SUM_3_'][0] < T), int(events['SUM_4_'][0] < T), int(events['SUM_5_'][0] < T), int(events['SUM_6_'][0] < T), int(events['SUM_7_'][0] < T))
+    sums = [0, 0, 0, 0, 0, 0, 0, 0]
+    for i in range(8):
+        sums[i] = int(events['SUM_' + str(i) + '_'][0] < T)
+    sums[0] = inv(sums[0])
+    sums[1] = inv(sums[1])
+    sums[2] = inv(sums[2])
+    sums[3] = inv(sums[3])
+    sums[4] = inv(sums[4])
+    sums[5] = inv(sums[5])
+    sums[6] = inv(sums[6])
+    print("Binary Results (output flip accounted for):")
+    print(sums)
+    # print(int(events['SUM_0_'][0] < T), int(events['SUM_1_'][0] < T), int(events['SUM_2_'][0] < T), int(events['SUM_3_'][0] < T), int(events['SUM_4_'][0] < T), int(events['SUM_5_'][0] < T), int(events['SUM_6_'][0] < T), int(events['SUM_7_'][0] < T))
+    print("Decimal Results:")
+    print(twos_to_dec(sums))
+
+
+def twos_to_dec(binary_array):
+    # Convert a binary array of bits of the 8-bit twos complement to a decimal number
+    if not binary_array:
+        return 0
+
+    # Check if the number is negative (MSB is 1)
+    is_negative = binary_array[-1] == 1
+
+    if is_negative:
+        # Invert the bits
+        inverted_array = [1 - bit for bit in binary_array]
+
+        # Add 1 to the inverted array
+        carry = 1
+        for i in range(len(inverted_array)):
+            inverted_array[i] += carry
+            if inverted_array[i] == 2:
+                inverted_array[i] = 0
+                carry = 1
+            else:
+                carry = 0
+
+        # Convert to number and negate
+        number = -sum(bit * (2 ** i) for i, bit in enumerate(inverted_array))
+    else:
+        # Convert to number directly
+        number = sum(bit * (2 ** i) for i, bit in enumerate(binary_array))
+
+    return number
+
+def twos_complement_bin(num):
+    # Generate a binary array of bits of the 8-bit twos complement of the number
+    # Saturate the bit array if the number is out of range
+    if num < -128:
+        num = -128
+    elif num > 127:
+        num = 127
+
+    if num < 0:
+        num = 256 + num
+
+    bin_str = bin(num)[2:].zfill(8)
+
+    binarr = [int(x) for x in bin_str]
+
+    # Flip the binarr so that the LSB is at the beginning
+    binarr.reverse()
+
+    return binarr
 
 if __name__ == "__main__":
     # Create clock signal
-    T = 2000  # duration of a phase
+    T = 200  # duration of a phase
     clk = pylse.inp(start=T/2, period=T, n=4, name='clk')
-    A_0__p, A_0__n, A_1__p, A_1__n, A_2__p, A_2__n, A_3__p, A_3__n, A_4__p, A_4__n, A_5__p, A_5__n, A_6__p, A_6__n, A_7__p, A_7__n, B_0__p, B_0__n, B_1__p, B_1__n, B_2__p, B_2__n, B_3__p, B_3__n, B_4__p, B_4__n, B_5__p, B_5__n, B_6__p, B_6__n, B_7__p, B_7__n= test_single_input(0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1)
-
+    num1 = -123
+    num2 = 126
+    num1bin = twos_complement_bin(num1)
+    num2bin = twos_complement_bin(num2)
+    A_0__p, A_0__n, A_1__p, A_1__n, A_2__p, A_2__n, A_3__p, A_3__n, A_4__p, A_4__n, A_5__p, A_5__n, A_6__p, A_6__n, A_7__p, A_7__n, B_0__p, B_0__n, B_1__p, B_1__n, B_2__p, B_2__n, B_3__p, B_3__n, B_4__p, B_4__n, B_5__p, B_5__n, B_6__p, B_6__n, B_7__p, B_7__n= test_single_input(num1bin[0], num1bin[1], num1bin[2], num1bin[3], num1bin[4], num1bin[5], num1bin[6], num1bin[7], num2bin[0], num2bin[1], num2bin[2], num2bin[3], num2bin[4], num2bin[5], num2bin[6], num2bin[7])
+    print("Input Numbers (binary array is LSB -> MSB):")
+    print(num1,"=", num1bin)
+    print(num2,"=", num2bin)
     # Instantiate the module
     SUM_0_, SUM_1_, SUM_2_, SUM_3_, SUM_4_, SUM_5_, SUM_6_, SUM_7_= mymod(A_0__p, A_0__n, A_1__p, A_1__n, A_2__p, A_2__n, A_3__p, A_3__n, A_4__p, A_4__n, A_5__p, A_5__n, A_6__p, A_6__n, A_7__p, A_7__n, B_0__p, B_0__n, B_1__p, B_1__n, B_2__p, B_2__n, B_3__p, B_3__n, B_4__p, B_4__n, B_5__p, B_5__n, B_6__p, B_6__n, B_7__p, B_7__n)
 

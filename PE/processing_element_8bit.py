@@ -6,8 +6,11 @@ The 8bit processing element is the building block of the systolic array
 
 import pylse
 import shift_register, simple_memory, feedback_mem_w_external_write
-from MAC.Adder import adder_8bit_syn_structural_N_PyLSE
+import sys
 
+sys.path.append('../')
+from MAC.Adder.adder_8bit_syn_structural_N_PyLSE import adder, twos_to_dec, twos_complement_bin
+from MAC.Mult.mult_comb_syn_structural_N_PyLSE import mult
 
 def processing_element_8bit_internal_weight(input_feature, valid_in, weight_in, weight_write, clk):
     """

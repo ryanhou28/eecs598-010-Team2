@@ -1,6 +1,6 @@
 import pylse
 
-def mymod(a_0__p, a_0__n, a_1__p, a_1__n, a_2__p, a_2__n, a_3__p, a_3__n, a_4__p, a_4__n, a_5__p, a_5__n, a_6__p, a_6__n, a_7__p, a_7__n, b_0__p, b_0__n, b_1__p, b_1__n, b_2__p, b_2__n, b_3__p, b_3__n, b_4__p, b_4__n, b_5__p, b_5__n, b_6__p, b_6__n, b_7__p, b_7__n):
+def mult(a_0__p, a_0__n, a_1__p, a_1__n, a_2__p, a_2__n, a_3__p, a_3__n, a_4__p, a_4__n, a_5__p, a_5__n, a_6__p, a_6__n, a_7__p, a_7__n, b_0__p, b_0__n, b_1__p, b_1__n, b_2__p, b_2__n, b_3__p, b_3__n, b_4__p, b_4__n, b_5__p, b_5__n, b_6__p, b_6__n, b_7__p, b_7__n):
 
     # Define helpers to ensure same delay numbers (currently the same as PyLSE example)
     def jtl(*args):
@@ -1772,7 +1772,6 @@ def mymod(a_0__p, a_0__n, a_1__p, a_1__n, a_2__p, a_2__n, a_3__p, a_3__n, a_4__p
     product_6_ = g568_n
     product_7_ = g505_n_spl_[2]
 
-
     return product_0_, product_1_, product_2_, product_3_, product_4_, product_5_, product_6_, product_7_
 
 def inv(inp):
@@ -1922,8 +1921,8 @@ if __name__ == "__main__":
     # Create clock signal
     T = 800  # duration of a phase
     clk = pylse.inp(start=T/2, period=T, n=4, name='clk')
-    num1 = -31
-    num2 = 4
+    num1 = -10
+    num2 = 1
     num1bin = twos_complement_bin(num1)
     num2bin = twos_complement_bin(num2)
     print("Input Numbers (binary array is LSB -> MSB):")
@@ -1933,7 +1932,7 @@ if __name__ == "__main__":
     a_0__p, a_0__n, a_1__p, a_1__n, a_2__p, a_2__n, a_3__p, a_3__n, a_4__p, a_4__n, a_5__p, a_5__n, a_6__p, a_6__n, a_7__p, a_7__n, b_0__p, b_0__n, b_1__p, b_1__n, b_2__p, b_2__n, b_3__p, b_3__n, b_4__p, b_4__n, b_5__p, b_5__n, b_6__p, b_6__n, b_7__p, b_7__n= test_single_input(num1bin[0], num1bin[1], num1bin[2], num1bin[3], num1bin[4], num1bin[5], num1bin[6], num1bin[7], num2bin[0], num2bin[1], num2bin[2], num2bin[3], num2bin[4], num2bin[5], num2bin[6], num2bin[7])
 
     # Instantiate the module
-    product_0_, product_1_, product_2_, product_3_, product_4_, product_5_, product_6_, product_7_= mymod(a_0__p, a_0__n, a_1__p, a_1__n, a_2__p, a_2__n, a_3__p, a_3__n, a_4__p, a_4__n, a_5__p, a_5__n, a_6__p, a_6__n, a_7__p, a_7__n, b_0__p, b_0__n, b_1__p, b_1__n, b_2__p, b_2__n, b_3__p, b_3__n, b_4__p, b_4__n, b_5__p, b_5__n, b_6__p, b_6__n, b_7__p, b_7__n)
+    product_0_, product_1_, product_2_, product_3_, product_4_, product_5_, product_6_, product_7_= mult(a_0__p, a_0__n, a_1__p, a_1__n, a_2__p, a_2__n, a_3__p, a_3__n, a_4__p, a_4__n, a_5__p, a_5__n, a_6__p, a_6__n, a_7__p, a_7__n, b_0__p, b_0__n, b_1__p, b_1__n, b_2__p, b_2__n, b_3__p, b_3__n, b_4__p, b_4__n, b_5__p, b_5__n, b_6__p, b_6__n, b_7__p, b_7__n)
 
     # NOTE: product_7_ is flipped
 
