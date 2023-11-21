@@ -35,10 +35,12 @@ def processing_element_8bit_internal_weight(input_feature, valid_in, weight_in, 
     """
 
     # How many cycles is the PE?
-    N_CYCLES = 5 # TODO this is a made up number
-    N_BITS = len(input_feature)
+    N_CYCLES = 2
+    N_BITS = 8 # len(input_feature)
 
-    # TODO split clk for all the elements that need it.
+    # split clk for all the elements that need it.
+    clks = pylse.split(clk, n=32, firing_delay=4.3) # Need to adjust n=32 to the actual number of splitters needed
+    current_clk_count = 0
 
     ##########################################################################
     # input feature
@@ -55,7 +57,7 @@ def processing_element_8bit_internal_weight(input_feature, valid_in, weight_in, 
 
     # The input feature shift register memory 
     # TODO this can be simplified to use fewer DROs by being a bit more clever
-    input_feature_out = shift_register.sr_N_bit(input_feature_split[1], clk, N_CYCLES, N_BITS)
+    input_feature_out = shift_register.sr_N_bit(input_feature_split[1], clks[0], N_CYCLES, N_BITS)
 
     ##########################################################################
     # Weights Memory
@@ -72,8 +74,10 @@ def processing_element_8bit_internal_weight(input_feature, valid_in, weight_in, 
     # The Multiplier
     ##########################################################################
 
-    # TODO the multiplier
-    mult_out = [pylse.Wire() for i in range(N_BITS)]
+    mult_products = mult(input_feature_split[0][0], input_feature_split[0][1], input_feature_split[0][2], input_feature_split[0][3], input_feature_split[0][4], input_feature_split[0][5], input_feature_split[0][6], input_feature_split[0][7], input_feature_split[0][8], input_feature_split[0][9], input_feature_split[0][10], input_feature_split[0][11], input_feature_split[0][12], input_feature_split[0][13], input_feature_split[0][14], input_feature_split[0][15], weight_in[0], weight_in[1], weight_in[2], weight_in[3], weight_in[4], weight_in[5], weight_in[6], weight_in[7], weight_in[8], weight_in[9], weight_in[10], weight_in[11], weight_in[12], weight_in[13], weight_in[14], weight_in[15])
+
+    mult_out = [dro_c(mult_products[i], clks[current_clk_count + i]) for i in range(N_BITS)]
+    current_clk_count += N_BITS
 
     ##########################################################################
     # Valid Shift Register
@@ -99,7 +103,13 @@ def processing_element_8bit_internal_weight(input_feature, valid_in, weight_in, 
 
     # mult_out from the multiplier
     # accumulator_in from memory
-    accumulator_out = adder_8bit_syn_structural_N_PyLSE.mymod()
+    adder_sum = adder(mult_out[0][0], mult_out[0][1], mult_out[1][0], mult_out[1][1], mult_out[2][0], mult_out[2][1], mult_out[3][0], mult_out[3][1], mult_out[4][0], mult_out[4][1], mult_out[5][0], mult_out[5][1], mult_out[6][0], mult_out[6][1], mult_out[7][1], mult_out[7][0], psum_dros[0], psum_dros[1], psum_dros[2], psum_dros[3], psum_dros[4], psum_dros[5], psum_dros[6], psum_dros[7], psum_dros[8], psum_dros[9], psum_dros[10], psum_dros[11], psum_dros[12], psum_dros[13], psum_dros[14], psum_dros[15])
+    
+    adder_out = [dro_c(adder_sum[i], clks[current_clk_count + i]) for i in range(N_BITS)]
+    current_clk_count += N_BITS
+
+    # Return the flipped bits, only the last output bit of the adder is correct
+    accumulator_out = [adder_out[0][1], adder_out[1][1], adder_out[2][1], adder_out[3][1], adder_out[4][1], adder_out[5][1], adder_out[6][1], adder_out[7][0]]
 
     # split the accumulator_out into 2 for:
     # 0 -> the accumulator memory
@@ -114,15 +124,10 @@ def processing_element_8bit_internal_weight(input_feature, valid_in, weight_in, 
     # The AND Block
     ##########################################################################
     
-    # TODO the AND block
-    # I don't know the best way of doing this?
-    and_out = [pylse.Wire() for i in range(N_BITS)]
+    # Split out 8 bits of the valid bit
     and_valid_split = pylse.split(valid_out_split[2], N_BITS)
-
-    # Using ANDs will add another clock cycle
-    for i in range(N_BITS):
-        and_out[i] = pylse.and_s(accumulator_out_split[1][i], and_valid_split[i], clk)
-    
+    # AND the valid bit and accumulator output at each bit
+    and_out = [la(accumulator_out_split[1][i], and_valid_split[i]) for i in range(N_BITS)]
 
     return and_out, input_feature_out, valid_out_split[0]
 
