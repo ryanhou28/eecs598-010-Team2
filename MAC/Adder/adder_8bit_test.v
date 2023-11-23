@@ -10,7 +10,9 @@ module testbench;
     adder8 adder_(.A(a), .B(b), .SUM(sum));
 
     logic adder_correct;
-    assign adder_correct = (sum == a + b);
+    logic signed [7:0] correct_sum;
+    assign correct_sum = a + b;
+    assign adder_correct = (sum == correct_sum);
 
     // 4-bit Carry Lookahead Adder Test
     logic [3:0] cla_a;
@@ -89,9 +91,6 @@ module testbench;
         a = 50;
         b = 60;
         @(negedge clock);
-        a = 100;
-        b = 50;
-        @(negedge clock);
         a = -30;
         b = -20;
         @(negedge clock);
@@ -121,6 +120,9 @@ module testbench;
         @(negedge clock);
         a = -128;
         b = -128;
+        @(negedge clock);
+        a = 114;
+        b = 60;
         @(negedge clock);
 
 

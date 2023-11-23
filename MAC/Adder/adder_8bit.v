@@ -13,7 +13,7 @@ module adder8(A, B, SUM);
 
     // Overflow detection
     assign overflow = (A[7] == B[7]) & (A[7] != int_sum[7]);
-    assign sat_sum = (A[7]) ? 8'b01111111 : 8'b10000000;
+    assign sat_sum = (A[7]) ? 8'b10000000 : 8'b01111111;
     assign SUM = (overflow) ? sat_sum : int_sum;
 
 endmodule
