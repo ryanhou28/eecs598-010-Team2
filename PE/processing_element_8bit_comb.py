@@ -69,8 +69,8 @@ def processing_element(input_feature, weight_in, psum_in, clk):
     adder_out = [dro_c(adder_sum[i], clks[current_clk_count + i]) for i in range(N_BITS)]
     current_clk_count += N_BITS
 
-    # Return the flipped bits, only the last output bit of the adder is correct
-    pe_out = [adder_out[0][1], adder_out[1][1], adder_out[2][1], adder_out[3][1], adder_out[4][1], adder_out[5][1], adder_out[6][1], adder_out[7][0]]
+    # Return the flipped bits, only the last output bit of the adder is flipped
+    pe_out = [adder_out[0][0], adder_out[1][0], adder_out[2][0], adder_out[3][0], adder_out[4][0], adder_out[5][0], adder_out[6][0], adder_out[7][1]]
 
     # Return the outputs pe_out, and some other wires for debugging
     return pe_out, mult_out, adder_out, mult_products

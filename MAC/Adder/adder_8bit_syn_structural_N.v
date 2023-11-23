@@ -1,66 +1,66 @@
 
 module mymod
 (
-  A[0],
-  A[1],
-  A[2],
-  A[3],
-  A[4],
-  A[5],
-  A[6],
-  A[7],
-  B[0],
-  B[1],
-  B[2],
-  B[3],
-  B[4],
-  B[5],
-  B[6],
-  B[7],
-  SUM[0],
-  SUM[1],
-  SUM[2],
-  SUM[3],
-  SUM[4],
-  SUM[5],
-  SUM[6],
-  SUM[7]
+  A_0_,
+  A_1_,
+  A_2_,
+  A_3_,
+  A_4_,
+  A_5_,
+  A_6_,
+  A_7_,
+  B_0_,
+  B_1_,
+  B_2_,
+  B_3_,
+  B_4_,
+  B_5_,
+  B_6_,
+  B_7_,
+  SUM_0_,
+  SUM_1_,
+  SUM_2_,
+  SUM_3_,
+  SUM_4_,
+  SUM_5_,
+  SUM_6_,
+  SUM_7_
 );
 
-  input A[0];input A[1];input A[2];input A[3];input A[4];input A[5];input A[6];input A[7];input B[0];input B[1];input B[2];input B[3];input B[4];input B[5];input B[6];input B[7];
-  output SUM[0];output SUM[1];output SUM[2];output SUM[3];output SUM[4];output SUM[5];output SUM[6];output SUM[7];
-  wire A[0]_p;
-  wire A[0]_n;
-  wire A[1]_p;
-  wire A[1]_n;
-  wire A[2]_p;
-  wire A[2]_n;
-  wire A[3]_p;
-  wire A[3]_n;
-  wire A[4]_p;
-  wire A[4]_n;
-  wire A[5]_p;
-  wire A[5]_n;
-  wire A[6]_p;
-  wire A[6]_n;
-  wire A[7]_p;
-  wire A[7]_n;
-  wire B[0]_p;
-  wire B[0]_n;
-  wire B[1]_p;
-  wire B[1]_n;
-  wire B[2]_p;
-  wire B[2]_n;
-  wire B[3]_p;
-  wire B[3]_n;
-  wire B[4]_p;
-  wire B[4]_n;
-  wire B[5]_p;
-  wire B[5]_n;
-  wire B[6]_p;
-  wire B[6]_n;
-  wire B[7]_p;
-  wire B[7]_n;
+  input A_0_;input A_1_;input A_2_;input A_3_;input A_4_;input A_5_;input A_6_;input A_7_;input B_0_;input B_1_;input B_2_;input B_3_;input B_4_;input B_5_;input B_6_;input B_7_;
+  output SUM_0_;output SUM_1_;output SUM_2_;output SUM_3_;output SUM_4_;output SUM_5_;output SUM_6_;output SUM_7_;
+  wire A_0__p;
+  wire A_0__n;
+  wire A_1__p;
+  wire A_1__n;
+  wire A_2__p;
+  wire A_2__n;
+  wire A_3__p;
+  wire A_3__n;
+  wire A_4__p;
+  wire A_4__n;
+  wire A_5__p;
+  wire A_5__n;
+  wire A_6__p;
+  wire A_6__n;
+  wire A_7__p;
+  wire A_7__n;
+  wire B_0__p;
+  wire B_0__n;
+  wire B_1__p;
+  wire B_1__n;
+  wire B_2__p;
+  wire B_2__n;
+  wire B_3__p;
+  wire B_3__n;
+  wire B_4__p;
+  wire B_4__n;
+  wire B_5__p;
+  wire B_5__n;
+  wire B_6__p;
+  wire B_6__n;
+  wire B_7__p;
+  wire B_7__n;
   wire g17_p;
   wire g17_n;
   wire g18_p;
@@ -197,352 +197,336 @@ module mymod
   wire g83_n;
   wire g84_p;
   wire g84_n;
-  wire g85_p;
-  wire g85_n;
-  wire g86_p;
-  wire g86_n;
-  wire g87_p;
-  wire g87_n;
-  wire g88_p;
-  wire g88_n;
-  wire A[7]_p_spl_;
-  wire B[7]_n_spl_;
-  wire B[7]_n_spl_0;
-  wire A[7]_n_spl_;
-  wire A[7]_n_spl_0;
-  wire B[7]_p_spl_;
-  wire B[7]_p_spl_0;
-  wire A[6]_p_spl_;
-  wire B[6]_p_spl_;
-  wire A[6]_n_spl_;
-  wire B[6]_n_spl_;
-  wire A[5]_p_spl_;
-  wire B[5]_p_spl_;
-  wire A[5]_n_spl_;
-  wire B[5]_n_spl_;
-  wire A[4]_p_spl_;
-  wire B[4]_p_spl_;
-  wire A[4]_n_spl_;
-  wire B[4]_n_spl_;
-  wire g20_n_spl_;
-  wire g20_p_spl_;
-  wire A[3]_p_spl_;
-  wire B[3]_p_spl_;
-  wire A[3]_n_spl_;
-  wire B[3]_n_spl_;
-  wire A[2]_p_spl_;
-  wire B[2]_p_spl_;
-  wire A[2]_n_spl_;
-  wire B[2]_n_spl_;
-  wire A[1]_p_spl_;
-  wire B[1]_p_spl_;
-  wire A[1]_n_spl_;
-  wire B[1]_n_spl_;
-  wire A[0]_n_spl_;
-  wire B[0]_n_spl_;
-  wire g28_n_spl_;
-  wire g29_p_spl_;
-  wire g29_p_spl_0;
-  wire g28_p_spl_;
-  wire g29_n_spl_;
-  wire g27_n_spl_;
-  wire g27_p_spl_;
-  wire g26_n_spl_;
-  wire g31_n_spl_;
-  wire g26_p_spl_;
-  wire g31_p_spl_;
-  wire g25_n_spl_;
-  wire g25_p_spl_;
-  wire g24_n_spl_;
-  wire g33_n_spl_;
-  wire g24_p_spl_;
-  wire g33_p_spl_;
-  wire g23_n_spl_;
-  wire g23_p_spl_;
-  wire g22_n_spl_;
-  wire g35_p_spl_;
-  wire g36_p_spl_;
+  wire A_6__p_spl_;
+  wire B_6__p_spl_;
+  wire A_6__n_spl_;
+  wire B_6__n_spl_;
+  wire A_5__p_spl_;
+  wire B_5__p_spl_;
+  wire A_5__n_spl_;
+  wire B_5__n_spl_;
+  wire A_4__p_spl_;
+  wire B_4__p_spl_;
+  wire A_4__n_spl_;
+  wire B_4__n_spl_;
   wire g19_n_spl_;
   wire g19_p_spl_;
-  wire g37_p_spl_;
-  wire g39_n_spl_;
-  wire g40_p_spl_;
+  wire A_3__p_spl_;
+  wire B_3__p_spl_;
+  wire A_3__n_spl_;
+  wire B_3__n_spl_;
+  wire A_2__p_spl_;
+  wire B_2__p_spl_;
+  wire A_2__n_spl_;
+  wire B_2__n_spl_;
+  wire A_1__p_spl_;
+  wire B_1__p_spl_;
+  wire A_1__n_spl_;
+  wire B_1__n_spl_;
+  wire A_0__p_spl_;
+  wire B_0__p_spl_;
+  wire g27_n_spl_;
+  wire g28_p_spl_;
+  wire g27_p_spl_;
+  wire g28_n_spl_;
+  wire g28_n_spl_0;
+  wire g26_n_spl_;
+  wire g26_p_spl_;
+  wire g25_n_spl_;
+  wire g30_n_spl_;
+  wire g25_p_spl_;
+  wire g30_p_spl_;
+  wire g24_n_spl_;
+  wire g24_p_spl_;
+  wire g23_n_spl_;
+  wire g32_n_spl_;
+  wire g23_p_spl_;
+  wire g32_p_spl_;
+  wire g22_n_spl_;
+  wire g22_p_spl_;
+  wire g21_p_spl_;
+  wire g34_n_spl_;
+  wire g35_n_spl_;
   wire g18_n_spl_;
   wire g18_p_spl_;
-  wire g41_p_spl_;
-  wire g43_n_spl_;
-  wire g44_p_spl_;
-  wire g45_n_spl_;
-  wire g45_n_spl_0;
-  wire g45_p_spl_;
-  wire g17_n_spl_;
+  wire g36_n_spl_;
+  wire g38_p_spl_;
+  wire g39_n_spl_;
   wire g17_p_spl_;
-  wire g49_p_spl_;
-  wire g49_p_spl_0;
-  wire g49_p_spl_00;
-  wire g49_p_spl_01;
-  wire g49_p_spl_1;
-  wire g49_p_spl_10;
+  wire g40_n_spl_;
+  wire g42_p_spl_;
+  wire A_7__n_spl_;
+  wire B_7__n_spl_;
+  wire g44_n_spl_;
+  wire g44_n_spl_0;
+  wire g45_p_spl_;
+  wire g47_n_spl_;
   wire g48_n_spl_;
   wire g48_n_spl_0;
   wire g48_n_spl_00;
   wire g48_n_spl_01;
   wire g48_n_spl_1;
   wire g48_n_spl_10;
+  wire g46_p_spl_;
+  wire g46_p_spl_0;
+  wire g46_p_spl_00;
+  wire g46_p_spl_01;
+  wire g46_p_spl_1;
+  wire g46_p_spl_10;
 
   buf
 
   (
-    A[0]_p,
-    A[0]
+    A_0__p,
+    A_0_
   );
 
 
   not
 
   (
-    A[0]_n,
-    A[0]
+    A_0__n,
+    A_0_
   );
 
 
   buf
 
   (
-    A[1]_p,
-    A[1]
+    A_1__p,
+    A_1_
   );
 
 
   not
 
   (
-    A[1]_n,
-    A[1]
+    A_1__n,
+    A_1_
   );
 
 
   buf
 
   (
-    A[2]_p,
-    A[2]
+    A_2__p,
+    A_2_
   );
 
 
   not
 
   (
-    A[2]_n,
-    A[2]
+    A_2__n,
+    A_2_
   );
 
 
   buf
 
   (
-    A[3]_p,
-    A[3]
+    A_3__p,
+    A_3_
   );
 
 
   not
 
   (
-    A[3]_n,
-    A[3]
+    A_3__n,
+    A_3_
   );
 
 
   buf
 
   (
-    A[4]_p,
-    A[4]
+    A_4__p,
+    A_4_
   );
 
 
   not
 
   (
-    A[4]_n,
-    A[4]
+    A_4__n,
+    A_4_
   );
 
 
   buf
 
   (
-    A[5]_p,
-    A[5]
+    A_5__p,
+    A_5_
   );
 
 
   not
 
   (
-    A[5]_n,
-    A[5]
+    A_5__n,
+    A_5_
   );
 
 
   buf
 
   (
-    A[6]_p,
-    A[6]
+    A_6__p,
+    A_6_
   );
 
 
   not
 
   (
-    A[6]_n,
-    A[6]
+    A_6__n,
+    A_6_
   );
 
 
   buf
 
   (
-    A[7]_p,
-    A[7]
+    A_7__p,
+    A_7_
   );
 
 
   not
 
   (
-    A[7]_n,
-    A[7]
+    A_7__n,
+    A_7_
   );
 
 
   buf
 
   (
-    B[0]_p,
-    B[0]
+    B_0__p,
+    B_0_
   );
 
 
   not
 
   (
-    B[0]_n,
-    B[0]
+    B_0__n,
+    B_0_
   );
 
 
   buf
 
   (
-    B[1]_p,
-    B[1]
+    B_1__p,
+    B_1_
   );
 
 
   not
 
   (
-    B[1]_n,
-    B[1]
+    B_1__n,
+    B_1_
   );
 
 
   buf
 
   (
-    B[2]_p,
-    B[2]
+    B_2__p,
+    B_2_
   );
 
 
   not
 
   (
-    B[2]_n,
-    B[2]
+    B_2__n,
+    B_2_
   );
 
 
   buf
 
   (
-    B[3]_p,
-    B[3]
+    B_3__p,
+    B_3_
   );
 
 
   not
 
   (
-    B[3]_n,
-    B[3]
+    B_3__n,
+    B_3_
   );
 
 
   buf
 
   (
-    B[4]_p,
-    B[4]
+    B_4__p,
+    B_4_
   );
 
 
   not
 
   (
-    B[4]_n,
-    B[4]
+    B_4__n,
+    B_4_
   );
 
 
   buf
 
   (
-    B[5]_p,
-    B[5]
+    B_5__p,
+    B_5_
   );
 
 
   not
 
   (
-    B[5]_n,
-    B[5]
+    B_5__n,
+    B_5_
   );
 
 
   buf
 
   (
-    B[6]_p,
-    B[6]
+    B_6__p,
+    B_6_
   );
 
 
   not
 
   (
-    B[6]_n,
-    B[6]
+    B_6__n,
+    B_6_
   );
 
 
   buf
 
   (
-    B[7]_p,
-    B[7]
+    B_7__p,
+    B_7_
   );
 
 
   not
 
   (
-    B[7]_n,
-    B[7]
+    B_7__n,
+    B_7_
   );
 
 
@@ -550,8 +534,8 @@ module mymod
 
   (
     g17_p,
-    A[7]_p_spl_,
-    B[7]_n_spl_0
+    A_6__p_spl_,
+    B_6__p_spl_
   );
 
 
@@ -559,8 +543,8 @@ module mymod
 
   (
     g17_n,
-    A[7]_n_spl_0,
-    B[7]_p_spl_0
+    A_6__n_spl_,
+    B_6__n_spl_
   );
 
 
@@ -568,8 +552,8 @@ module mymod
 
   (
     g18_p,
-    A[6]_p_spl_,
-    B[6]_p_spl_
+    A_5__p_spl_,
+    B_5__p_spl_
   );
 
 
@@ -577,8 +561,8 @@ module mymod
 
   (
     g18_n,
-    A[6]_n_spl_,
-    B[6]_n_spl_
+    A_5__n_spl_,
+    B_5__n_spl_
   );
 
 
@@ -586,8 +570,8 @@ module mymod
 
   (
     g19_p,
-    A[5]_p_spl_,
-    B[5]_p_spl_
+    A_4__p_spl_,
+    B_4__p_spl_
   );
 
 
@@ -595,8 +579,8 @@ module mymod
 
   (
     g19_n,
-    A[5]_n_spl_,
-    B[5]_n_spl_
+    A_4__n_spl_,
+    B_4__n_spl_
   );
 
 
@@ -604,8 +588,8 @@ module mymod
 
   (
     g20_p,
-    A[4]_p_spl_,
-    B[4]_p_spl_
+    A_4__n_spl_,
+    B_4__n_spl_
   );
 
 
@@ -613,8 +597,8 @@ module mymod
 
   (
     g20_n,
-    A[4]_n_spl_,
-    B[4]_n_spl_
+    A_4__p_spl_,
+    B_4__p_spl_
   );
 
 
@@ -622,8 +606,8 @@ module mymod
 
   (
     g21_p,
-    A[4]_n_spl_,
-    B[4]_n_spl_
+    g19_n_spl_,
+    g20_n
   );
 
 
@@ -631,8 +615,8 @@ module mymod
 
   (
     g21_n,
-    A[4]_p_spl_,
-    B[4]_p_spl_
+    g19_p_spl_,
+    g20_p
   );
 
 
@@ -640,8 +624,8 @@ module mymod
 
   (
     g22_p,
-    g20_n_spl_,
-    g21_n
+    A_3__p_spl_,
+    B_3__p_spl_
   );
 
 
@@ -649,8 +633,8 @@ module mymod
 
   (
     g22_n,
-    g20_p_spl_,
-    g21_p
+    A_3__n_spl_,
+    B_3__n_spl_
   );
 
 
@@ -658,8 +642,8 @@ module mymod
 
   (
     g23_p,
-    A[3]_p_spl_,
-    B[3]_p_spl_
+    A_3__n_spl_,
+    B_3__n_spl_
   );
 
 
@@ -667,8 +651,8 @@ module mymod
 
   (
     g23_n,
-    A[3]_n_spl_,
-    B[3]_n_spl_
+    A_3__p_spl_,
+    B_3__p_spl_
   );
 
 
@@ -676,8 +660,8 @@ module mymod
 
   (
     g24_p,
-    A[3]_n_spl_,
-    B[3]_n_spl_
+    A_2__p_spl_,
+    B_2__p_spl_
   );
 
 
@@ -685,8 +669,8 @@ module mymod
 
   (
     g24_n,
-    A[3]_p_spl_,
-    B[3]_p_spl_
+    A_2__n_spl_,
+    B_2__n_spl_
   );
 
 
@@ -694,8 +678,8 @@ module mymod
 
   (
     g25_p,
-    A[2]_p_spl_,
-    B[2]_p_spl_
+    A_2__n_spl_,
+    B_2__n_spl_
   );
 
 
@@ -703,8 +687,8 @@ module mymod
 
   (
     g25_n,
-    A[2]_n_spl_,
-    B[2]_n_spl_
+    A_2__p_spl_,
+    B_2__p_spl_
   );
 
 
@@ -712,8 +696,8 @@ module mymod
 
   (
     g26_p,
-    A[2]_n_spl_,
-    B[2]_n_spl_
+    A_1__p_spl_,
+    B_1__p_spl_
   );
 
 
@@ -721,8 +705,8 @@ module mymod
 
   (
     g26_n,
-    A[2]_p_spl_,
-    B[2]_p_spl_
+    A_1__n_spl_,
+    B_1__n_spl_
   );
 
 
@@ -730,8 +714,8 @@ module mymod
 
   (
     g27_p,
-    A[1]_p_spl_,
-    B[1]_p_spl_
+    A_1__n_spl_,
+    B_1__n_spl_
   );
 
 
@@ -739,8 +723,8 @@ module mymod
 
   (
     g27_n,
-    A[1]_n_spl_,
-    B[1]_n_spl_
+    A_1__p_spl_,
+    B_1__p_spl_
   );
 
 
@@ -748,8 +732,8 @@ module mymod
 
   (
     g28_p,
-    A[1]_n_spl_,
-    B[1]_n_spl_
+    A_0__p_spl_,
+    B_0__p_spl_
   );
 
 
@@ -757,8 +741,8 @@ module mymod
 
   (
     g28_n,
-    A[1]_p_spl_,
-    B[1]_p_spl_
+    A_0__n,
+    B_0__n
   );
 
 
@@ -766,8 +750,8 @@ module mymod
 
   (
     g29_p,
-    A[0]_p,
-    B[0]_p
+    g27_n_spl_,
+    g28_p_spl_
   );
 
 
@@ -775,8 +759,8 @@ module mymod
 
   (
     g29_n,
-    A[0]_n_spl_,
-    B[0]_n_spl_
+    g27_p_spl_,
+    g28_n_spl_0
   );
 
 
@@ -784,8 +768,8 @@ module mymod
 
   (
     g30_p,
-    g28_n_spl_,
-    g29_p_spl_0
+    g26_n_spl_,
+    g29_n
   );
 
 
@@ -793,8 +777,8 @@ module mymod
 
   (
     g30_n,
-    g28_p_spl_,
-    g29_n_spl_
+    g26_p_spl_,
+    g29_p
   );
 
 
@@ -802,8 +786,8 @@ module mymod
 
   (
     g31_p,
-    g27_n_spl_,
-    g30_n
+    g25_n_spl_,
+    g30_n_spl_
   );
 
 
@@ -811,8 +795,8 @@ module mymod
 
   (
     g31_n,
-    g27_p_spl_,
-    g30_p
+    g25_p_spl_,
+    g30_p_spl_
   );
 
 
@@ -820,8 +804,8 @@ module mymod
 
   (
     g32_p,
-    g26_n_spl_,
-    g31_n_spl_
+    g24_n_spl_,
+    g31_n
   );
 
 
@@ -829,8 +813,8 @@ module mymod
 
   (
     g32_n,
-    g26_p_spl_,
-    g31_p_spl_
+    g24_p_spl_,
+    g31_p
   );
 
 
@@ -838,8 +822,8 @@ module mymod
 
   (
     g33_p,
-    g25_n_spl_,
-    g32_n
+    g23_n_spl_,
+    g32_n_spl_
   );
 
 
@@ -847,8 +831,8 @@ module mymod
 
   (
     g33_n,
-    g25_p_spl_,
-    g32_p
+    g23_p_spl_,
+    g32_p_spl_
   );
 
 
@@ -856,8 +840,8 @@ module mymod
 
   (
     g34_p,
-    g24_n_spl_,
-    g33_n_spl_
+    g22_n_spl_,
+    g33_n
   );
 
 
@@ -865,8 +849,8 @@ module mymod
 
   (
     g34_n,
-    g24_p_spl_,
-    g33_p_spl_
+    g22_p_spl_,
+    g33_p
   );
 
 
@@ -874,8 +858,8 @@ module mymod
 
   (
     g35_p,
-    g23_n_spl_,
-    g34_n
+    g21_p_spl_,
+    g34_n_spl_
   );
 
 
@@ -883,7 +867,7 @@ module mymod
 
   (
     g35_n,
-    g23_p_spl_,
+    g21_n,
     g34_p
   );
 
@@ -892,8 +876,8 @@ module mymod
 
   (
     g36_p,
-    g22_p,
-    g35_n
+    g19_n_spl_,
+    g35_n_spl_
   );
 
 
@@ -901,8 +885,8 @@ module mymod
 
   (
     g36_n,
-    g22_n_spl_,
-    g35_p_spl_
+    g19_p_spl_,
+    g35_p
   );
 
 
@@ -910,8 +894,8 @@ module mymod
 
   (
     g37_p,
-    g20_n_spl_,
-    g36_n
+    A_5__n_spl_,
+    B_5__n_spl_
   );
 
 
@@ -919,8 +903,8 @@ module mymod
 
   (
     g37_n,
-    g20_p_spl_,
-    g36_p_spl_
+    A_5__p_spl_,
+    B_5__p_spl_
   );
 
 
@@ -928,8 +912,8 @@ module mymod
 
   (
     g38_p,
-    A[5]_n_spl_,
-    B[5]_n_spl_
+    g18_n_spl_,
+    g37_n
   );
 
 
@@ -937,8 +921,8 @@ module mymod
 
   (
     g38_n,
-    A[5]_p_spl_,
-    B[5]_p_spl_
+    g18_p_spl_,
+    g37_p
   );
 
 
@@ -946,8 +930,8 @@ module mymod
 
   (
     g39_p,
-    g19_n_spl_,
-    g38_n
+    g36_n_spl_,
+    g38_p_spl_
   );
 
 
@@ -955,8 +939,8 @@ module mymod
 
   (
     g39_n,
-    g19_p_spl_,
-    g38_p
+    g36_p,
+    g38_n
   );
 
 
@@ -964,8 +948,8 @@ module mymod
 
   (
     g40_p,
-    g37_n,
-    g39_p
+    g18_n_spl_,
+    g39_n_spl_
   );
 
 
@@ -973,8 +957,8 @@ module mymod
 
   (
     g40_n,
-    g37_p_spl_,
-    g39_n_spl_
+    g18_p_spl_,
+    g39_p
   );
 
 
@@ -982,8 +966,8 @@ module mymod
 
   (
     g41_p,
-    g19_n_spl_,
-    g40_n
+    A_6__n_spl_,
+    B_6__n_spl_
   );
 
 
@@ -991,8 +975,8 @@ module mymod
 
   (
     g41_n,
-    g19_p_spl_,
-    g40_p_spl_
+    A_6__p_spl_,
+    B_6__p_spl_
   );
 
 
@@ -1000,8 +984,8 @@ module mymod
 
   (
     g42_p,
-    A[6]_n_spl_,
-    B[6]_n_spl_
+    g17_n,
+    g41_n
   );
 
 
@@ -1009,8 +993,8 @@ module mymod
 
   (
     g42_n,
-    A[6]_p_spl_,
-    B[6]_p_spl_
+    g17_p_spl_,
+    g41_p
   );
 
 
@@ -1018,8 +1002,8 @@ module mymod
 
   (
     g43_p,
-    g18_n_spl_,
-    g42_n
+    g40_n_spl_,
+    g42_p_spl_
   );
 
 
@@ -1027,17 +1011,8 @@ module mymod
 
   (
     g43_n,
-    g18_p_spl_,
-    g42_p
-  );
-
-
-  and
-
-  (
-    g44_p,
-    g41_n,
-    g43_p
+    g40_p,
+    g42_n
   );
 
 
@@ -1045,8 +1020,8 @@ module mymod
 
   (
     g44_n,
-    g41_p_spl_,
-    g43_n_spl_
+    g17_p_spl_,
+    g43_p
   );
 
 
@@ -1054,17 +1029,8 @@ module mymod
 
   (
     g45_p,
-    g18_n_spl_,
-    g44_n
-  );
-
-
-  or
-
-  (
-    g45_n,
-    g18_p_spl_,
-    g44_p_spl_
+    A_7__n_spl_,
+    B_7__n_spl_
   );
 
 
@@ -1072,26 +1038,8 @@ module mymod
 
   (
     g46_p,
-    B[7]_p_spl_0,
-    g45_n_spl_0
-  );
-
-
-  or
-
-  (
-    g46_n,
-    B[7]_n_spl_0,
+    g44_n_spl_0,
     g45_p_spl_
-  );
-
-
-  and
-
-  (
-    g47_p,
-    g17_n_spl_,
-    g46_n
   );
 
 
@@ -1099,8 +1047,8 @@ module mymod
 
   (
     g47_n,
-    g17_p_spl_,
-    g46_p
+    A_7__n_spl_,
+    B_7__n_spl_
   );
 
 
@@ -1108,17 +1056,17 @@ module mymod
 
   (
     g48_n,
-    A[7]_n_spl_0,
-    g47_n
+    g44_n_spl_0,
+    g47_n_spl_
   );
 
 
-  and
+  or
 
   (
-    g49_p,
-    g45_n_spl_0,
-    g47_p
+    g49_n,
+    A_0__p_spl_,
+    B_0__p_spl_
   );
 
 
@@ -1126,16 +1074,16 @@ module mymod
 
   (
     g50_p,
-    A[0]_n_spl_,
-    B[0]_n_spl_
+    g28_n_spl_0,
+    g49_n
   );
 
 
-  or
+  and
 
   (
-    g51_n,
-    g29_p_spl_0,
+    g51_p,
+    g48_n_spl_00,
     g50_p
   );
 
@@ -1144,8 +1092,8 @@ module mymod
 
   (
     g52_n,
-    g49_p_spl_00,
-    g51_n
+    g46_p_spl_00,
+    g51_p
   );
 
 
@@ -1153,17 +1101,17 @@ module mymod
 
   (
     g53_p,
-    g48_n_spl_00,
-    g52_n
+    g26_n_spl_,
+    g27_n_spl_
   );
 
 
-  and
+  or
 
   (
-    g54_p,
-    g27_n_spl_,
-    g28_n_spl_
+    g53_n,
+    g26_p_spl_,
+    g27_p_spl_
   );
 
 
@@ -1171,17 +1119,17 @@ module mymod
 
   (
     g54_n,
-    g27_p_spl_,
-    g28_p_spl_
+    g28_n_spl_,
+    g53_n
   );
 
 
-  and
+  or
 
   (
-    g55_p,
-    g29_p_spl_,
-    g54_p
+    g55_n,
+    g28_p_spl_,
+    g53_p
   );
 
 
@@ -1189,16 +1137,16 @@ module mymod
 
   (
     g56_p,
-    g29_n_spl_,
-    g54_n
+    g54_n,
+    g55_n
   );
 
 
-  or
+  and
 
   (
-    g57_n,
-    g55_p,
+    g57_p,
+    g48_n_spl_00,
     g56_p
   );
 
@@ -1207,8 +1155,8 @@ module mymod
 
   (
     g58_n,
-    g49_p_spl_00,
-    g57_n
+    g46_p_spl_00,
+    g57_p
   );
 
 
@@ -1216,8 +1164,17 @@ module mymod
 
   (
     g59_p,
-    g48_n_spl_00,
-    g58_n
+    g24_n_spl_,
+    g25_n_spl_
+  );
+
+
+  or
+
+  (
+    g59_n,
+    g24_p_spl_,
+    g25_p_spl_
   );
 
 
@@ -1225,26 +1182,17 @@ module mymod
 
   (
     g60_p,
-    g25_n_spl_,
-    g26_n_spl_
+    g30_p_spl_,
+    g59_p
   );
 
 
-  or
+  and
 
   (
-    g60_n,
-    g25_p_spl_,
-    g26_p_spl_
-  );
-
-
-  or
-
-  (
-    g61_n,
-    g31_n_spl_,
-    g60_n
+    g61_p,
+    g30_n_spl_,
+    g59_n
   );
 
 
@@ -1252,8 +1200,8 @@ module mymod
 
   (
     g62_n,
-    g31_p_spl_,
-    g60_p
+    g60_p,
+    g61_p
   );
 
 
@@ -1261,7 +1209,7 @@ module mymod
 
   (
     g63_p,
-    g61_n,
+    g48_n_spl_01,
     g62_n
   );
 
@@ -1270,7 +1218,7 @@ module mymod
 
   (
     g64_n,
-    g49_p_spl_01,
+    g46_p_spl_01,
     g63_p
   );
 
@@ -1279,17 +1227,17 @@ module mymod
 
   (
     g65_p,
-    g48_n_spl_01,
-    g64_n
+    g22_n_spl_,
+    g23_n_spl_
   );
 
 
-  and
+  or
 
   (
-    g66_p,
-    g23_n_spl_,
-    g24_n_spl_
+    g65_n,
+    g22_p_spl_,
+    g23_p_spl_
   );
 
 
@@ -1297,8 +1245,8 @@ module mymod
 
   (
     g66_n,
-    g23_p_spl_,
-    g24_p_spl_
+    g32_p_spl_,
+    g65_n
   );
 
 
@@ -1306,17 +1254,17 @@ module mymod
 
   (
     g67_n,
-    g33_n_spl_,
-    g66_n
+    g32_n_spl_,
+    g65_p
   );
 
 
-  or
+  and
 
   (
-    g68_n,
-    g33_p_spl_,
-    g66_p
+    g68_p,
+    g66_n,
+    g67_n
   );
 
 
@@ -1324,8 +1272,8 @@ module mymod
 
   (
     g69_p,
-    g67_n,
-    g68_n
+    g48_n_spl_01,
+    g68_p
   );
 
 
@@ -1333,17 +1281,17 @@ module mymod
 
   (
     g70_n,
-    g49_p_spl_01,
+    g46_p_spl_01,
     g69_p
   );
 
 
-  and
+  or
 
   (
-    g71_p,
-    g48_n_spl_01,
-    g70_n
+    g71_n,
+    g21_p_spl_,
+    g34_n_spl_
   );
 
 
@@ -1351,16 +1299,16 @@ module mymod
 
   (
     g72_p,
-    g22_n_spl_,
-    g35_p_spl_
+    g35_n_spl_,
+    g71_n
   );
 
 
-  or
+  and
 
   (
-    g73_n,
-    g36_p_spl_,
+    g73_p,
+    g48_n_spl_10,
     g72_p
   );
 
@@ -1369,17 +1317,17 @@ module mymod
 
   (
     g74_n,
-    g49_p_spl_10,
-    g73_n
+    g46_p_spl_10,
+    g73_p
   );
 
 
-  and
+  or
 
   (
-    g75_p,
-    g48_n_spl_10,
-    g74_n
+    g75_n,
+    g36_n_spl_,
+    g38_p_spl_
   );
 
 
@@ -1387,16 +1335,16 @@ module mymod
 
   (
     g76_p,
-    g37_p_spl_,
-    g39_n_spl_
+    g39_n_spl_,
+    g75_n
   );
 
 
-  or
+  and
 
   (
-    g77_n,
-    g40_p_spl_,
+    g77_p,
+    g48_n_spl_10,
     g76_p
   );
 
@@ -1405,17 +1353,17 @@ module mymod
 
   (
     g78_n,
-    g49_p_spl_10,
-    g77_n
+    g46_p_spl_10,
+    g77_p
   );
 
 
-  and
+  or
 
   (
-    g79_p,
-    g48_n_spl_10,
-    g78_n
+    g79_n,
+    g40_n_spl_,
+    g42_p_spl_
   );
 
 
@@ -1423,16 +1371,16 @@ module mymod
 
   (
     g80_p,
-    g41_p_spl_,
-    g43_n_spl_
+    g43_n,
+    g79_n
   );
 
 
-  or
+  and
 
   (
-    g81_n,
-    g44_p_spl_,
+    g81_p,
+    g48_n_spl_1,
     g80_p
   );
 
@@ -1441,17 +1389,17 @@ module mymod
 
   (
     g82_n,
-    g49_p_spl_1,
-    g81_n
+    g46_p_spl_1,
+    g81_p
   );
 
 
-  and
+  or
 
   (
-    g83_p,
-    g48_n_spl_1,
-    g82_n
+    g83_n,
+    g44_n_spl_,
+    g45_p_spl_
   );
 
 
@@ -1459,582 +1407,168 @@ module mymod
 
   (
     g84_p,
-    A[7]_n_spl_,
-    B[7]_p_spl_
+    g47_n_spl_,
+    g83_n
   );
 
 
-  or
+  buf
 
   (
-    g84_n,
-    A[7]_p_spl_,
-    B[7]_n_spl_
+    SUM_0_,
+    g52_n
   );
 
 
-  and
+  buf
 
   (
-    g85_p,
-    g17_n_spl_,
-    g84_n
+    SUM_1_,
+    g58_n
   );
 
 
-  or
+  buf
 
   (
-    g85_n,
-    g17_p_spl_,
+    SUM_2_,
+    g64_n
+  );
+
+
+  buf
+
+  (
+    SUM_3_,
+    g70_n
+  );
+
+
+  buf
+
+  (
+    SUM_4_,
+    g74_n
+  );
+
+
+  buf
+
+  (
+    SUM_5_,
+    g78_n
+  );
+
+
+  buf
+
+  (
+    SUM_6_,
+    g82_n
+  );
+
+
+  not
+
+  (
+    SUM_7_,
     g84_p
   );
 
 
-  or
+  buf
 
   (
-    g86_n,
-    g45_n_spl_,
-    g85_n
-  );
-
-
-  or
-
-  (
-    g87_n,
-    g45_p_spl_,
-    g85_p
-  );
-
-
-  and
-
-  (
-    g88_p,
-    g86_n,
-    g87_n
-  );
-
-
-  not
-
-  (
-    SUM[0],
-    g53_p
-  );
-
-
-  not
-
-  (
-    SUM[1],
-    g59_p
-  );
-
-
-  not
-
-  (
-    SUM[2],
-    g65_p
-  );
-
-
-  not
-
-  (
-    SUM[3],
-    g71_p
-  );
-
-
-  not
-
-  (
-    SUM[4],
-    g75_p
-  );
-
-
-  not
-
-  (
-    SUM[5],
-    g79_p
-  );
-
-
-  not
-
-  (
-    SUM[6],
-    g83_p
+    A_6__p_spl_,
+    A_6__p
   );
 
 
   buf
 
   (
-    SUM[7],
-    g88_p
+    B_6__p_spl_,
+    B_6__p
   );
 
 
   buf
 
   (
-    A[7]_p_spl_,
-    A[7]_p
+    A_6__n_spl_,
+    A_6__n
   );
 
 
   buf
 
   (
-    B[7]_n_spl_,
-    B[7]_n
+    B_6__n_spl_,
+    B_6__n
   );
 
 
   buf
 
   (
-    B[7]_n_spl_0,
-    B[7]_n_spl_
+    A_5__p_spl_,
+    A_5__p
   );
 
 
   buf
 
   (
-    A[7]_n_spl_,
-    A[7]_n
+    B_5__p_spl_,
+    B_5__p
   );
 
 
   buf
 
   (
-    A[7]_n_spl_0,
-    A[7]_n_spl_
+    A_5__n_spl_,
+    A_5__n
   );
 
 
   buf
 
   (
-    B[7]_p_spl_,
-    B[7]_p
+    B_5__n_spl_,
+    B_5__n
   );
 
 
   buf
 
   (
-    B[7]_p_spl_0,
-    B[7]_p_spl_
+    A_4__p_spl_,
+    A_4__p
   );
 
 
   buf
 
   (
-    A[6]_p_spl_,
-    A[6]_p
+    B_4__p_spl_,
+    B_4__p
   );
 
 
   buf
 
   (
-    B[6]_p_spl_,
-    B[6]_p
+    A_4__n_spl_,
+    A_4__n
   );
 
 
   buf
 
   (
-    A[6]_n_spl_,
-    A[6]_n
-  );
-
-
-  buf
-
-  (
-    B[6]_n_spl_,
-    B[6]_n
-  );
-
-
-  buf
-
-  (
-    A[5]_p_spl_,
-    A[5]_p
-  );
-
-
-  buf
-
-  (
-    B[5]_p_spl_,
-    B[5]_p
-  );
-
-
-  buf
-
-  (
-    A[5]_n_spl_,
-    A[5]_n
-  );
-
-
-  buf
-
-  (
-    B[5]_n_spl_,
-    B[5]_n
-  );
-
-
-  buf
-
-  (
-    A[4]_p_spl_,
-    A[4]_p
-  );
-
-
-  buf
-
-  (
-    B[4]_p_spl_,
-    B[4]_p
-  );
-
-
-  buf
-
-  (
-    A[4]_n_spl_,
-    A[4]_n
-  );
-
-
-  buf
-
-  (
-    B[4]_n_spl_,
-    B[4]_n
-  );
-
-
-  buf
-
-  (
-    g20_n_spl_,
-    g20_n
-  );
-
-
-  buf
-
-  (
-    g20_p_spl_,
-    g20_p
-  );
-
-
-  buf
-
-  (
-    A[3]_p_spl_,
-    A[3]_p
-  );
-
-
-  buf
-
-  (
-    B[3]_p_spl_,
-    B[3]_p
-  );
-
-
-  buf
-
-  (
-    A[3]_n_spl_,
-    A[3]_n
-  );
-
-
-  buf
-
-  (
-    B[3]_n_spl_,
-    B[3]_n
-  );
-
-
-  buf
-
-  (
-    A[2]_p_spl_,
-    A[2]_p
-  );
-
-
-  buf
-
-  (
-    B[2]_p_spl_,
-    B[2]_p
-  );
-
-
-  buf
-
-  (
-    A[2]_n_spl_,
-    A[2]_n
-  );
-
-
-  buf
-
-  (
-    B[2]_n_spl_,
-    B[2]_n
-  );
-
-
-  buf
-
-  (
-    A[1]_p_spl_,
-    A[1]_p
-  );
-
-
-  buf
-
-  (
-    B[1]_p_spl_,
-    B[1]_p
-  );
-
-
-  buf
-
-  (
-    A[1]_n_spl_,
-    A[1]_n
-  );
-
-
-  buf
-
-  (
-    B[1]_n_spl_,
-    B[1]_n
-  );
-
-
-  buf
-
-  (
-    A[0]_n_spl_,
-    A[0]_n
-  );
-
-
-  buf
-
-  (
-    B[0]_n_spl_,
-    B[0]_n
-  );
-
-
-  buf
-
-  (
-    g28_n_spl_,
-    g28_n
-  );
-
-
-  buf
-
-  (
-    g29_p_spl_,
-    g29_p
-  );
-
-
-  buf
-
-  (
-    g29_p_spl_0,
-    g29_p_spl_
-  );
-
-
-  buf
-
-  (
-    g28_p_spl_,
-    g28_p
-  );
-
-
-  buf
-
-  (
-    g29_n_spl_,
-    g29_n
-  );
-
-
-  buf
-
-  (
-    g27_n_spl_,
-    g27_n
-  );
-
-
-  buf
-
-  (
-    g27_p_spl_,
-    g27_p
-  );
-
-
-  buf
-
-  (
-    g26_n_spl_,
-    g26_n
-  );
-
-
-  buf
-
-  (
-    g31_n_spl_,
-    g31_n
-  );
-
-
-  buf
-
-  (
-    g26_p_spl_,
-    g26_p
-  );
-
-
-  buf
-
-  (
-    g31_p_spl_,
-    g31_p
-  );
-
-
-  buf
-
-  (
-    g25_n_spl_,
-    g25_n
-  );
-
-
-  buf
-
-  (
-    g25_p_spl_,
-    g25_p
-  );
-
-
-  buf
-
-  (
-    g24_n_spl_,
-    g24_n
-  );
-
-
-  buf
-
-  (
-    g33_n_spl_,
-    g33_n
-  );
-
-
-  buf
-
-  (
-    g24_p_spl_,
-    g24_p
-  );
-
-
-  buf
-
-  (
-    g33_p_spl_,
-    g33_p
-  );
-
-
-  buf
-
-  (
-    g23_n_spl_,
-    g23_n
-  );
-
-
-  buf
-
-  (
-    g23_p_spl_,
-    g23_p
-  );
-
-
-  buf
-
-  (
-    g22_n_spl_,
-    g22_n
-  );
-
-
-  buf
-
-  (
-    g35_p_spl_,
-    g35_p
-  );
-
-
-  buf
-
-  (
-    g36_p_spl_,
-    g36_p
+    B_4__n_spl_,
+    B_4__n
   );
 
 
@@ -2057,24 +1591,288 @@ module mymod
   buf
 
   (
-    g37_p_spl_,
-    g37_p
+    A_3__p_spl_,
+    A_3__p
   );
 
 
   buf
 
   (
-    g39_n_spl_,
-    g39_n
+    B_3__p_spl_,
+    B_3__p
   );
 
 
   buf
 
   (
-    g40_p_spl_,
-    g40_p
+    A_3__n_spl_,
+    A_3__n
+  );
+
+
+  buf
+
+  (
+    B_3__n_spl_,
+    B_3__n
+  );
+
+
+  buf
+
+  (
+    A_2__p_spl_,
+    A_2__p
+  );
+
+
+  buf
+
+  (
+    B_2__p_spl_,
+    B_2__p
+  );
+
+
+  buf
+
+  (
+    A_2__n_spl_,
+    A_2__n
+  );
+
+
+  buf
+
+  (
+    B_2__n_spl_,
+    B_2__n
+  );
+
+
+  buf
+
+  (
+    A_1__p_spl_,
+    A_1__p
+  );
+
+
+  buf
+
+  (
+    B_1__p_spl_,
+    B_1__p
+  );
+
+
+  buf
+
+  (
+    A_1__n_spl_,
+    A_1__n
+  );
+
+
+  buf
+
+  (
+    B_1__n_spl_,
+    B_1__n
+  );
+
+
+  buf
+
+  (
+    A_0__p_spl_,
+    A_0__p
+  );
+
+
+  buf
+
+  (
+    B_0__p_spl_,
+    B_0__p
+  );
+
+
+  buf
+
+  (
+    g27_n_spl_,
+    g27_n
+  );
+
+
+  buf
+
+  (
+    g28_p_spl_,
+    g28_p
+  );
+
+
+  buf
+
+  (
+    g27_p_spl_,
+    g27_p
+  );
+
+
+  buf
+
+  (
+    g28_n_spl_,
+    g28_n
+  );
+
+
+  buf
+
+  (
+    g28_n_spl_0,
+    g28_n_spl_
+  );
+
+
+  buf
+
+  (
+    g26_n_spl_,
+    g26_n
+  );
+
+
+  buf
+
+  (
+    g26_p_spl_,
+    g26_p
+  );
+
+
+  buf
+
+  (
+    g25_n_spl_,
+    g25_n
+  );
+
+
+  buf
+
+  (
+    g30_n_spl_,
+    g30_n
+  );
+
+
+  buf
+
+  (
+    g25_p_spl_,
+    g25_p
+  );
+
+
+  buf
+
+  (
+    g30_p_spl_,
+    g30_p
+  );
+
+
+  buf
+
+  (
+    g24_n_spl_,
+    g24_n
+  );
+
+
+  buf
+
+  (
+    g24_p_spl_,
+    g24_p
+  );
+
+
+  buf
+
+  (
+    g23_n_spl_,
+    g23_n
+  );
+
+
+  buf
+
+  (
+    g32_n_spl_,
+    g32_n
+  );
+
+
+  buf
+
+  (
+    g23_p_spl_,
+    g23_p
+  );
+
+
+  buf
+
+  (
+    g32_p_spl_,
+    g32_p
+  );
+
+
+  buf
+
+  (
+    g22_n_spl_,
+    g22_n
+  );
+
+
+  buf
+
+  (
+    g22_p_spl_,
+    g22_p
+  );
+
+
+  buf
+
+  (
+    g21_p_spl_,
+    g21_p
+  );
+
+
+  buf
+
+  (
+    g34_n_spl_,
+    g34_n
+  );
+
+
+  buf
+
+  (
+    g35_n_spl_,
+    g35_n
   );
 
 
@@ -2097,56 +1895,24 @@ module mymod
   buf
 
   (
-    g41_p_spl_,
-    g41_p
+    g36_n_spl_,
+    g36_n
   );
 
 
   buf
 
   (
-    g43_n_spl_,
-    g43_n
+    g38_p_spl_,
+    g38_p
   );
 
 
   buf
 
   (
-    g44_p_spl_,
-    g44_p
-  );
-
-
-  buf
-
-  (
-    g45_n_spl_,
-    g45_n
-  );
-
-
-  buf
-
-  (
-    g45_n_spl_0,
-    g45_n_spl_
-  );
-
-
-  buf
-
-  (
-    g45_p_spl_,
-    g45_p
-  );
-
-
-  buf
-
-  (
-    g17_n_spl_,
-    g17_n
+    g39_n_spl_,
+    g39_n
   );
 
 
@@ -2161,48 +1927,64 @@ module mymod
   buf
 
   (
-    g49_p_spl_,
-    g49_p
+    g40_n_spl_,
+    g40_n
   );
 
 
   buf
 
   (
-    g49_p_spl_0,
-    g49_p_spl_
+    g42_p_spl_,
+    g42_p
   );
 
 
   buf
 
   (
-    g49_p_spl_00,
-    g49_p_spl_0
+    A_7__n_spl_,
+    A_7__n
   );
 
 
   buf
 
   (
-    g49_p_spl_01,
-    g49_p_spl_0
+    B_7__n_spl_,
+    B_7__n
   );
 
 
   buf
 
   (
-    g49_p_spl_1,
-    g49_p_spl_
+    g44_n_spl_,
+    g44_n
   );
 
 
   buf
 
   (
-    g49_p_spl_10,
-    g49_p_spl_1
+    g44_n_spl_0,
+    g44_n_spl_
+  );
+
+
+  buf
+
+  (
+    g45_p_spl_,
+    g45_p
+  );
+
+
+  buf
+
+  (
+    g47_n_spl_,
+    g47_n
   );
 
 
@@ -2251,6 +2033,54 @@ module mymod
   (
     g48_n_spl_10,
     g48_n_spl_1
+  );
+
+
+  buf
+
+  (
+    g46_p_spl_,
+    g46_p
+  );
+
+
+  buf
+
+  (
+    g46_p_spl_0,
+    g46_p_spl_
+  );
+
+
+  buf
+
+  (
+    g46_p_spl_00,
+    g46_p_spl_0
+  );
+
+
+  buf
+
+  (
+    g46_p_spl_01,
+    g46_p_spl_0
+  );
+
+
+  buf
+
+  (
+    g46_p_spl_1,
+    g46_p_spl_
+  );
+
+
+  buf
+
+  (
+    g46_p_spl_10,
+    g46_p_spl_1
   );
 
 
