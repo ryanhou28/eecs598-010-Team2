@@ -1,0 +1,143 @@
+Magic 271485
+Revision Verdi_R-2020.12-SP2-1
+
+; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
+viewPort 0 25 2560 621 338 132
+
+; File list:
+; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
+openDirFile -d / "" "/tmp/rlhou470/inter.fsdb"
+
+; file time scale:
+; fileTimeScale ### s|ms|us|ns|ps
+
+; signal spacing:
+signalSpacing 5
+
+; windowTimeUnit is used for zoom, cursor & marker
+; waveform viewport range
+zoom 601.600000 729.600000
+cursor 1010.13743180432
+marker 0.000000
+
+; user define markers
+; userMarker time_pos marker_name color linestyle
+; visible top row signal index
+top 66
+; marker line index
+markerPos 86
+
+; event list
+; addEvent event_name event_expression
+; curEvent event_name
+
+
+
+COMPLEX_EVENT_BEGIN
+
+
+COMPLEX_EVENT_END
+
+
+
+; toolbar current search type
+; curSTATUS search_type
+curSTATUS ByChange
+
+
+addGroup "G1"
+activeDirFile "" "/tmp/rlhou470/inter.fsdb"
+addSignal -h 15 /testbench/clock
+addSignal -h 15 -2COMP -UDEC /testbench/input_fmap[7:0]
+addSignal -h 15 -UNSIGNED -UDEC /testbench/mem_addr[4:0]
+addSignal -expanded -h 15 -2COMP -UDEC /testbench/input_weights[31:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[31][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[30][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[29][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[28][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[27][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[26][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[25][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[24][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[23][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[22][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[21][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[20][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[19][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[18][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[17][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[16][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[15][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[14][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[13][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[12][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[11][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[10][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[9][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[8][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[7][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[6][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[5][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[4][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[3][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[2][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[1][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[0][7:0]
+addSignal -h 15 /testbench/enable
+addSignal -h 15 /testbench/reset
+addSignal -expanded -h 15 -2COMP -UDEC /testbench/output_fmap[31:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[31][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[30][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[29][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[28][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[27][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[26][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[25][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[24][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[23][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[22][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[21][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[20][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[19][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[18][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[17][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[16][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[15][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[14][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[13][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[12][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[11][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[10][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[9][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[8][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[7][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[6][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[5][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[4][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[3][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[2][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[1][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[0][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/ifmap_write_data[31:0]
+addSignal -h 15 /testbench/ifmap_write_enable
+addSignal -h 15 -2COMP -UDEC /testbench/mem_write_data[31:0]
+addSignal -h 15 /testbench/mem_write_enable
+addGroup "G2"
+addSignal -h 15 -2COMP -UDEC /testbench/shiftmem/shift_reg[31:0]
+addSignal -h 15 -2COMP -UDEC /testbench/shiftmem/shift_reg_next[31:0]
+addGroup "Index 30"
+addSignal -h 15 /testbench/clock
+addSignal -h 15 -2COMP -UDEC /testbench/input_weights[30][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/input_fmap[7:0]
+addSignal -h 15 -UNSIGNED -UDEC /testbench/mem_addr[4:0]
+addSignal -h 15 -2COMP -UDEC /testbench/output_fmap[30][7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/accelerator1/pe_array1/genblk1[30]/pe1/partial_sum_next[7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/accelerator1/pe_array1/genblk1[30]/pe1/partial_sum_reg[7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/accelerator1/pe_array1/genblk1[30]/pe1/relu_out[7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/accelerator1/pe_array1/genblk1[30]/pe1/mult_out[7:0]
+addSignal -h 15 -2COMP -UDEC /testbench/accelerator1/pe_array1/genblk1[30]/pe1/adder_out[7:0]
+addGroup "G4"
+
+; getSignalForm Scope Hierarchy Status
+; active file of getSignalForm
+
