@@ -1,5 +1,5 @@
 # Specify the input Verilog file (behavioral)
-read_verilog -sv shift_reg_mem.sv
+read_verilog -sv shift_reg_mem_comb.sv
 
 # set top level module of design
 hierarchy -top shift_reg_mem_comb

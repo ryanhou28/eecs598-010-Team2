@@ -1,8 +1,8 @@
 module shift_reg_mem_comb(
-    input singed [7:0] write_data [31:0],
-    input signed [7:0] shift_reg [31:0],
+    input signed [31:0] write_data,
+    input signed [31:0] shift_reg,
     input write_enable,
-    output signed [7:0] shift_reg_next
+    output signed [31:0] shift_reg_next
 );
 
     always_comb begin
