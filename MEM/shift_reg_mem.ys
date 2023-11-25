@@ -1,0 +1,27 @@
+# Specify the input Verilog file (behavioral)
+read_verilog -sv shift_reg_mem.sv
+
+# set top level module of design
+hierarchy -top shift_reg_mem_comb
+
+# convert processes to netlist elements and perform optimizations
+proc; opt
+
+# translate design to gate logic and perform optimizations
+techmap; opt
+
+# Flatten the design into one single module
+flatten
+
+dfflibmap -liberty ../Cells/cells.lib
+
+abc -liberty ../Cells/cells.lib
+
+# Test this command...
+techmap -map ../Cells/all2nand.v -autoproc
+
+# perform cleanup
+clean
+
+# Specify the output Verilog file
+write_verilog shift_reg_mem_comb.v
