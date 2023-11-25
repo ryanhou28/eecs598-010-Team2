@@ -11,7 +11,7 @@ module testbench;
     logic [4:0] mem_addr;
     logic signed [7:0] input_weights [31:0];
     logic enable;
-    logic reset;
+    logic acc_reset;
 
     // Define outputs
     logic signed [7:0] output_fmap [31:0];
@@ -23,6 +23,7 @@ module testbench;
 
     logic signed [7:0] mem_write_data [31:0];
     logic mem_write_enable;
+    logic mem_reset;
 
     // Choose which data to write to the memory
     assign mem_write_data = (ifmap_write_enable) ? ifmap_write_data : output_fmap;
@@ -32,7 +33,7 @@ module testbench;
         .write_data(mem_write_data),
         .write_enable(mem_write_enable),
         .clk(clock),
-        .reset(reset),
+        .reset(mem_reset),
         .read_data(input_fmap),
         .addr(mem_addr)
     );
@@ -42,7 +43,7 @@ module testbench;
         .input_fmap(input_fmap),
         .input_weights(input_weights),
         .enable(enable),
-        .reset(reset || mem_write_enable),
+        .reset(acc_reset),
         .clk(clock),
         .output_fmap(output_fmap)
     );
@@ -76,7 +77,8 @@ module testbench;
     // Define a function for running the weights
     task run_nn ();
         $display("Setting input fmap");
-        reset = 0;
+        acc_reset = 0;
+        mem_reset = 0;
         ifmap_write_enable = 1;
         mem_write_enable = 1;
         ifmap_write_data = input_nums;
@@ -90,38 +92,54 @@ module testbench;
         $display("Running layer 1");
         for (int i = 0; i < 32; i = i + 1) begin
             input_weights = layer1_weights[i];
+            if (i == 31) begin
+                mem_write_enable = 1;
+            end
             @(negedge clock); 
         end
-        mem_write_enable = 1;
         // Run layer 2
-        @(negedge clock);
+        acc_reset = 1;
         mem_write_enable = 0;
         $display("Running layer 2");
         for (int i = 0; i < 32; i = i + 1) begin
             input_weights = layer2_weights[i];
+            if (i == 31) begin
+                mem_write_enable = 1;
+            end
             @(negedge clock);
+            acc_reset = 0;
         end
-        mem_write_enable = 1;
         // Run layer 3
-        @(negedge clock);
+        acc_reset = 1;
         mem_write_enable = 0;
         $display("Running layer 3");
         for (int i = 0; i < 32; i = i + 1) begin
             input_weights = layer3_weights[i];
+            if (i == 31) begin
+                mem_write_enable = 1;
+            end
             @(negedge clock);
+            acc_reset = 0;
         end
-        mem_write_enable = 1;
         // Run layer 4
-        @(negedge clock);
+        acc_reset = 1;
         mem_write_enable = 0;
         $display("Running layer 4");
         for (int i = 0; i < 32; i = i + 1) begin
             input_weights = layer4_weights[i];
+            if (i == 31) begin
+                mem_write_enable = 1;
+            end
             @(negedge clock);
+            acc_reset = 0;
         end
         mem_write_enable = 1;
         // Disable the accelerator
         $display("Inference Complete");
+        // Display every output fmap
+        for (int i = 0; i < 32; i = i + 1) begin
+            $display("Output fmap [%d]: %d", i, output_fmap[i]);
+        end
         @(negedge clock);
         mem_write_enable = 0;
         enable = 0;
@@ -142,11 +160,12 @@ module testbench;
     endtask
 
     initial begin
-        $monitor("Time:%4.0f clock:%b reset:%b enable:%b || mem_write_enable: %b | mem_write_data: [31]:%d, [30]: %d| mem_read_data: %d | mem_addr: %d || input_weights: [31]: %d, [30]: %d| output_fmap: [31]: %d, [30]: %d |",
-                $time, clock, reset, enable, mem_write_enable, mem_write_data[31], mem_write_data[30], input_fmap, mem_addr, input_weights[31], input_weights[30], output_fmap[31], output_fmap[30]);
+        $monitor("Time:%4.0f clock:%b enable:%b || mem_reset: %b mem_write_enable: %b | mem_write_data: [31]:%d, [30]: %d| mem_read_data: %d | mem_addr: %d || acc_reset: %b input_weights: [31]: %d, [30]: %d| output_fmap: [31]: %d, [30]: %d |",
+                $time, clock, enable, mem_reset, mem_write_enable, mem_write_data[31], mem_write_data[30], input_fmap, mem_addr, acc_reset, input_weights[31], input_weights[30], output_fmap[31], output_fmap[30]);
         clock = 0;
         enable = 0;
-        reset = 1;
+        mem_reset = 1;
+        acc_reset = 1;
         mem_write_enable = 0;
         ifmap_write_enable = 0;
         set_ifmap_zero();
