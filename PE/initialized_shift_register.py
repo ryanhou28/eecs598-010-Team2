@@ -136,30 +136,50 @@ def create_sr_from_init_states(x, clk, init_states):
     n_bits = len(init_states)
     length = len(init_states[0])
 
-    return sr_N_bit_initialized(x,clk, length, n_bits, init_states)
+    return sr_N_bit_initialized(x, clk, length, n_bits, init_states)
     
+def create_sr_from_int_list(x, clk, int_list):
+    """
+    Creates a shift register with 8 bit ints based on a list of ints
+    Note: Uses two's complement.
+    
+    """
+
+    def twos_comp(val, bits=8):
+        """compute the 2's complement of int value """
+        if bits == 0:      # Use as many bits needed for the value.
+            bits = val.bit_length()
+        return f"{str(bin(((val & (2 ** bits) - 1) - (2 ** bits)) * -1))[2:]:08}"
+    
+    init_states = [[] for i in range(8)]
+
+    for a_int in int_list:
+        tc = twos_comp(a_int)
+        print(tc)
+        for i in range(8):
+            init_states[i].append(int(tc[i]))
+
+    print(init_states)
+
+    return create_sr_from_init_states(x, clk, init_states)
+        
 
 if __name__ == "__main__":
 
     T = 80  # duration of a phase
     clk = pylse.inp(start=T/2, period=T, n=10, name='clk')
 
-    # Provided input: a=1, b=1, cin=0
-    x_1 = pylse.inp_at(5*T, name='x_1')
-    x_2 = pylse.inp_at(5*T, name='x_2')
-
-    # Call sr_N_bit_initialized()
-    # x_out_1, x_out_2 = sr_N_bit_initialized([x_1, x_2], clk, 4, 2, [[1,0,0,1],[0,1,1,0]])
-
-    x_out_1, x_out_2 = create_sr_from_init_states([x_1, x_2], clk, [[1,0,0,1],[0,1,1,0]])
+    x_in_arr = []
+    for i in range(8):
+        x_in_arr.append(pylse.inp_at(5*T))
+    
+    x_out_arr = create_sr_from_int_list(x_in_arr, clk, [1,127])
 
     # Probe outputs
     pylse.inspect(clk, 'clk')
-    pylse.inspect(x_1, 'x_1')
-    pylse.inspect(x_2, 'x_2')
-    # pylse.inspect(rst, 'rst')
-    pylse.inspect(x_out_1, 'x_out_1')
-    pylse.inspect(x_out_2, 'x_out_2')
+    for i in range(8):
+        pylse.inspect(x_in_arr[i], f'x_in_{i}')
+        pylse.inspect(x_out_arr[i], f'x_out_{i}')
 
     # Run simulation
     sim = pylse.Simulation()
