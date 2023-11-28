@@ -155,11 +155,8 @@ def create_sr_from_int_list(x, clk, int_list):
 
     for a_int in int_list:
         tc = twos_comp(a_int)
-        print(tc)
         for i in range(8):
             init_states[i].append(int(tc[i]))
-
-    print(init_states)
 
     return create_sr_from_init_states(x, clk, init_states)
         
