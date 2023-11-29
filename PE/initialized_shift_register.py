@@ -159,7 +159,7 @@ def create_sr_from_int_list(x, clk, int_list):
             init_states[i].append(int(tc[i]))
 
     return create_sr_from_init_states(x, clk, init_states)
-        
+
 
 if __name__ == "__main__":
 
