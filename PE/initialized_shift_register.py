@@ -35,6 +35,26 @@ class DRO_init_1(pylse.SFQ):
     jjs = 6
     firing_delay = 5.1
 
+class DRO_C_init_1(pylse.SFQ):
+    ''' Destructive read-out element with complementary outputs (AKA DFF with compl. outputs)
+
+    Currently just using similar numbers from DRO.
+    '''
+    _setup_time = 1.2
+    _hold_time = 0.0
+
+    name = 'DRO_C'
+    inputs = ['a', 'clk']
+    outputs = ['q', 'qnot']
+    transitions = [
+        {'id': '0', 'source': 'low',  'trigger': 'a',   'dest': 'idle'},
+        {'id': '1', 'source': 'low',  'trigger': 'clk', 'dest': 'low',   'transition_time': _hold_time, 'past_constraints': {'*': _setup_time},  'firing': 'qnot'},
+        {'id': '2', 'source': 'idle', 'trigger': 'a',   'dest': 'idle'},
+        {'id': '3', 'source': 'idle', 'trigger': 'clk', 'dest': 'low',   'transition_time': _hold_time,  'past_constraints': {'*': _setup_time}, 'firing': 'q'},
+    ]
+    jjs = 13
+    firing_delay = 5.1
+
 class DRO_SR_init_1(pylse.SFQ):
     ''' Destructive read-out element with set-reset inputs.
 
@@ -66,6 +86,11 @@ def dro_init_1(a: pylse.Wire, clk: pylse.Wire):
     pylse.working_circuit().add_node(DRO_init_1(), [a, clk], [out])
     return out
 
+def dro_c_init_1(a: pylse.Wire, clk: pylse.Wire):
+    out = pylse.Wire()
+    pylse.working_circuit().add_node(DRO_C_init_1(), [a, clk], [out])
+    return out
+
 def dro_sr_init_1(a: pylse.Wire, rst: pylse.Wire, clk: pylse.Wire):
     out = pylse.Wire()
     pylse.working_circuit().add_node(DRO_SR_init_1(), [a, rst, clk], [out])
@@ -76,6 +101,12 @@ def dro(*args):
     Destructive readout
     """
     return pylse.dro(*args, firing_delay=5.1)
+
+def dro_c(*args):
+    """
+    Destructive readout with complimentry readout
+    """
+    return pylse.dro_c(*args, firing_delay=5.1)
 
 ###############################
 # Shift Registers
@@ -115,6 +146,9 @@ def sr_single_bit_initialized(x, clk, length, init_state):
 def sr_N_bit_initialized(x, clk, length, n_bits, init_states):
     """
     A stack of parametric shift register. Many dro's in series.
+
+    Shift register array is n_bits deep, length wide
+    Output is n_bits wide
     """
 
     # The output
@@ -131,10 +165,17 @@ def sr_N_bit_initialized(x, clk, length, n_bits, init_states):
 def create_sr_from_init_states(x, clk, init_states):
     """
     Create a N_bit shift register and initialize it based on init_states
+
+    Shift register array is same dimensions as init_states
+    Output has same width as init_states
     """
 
-    n_bits = len(init_states)
-    length = len(init_states[0])
+    length = len(init_states)
+    n_bits = len(init_states[0])
+
+    # Transpose the array
+    init_states = [list(row) for row in zip(*init_states)]
+    
 
     return sr_N_bit_initialized(x, clk, length, n_bits, init_states)
     
@@ -159,7 +200,46 @@ def create_sr_from_int_list(x, clk, int_list):
             init_states[i].append(int(tc[i]))
 
     return create_sr_from_init_states(x, clk, init_states)
+        
 
+#####################################################
+# Shift Registers with loopback and final dro_c layer
+#####################################################
+
+def sr_single_bit_recursive_initialized_dro_c(x, clk, length, init_state):
+    """
+    A parametric shift register. Many dro's in series
+
+    TODO find a better way than recursive
+    """
+
+    state = init_state[-1]
+
+    if length == 1:
+        if state == 1:
+            return dro_c_init_1(pylse.jtl(x), clk[0])
+        else:
+            return dro_c(pylse.jtl(x), clk[0])
+    else:
+        if state == 1:
+            return dro_init_1(pylse.jtl(sr_single_bit_recursive_initialized(x,clk,length-1, init_state[:-1])), clk[length-1])
+        else:
+            return dro(pylse.jtl(sr_single_bit_recursive_initialized(x,clk,length-1, init_state[:-1])), clk[length-1])
+
+def sr_single_bit_initialized_loopback__dro_c(x, clk, length, init_state):
+    """
+    A parametric shift register. Many dro's in series
+
+    TODO find a better way than recursive
+    """
+
+    raise NotImlementedError
+
+    clk_fo = pylse.split(clk, length)
+
+    lb_wire = pylse.Wire()
+
+    return sr_single_bit_recursive_initialized(x, clk_fo, length, init_state)
 
 if __name__ == "__main__":
 
