@@ -108,6 +108,10 @@ def dro_c(*args):
     """
     return pylse.dro_c(*args, firing_delay=5.1)
 
+def jtl(in0: pylse.Wire, out0: pylse.Wire, name=None, **overrides):
+    pylse.working_circuit().add_node(pylse.sfq_cells.JTL(**overrides), [in0], [out0])
+    return
+
 ###############################
 # Shift Registers
 ###############################
@@ -135,13 +139,29 @@ def sr_single_bit_recursive_initialized(x, clk, length, init_state):
 def sr_single_bit_initialized(x, clk, length, init_state):
     """
     A parametric shift register. Many dro's in series
-
-    TODO find a better way than recursive
     """
 
     clk_fo = pylse.split(clk, length)
 
     return sr_single_bit_recursive_initialized(x, clk_fo, length, init_state)
+
+    
+def sr_single_bit_initialized_feedback(clk, length, init_state):
+    """
+    A parametric shift register. Many dro's in series
+    """
+
+    clk_fo = pylse.split(clk, length)
+
+    fb_wire_delay = pylse.Wire()
+    sr_out = sr_single_bit_recursive_initialized(fb_wire_delay, clk_fo, length, init_state)
+
+    #split the sr_out
+    sr_out_split = pylse.split(sr_out, 2)
+    jtl(sr_out_split[0],fb_wire_delay)
+
+    return sr_out_split[1]
+
     
 def sr_N_bit_initialized(x, clk, length, n_bits, init_states):
     """
@@ -162,6 +182,25 @@ def sr_N_bit_initialized(x, clk, length, n_bits, init_states):
 
     return x_out
 
+def sr_N_bit_initialized_feedback(clk, length, n_bits, init_states):
+    """
+    A stack of parametric shift register. Many dro's in series.
+
+    Shift register array is n_bits deep, length wide
+    Output is n_bits wide
+    """
+
+    # The output
+    x_out = []
+
+    # Split the clk
+    clk_split = pylse.split(clk, n_bits)
+
+    for i in range(n_bits):
+        x_out.append(sr_single_bit_initialized_feedback(clk_split[i], length, init_states[i]))
+
+    return x_out
+
 def create_sr_from_init_states(x, clk, init_states):
     """
     Create a N_bit shift register and initialize it based on init_states
@@ -177,7 +216,30 @@ def create_sr_from_init_states(x, clk, init_states):
     init_states = [list(row) for row in zip(*init_states)]
     
     return sr_N_bit_initialized(x, clk, length, n_bits, init_states)
+
+def create_sr_from_init_states_feedback(clk, init_states):
+    """
+    Create a N_bit shift register and initialize it based on init_states
+
+    Shift register array is same dimensions as init_states
+    Output has same width as init_states
+    """
+
+    length = len(init_states)
+    n_bits = len(init_states[0])
+
+    # Transpose the array
+    init_states = [list(row) for row in zip(*init_states)]
     
+    return sr_N_bit_initialized_feedback(clk, length, n_bits, init_states)
+
+def twos_comp(val, bits=8):
+    """compute the 2's complement of int value """
+    if bits == 0:      # Use as many bits needed for the value.
+        bits = val.bit_length()
+    return f"{str(bin(((val & (2 ** bits) - 1) - (2 ** bits)) * -1))[2:]:08}"
+
+
 def create_sr_from_int_list(x, clk, int_list):
     """
     Creates a shift register with 8 bit ints based on a list of ints
@@ -185,12 +247,6 @@ def create_sr_from_int_list(x, clk, int_list):
     
     """
 
-    def twos_comp(val, bits=8):
-        """compute the 2's complement of int value """
-        if bits == 0:      # Use as many bits needed for the value.
-            bits = val.bit_length()
-        return f"{str(bin(((val & (2 ** bits) - 1) - (2 ** bits)) * -1))[2:]:08}"
-    
     init_states = [[] for i in range(8)]
 
     for a_int in int_list:
@@ -198,26 +254,92 @@ def create_sr_from_int_list(x, clk, int_list):
         for i in range(8):
             init_states[i].append(int(tc[i]))
 
+    # Transpose the array
+    init_states = [list(row) for row in zip(*init_states)]
+
     return create_sr_from_init_states(x, clk, init_states)
 
-if __name__ == "__main__":
+def create_sr_from_int_list_feedback(clk, int_list):
+    """
+    Creates a shift register with 8 bit ints based on a list of ints
+    Note: Uses two's complement.
+    
+    """
+
+    init_states = [[] for i in range(8)]
+
+    for a_int in int_list:
+        tc = twos_comp(a_int)
+        for i in range(8):
+            init_states[i].append(int(tc[i]))
+
+    # Transpose the array
+    init_states = [list(row) for row in zip(*init_states)]
+
+    return create_sr_from_init_states_feedback(clk, init_states)
+
+def test_create_sr_from_init_states():
+    """
+    """
 
     T = 80  # duration of a phase
-    clk = pylse.inp(start=T/2, period=T, n=10, name='clk')
+    clk = pylse.inp(start=T/2, period=T, n=20, name='clk')
 
-    x_in_arr = []
-    for i in range(8):
-        x_in_arr.append(pylse.inp_at(5*T))
+    x_in = pylse.inp_at(5*T)
     
-    x_out_arr = create_sr_from_int_list(x_in_arr, clk, [1,127])
+    x_out = create_sr_from_init_states([x_in], clk, [[1],[0],[0]])
 
     # Probe outputs
     pylse.inspect(clk, 'clk')
-    for i in range(8):
-        pylse.inspect(x_in_arr[i], f'x_in_{i}')
-        pylse.inspect(x_out_arr[i], f'x_out_{i}')
+    pylse.inspect(x_in, f'x_in')
+    pylse.inspect(x_out[0], f'x_out')
 
     # Run simulation
     sim = pylse.Simulation()
     events = sim.simulate()
     sim.plot()
+
+
+def test_create_sr_from_init_states_feedback():
+    """
+    """
+
+    T = 80  # duration of a phase
+    clk = pylse.inp(start=T/2, period=T, n=20, name='clk')
+    
+    x_out = create_sr_from_init_states_feedback(clk, [[1],[0],[0]])
+
+    # Probe outputs
+    pylse.inspect(clk, 'clk')
+    pylse.inspect(x_out[0], f'x_out')
+
+    # Run simulation
+    sim = pylse.Simulation()
+    events = sim.simulate()
+    sim.plot()
+
+def test_create_sr_from_int_list_feedback():
+    """
+    """
+
+    T = 80  # duration of a phase
+    clk = pylse.inp(start=T/2, period=T, n=20, name='clk')
+    
+    x_out = create_sr_from_int_list_feedback(clk, [1,31,127])
+
+    print(len(x_out))
+
+    # Probe outputs
+    pylse.inspect(clk, 'clk')
+    for i in range(8):
+        pylse.inspect(x_out[i], f'x_out_{i}')
+
+    # Run simulation
+    sim = pylse.Simulation()
+    events = sim.simulate()
+    sim.plot()
+
+if __name__ == "__main__":
+
+    test_create_sr_from_init_states_feedback()
+    test_create_sr_from_int_list_feedback()

@@ -1,18 +1,20 @@
 import pylse
 
-from initialized_shift_register import create_sr_from_init_states
+# There are two versions, one with feedback and one with input
+from initialized_shift_register import create_sr_from_init_states, create_sr_from_init_states_feedback
 
 def write_control_mem(write_control_bits, clk):
     """
     Write control memory
     """
 
-    control_mem_in = pylse.Wire()
+    control_mem = create_sr_from_init_states_feedback(clk, write_control_bits)
 
-    control_mem = create_sr_from_init_states([control_mem_in], clk, write_control_bits)
-
-    control_mem_in = control_mem[0]
-
+    # Note I moved this logic inside the _feedback functions
+    # control_mem_in = pylse.Wire()
+    # control_mem = create_sr_from_init_states([control_mem_in], clk, write_control_bits)
+    # control_mem_in = control_mem[0]
+    
     return control_mem[0]
 
 def check_events(events, T, num_cycles):

@@ -17,8 +17,10 @@ def s(x):
 def m(*args):
     return pylse.m(*args, firing_delay=8.2)
 
-def jtl(*args):
-    return pylse.jtl(*args, firing_delay=5.7)
+def jtl(in0: pylse.Wire, out0: pylse.Wire, name=None, **overrides):
+    pylse.working_circuit().add_node(pylse.sfq_cells.JTL(**overrides), [in0], [out0])
+    return
+
 
 def alt_clock(clk):
     """"
@@ -26,20 +28,16 @@ def alt_clock(clk):
     clk: input clock signal
     """
 
-    # Add issue to PyLSE repo to fix this
-    
     # Instantiate an input wire to the DRO_C
     dro_in = pylse.Wire()
-    clk_e = pylse.Wire()
 
-    dro_in = clk_e
     clk_o, clk_e = dro_c(dro_in, clk)
-    # clk_o, clk_e = dro_c(jtl(dro_in), clk)
 
-    # dro_in = jtl(clk_e)
-    # dro_in = clk_e
+    clk_e_spl = pylse.split(clk_e, 2)
 
-    return clk_o, clk_e
+    jtl(clk_e_spl[1], dro_in)
+
+    return clk_o, clk_e_spl[0]
 
 
 def sr_to_dr(a, clk_o, clk_e):
