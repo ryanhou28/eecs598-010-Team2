@@ -58,6 +58,8 @@ def check_events(events, T, num_cycles):
 
     print("Cycle Num | Cycle E | Cycle O | weight_out (pe 0 ... 31)")
 
+    num_cycles = num_cycles * 2
+    T = T / 2
     for i in range(num_cycles):
         print("Cycle " + str(i) + ":", end="")
 
@@ -86,8 +88,8 @@ if __name__ == "__main__":
     num_cycles = 60
     clk = pylse.inp(start=T, period=T, n=num_cycles, name='clk')
 
-    clk_o = pylse.inp(start=T*2, period=T*2, n=num_cycles, name='clk_o')
-    clk_e = pylse.inp(start=T, period=T*2, n=num_cycles, name='clk_e')
+    clk_o = pylse.inp(start=2*T, period=T, n=num_cycles, name='clk_o')
+    clk_e = pylse.inp(start=T+T/2, period=T, n=num_cycles, name='clk_e')
 
     N_weights = 10
 
