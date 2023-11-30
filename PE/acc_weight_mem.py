@@ -82,12 +82,12 @@ def check_events(events, T, num_cycles):
         
         
 if __name__ == "__main__":
-    T = 50
+    T = 500
     num_cycles = 60
     clk = pylse.inp(start=T, period=T, n=num_cycles, name='clk')
-    # Split the clock
-    clk0, clk1 = s(clk)
-    clk_o, clk_e = alt_clock(clk0)
+
+    clk_o = pylse.inp(start=T*2, period=T*2, n=num_cycles, name='clk_o')
+    clk_e = pylse.inp(start=T, period=T*2, n=num_cycles, name='clk_e')
 
     N_weights = 10
 
@@ -97,7 +97,7 @@ if __name__ == "__main__":
 
     weights_init = [weights_set_one for i in range(16)] + [weights_set_two for i in range(16)]
 
-    weight_data_out = weight_mem(weights_init, clk1, clk_o, clk_e)
+    weight_data_out = weight_mem(weights_init, clk, clk_o, clk_e)
 
     # pylse.inspect(clk1, 'clk')
     pylse.inspect(clk_o, 'clk_o')
