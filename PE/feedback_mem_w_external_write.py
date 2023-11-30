@@ -178,7 +178,6 @@ def test_sr_single_bit_external_write():
 
     # The signals to monitor
     pylse.inspect(clk, 'clk')
-    pylse.inspect(clk, 'clk')
 
     for i in range(shift_len):
         pylse.inspect(x_in[i], f'x_in_{i}')
@@ -194,7 +193,7 @@ def test_sr_N_bit_external_write():
     """
 
     shift_len = 3
-    n_bits = 3
+    n_bits = 4
 
     T = 80  # duration of a phase
     clk = pylse.inp(start=T/2, period=T, n=21, name='clk')
@@ -204,27 +203,26 @@ def test_sr_N_bit_external_write():
 
     # Provided input at T == 1 or 10 * T
     x_in = []
-    for i in range(shift_len):
+    for i in range(n_bits):
         val = []
-        for j in range(n_bits):
+        for j in range(shift_len):
             if j == 0:
-                val.append(pylse.inp(start=T, period=T, n=1, name=f'x_{i}_j_{j}'))
+                val.append(pylse.inp(start=T, period=T, n=1, name=f'x_reg{j}_bit{i}'))
             else:
-                val.append(pylse.inp(start=10*T, period=T, n=1, name=f'x_{i}_j_{j}'))
+                val.append(pylse.inp(start=10*T, period=T, n=1, name=f'x_reg{j}_bit{i}'))
         x_in.append(val)
 
     x_out = sr_N_bit_external_write(x_in, wrt, clk, shift_len, n_bits)
 
     # The signals to monitor
     pylse.inspect(clk, 'clk')
-    pylse.inspect(clk, 'clk')
 
-    for i in range(shift_len):
-        for j in range(n_bits):
-            pylse.inspect(x_in[i][j], f'x_in__{i}_j_{j}')
+    for i in range(n_bits):
+        for j in range(shift_len):
+            pylse.inspect(x_in[i][j], f'x_in_reg{j}_bit{i}')
 
-    for j in range(n_bits):
-        pylse.inspect(x_out[j], f'x_out_{j}')
+    for i in range(n_bits):
+        pylse.inspect(x_out[i], f'x_out_bit{i}')
 
     # Run simulation
     sim = pylse.Simulation()
