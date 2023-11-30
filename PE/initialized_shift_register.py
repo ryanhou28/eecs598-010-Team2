@@ -6,7 +6,7 @@ Shift registers that can initialized to a given state.
 """
 
 # imports
-import pylse 
+import pylse
 
 ###############################
 # make some custom cells
@@ -200,46 +200,6 @@ def create_sr_from_int_list(x, clk, int_list):
             init_states[i].append(int(tc[i]))
 
     return create_sr_from_init_states(x, clk, init_states)
-        
-
-#####################################################
-# Shift Registers with loopback and final dro_c layer
-#####################################################
-
-def sr_single_bit_recursive_initialized_dro_c(x, clk, length, init_state):
-    """
-    A parametric shift register. Many dro's in series
-
-    TODO find a better way than recursive
-    """
-
-    state = init_state[-1]
-
-    if length == 1:
-        if state == 1:
-            return dro_c_init_1(pylse.jtl(x), clk[0])
-        else:
-            return dro_c(pylse.jtl(x), clk[0])
-    else:
-        if state == 1:
-            return dro_init_1(pylse.jtl(sr_single_bit_recursive_initialized(x,clk,length-1, init_state[:-1])), clk[length-1])
-        else:
-            return dro(pylse.jtl(sr_single_bit_recursive_initialized(x,clk,length-1, init_state[:-1])), clk[length-1])
-
-def sr_single_bit_initialized_loopback__dro_c(x, clk, length, init_state):
-    """
-    A parametric shift register. Many dro's in series
-
-    TODO find a better way than recursive
-    """
-
-    raise NotImlementedError
-
-    clk_fo = pylse.split(clk, length)
-
-    lb_wire = pylse.Wire()
-
-    return sr_single_bit_recursive_initialized(x, clk_fo, length, init_state)
 
 if __name__ == "__main__":
 
