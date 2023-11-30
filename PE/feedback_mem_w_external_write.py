@@ -6,7 +6,6 @@ This is a n-bit memory that writes back to itself every cycle but can be written
 
 # imports
 import pylse 
-
 import shift_register
 
 
@@ -61,7 +60,6 @@ def jtl(in0: pylse.Wire, out0: pylse.Wire, name=None, **overrides):
     return
 
 
-
 def fb_mem_external_write(x_in, wrt, clk, n_bits):
     """
     Feedback memory with external write
@@ -87,8 +85,6 @@ def fb_mem_external_write(x_in, wrt, clk, n_bits):
 def fb_mem_external_write_w_shift(x_in, wrt, clk, shift_len, n_bits):
     """
     Feedback memory with external write and a shift reg built in.
-
-    # TODO add means of pausing the shifting
     """
 
     # split out clk and wrt
@@ -115,10 +111,9 @@ def fb_mem_external_write_w_shift(x_in, wrt, clk, shift_len, n_bits):
 def sr_single_bit_external_write(x_in, wrt, clk, sr_length):
     """
     circular shift register with external write in for all values
+
+    Every bit is a mux
     """
-
-    # Every bit is a mux
-
     # split out clk and wrt
     wrt_split = pylse.split(wrt, sr_length)
     clk_split = pylse.split(clk, sr_length)
@@ -131,18 +126,21 @@ def sr_single_bit_external_write(x_in, wrt, clk, sr_length):
         else:
             mux_out_wire = mux_s(temp_wires[i-1], x_in[i], wrt_split[i], clk_split[i])
         
-        if i == sr_length -1:
-            sr_out_split = pylse.split(mux_out_wire, 2)
-            temp_wires.append(sr_out_split[0])
-            x_out = sr_out_split[1]
-        else:
-            temp_wires.append(mux_out_wire)
-        
-    jtl(temp_wires[-1],fb_wire_delay)
+        temp_wires.append(mux_out_wire)
+            
+    sr_out_split = pylse.split(temp_wires[-1], 2)
+    jtl(sr_out_split[0],fb_wire_delay)
 
-    return x_out
+    return sr_out_split[1]
 
 def sr_N_bit_external_write(x_in, wrt, clk, sr_length, n_bits):
+    """
+    A stack of circular shift registers with external write in for all values
+
+    x_in is shape n_bits, sr_length:
+    len(x_in[0]) = sr_length
+
+    """
     # The output
     x_out = []
 
@@ -155,43 +153,90 @@ def sr_N_bit_external_write(x_in, wrt, clk, sr_length, n_bits):
 
     return x_out
 
+def test_sr_single_bit_external_write():
+    """
+    Test the shift register with a single bit for each element
+    """
 
-if __name__ == "__main__":
-
-    n_bits = 4
     shift_len = 3
 
     T = 80  # duration of a phase
-    clk = pylse.inp(start=T/2, period=T, n=13, name='clk')
+    clk = pylse.inp(start=T/2, period=T, n=21, name='clk')
 
     # wrt = pylse.inp_at(T+1, 4*T+1, name='wrt')
-    wrt = pylse.inp_at(T+1, 6*T+1, name='wrt')
+    wrt = pylse.inp_at(T+1, 10*T+1, name='wrt')
 
-    # Provided input at T == 1
+    # Provided input at T == 1 or 10 * T
     x_in = []
-    for i in range(n_bits):
+    for i in range(shift_len):
         if i == 0:
             x_in.append(pylse.inp(start=T, period=T, n=1, name=f'x_{i}'))
-        if i == 1:
-            x_in.append(pylse.inp(start=6*T, period=T, n=1, name=f'x_{i}'))
         else:
-            x_in.append(pylse.inp(start=6*T, period=T, n=1, name=f'x_{i}'))
+            x_in.append(pylse.inp(start=10*T, period=T, n=1, name=f'x_{i}'))
 
-    # Call single_bit_sr()
-    # x_out = fb_mem_external_write(x_in, wrt, clk, n_bits)
-    # x_out = fb_mem_external_write_w_shift(x_in, wrt, clk, shift_len, n_bits)
     x_out = sr_single_bit_external_write(x_in, wrt, clk, shift_len)
 
-    # Probe outputs
+    # The signals to monitor
     pylse.inspect(clk, 'clk')
-    for i in range(n_bits):
+    pylse.inspect(clk, 'clk')
+
+    for i in range(shift_len):
         pylse.inspect(x_in[i], f'x_in_{i}')
-    
     pylse.inspect(x_out, f'x_out')
 
     # Run simulation
     sim = pylse.Simulation()
     events = sim.simulate()
-    # sim.print_state()
     sim.plot()
+
+def test_sr_N_bit_external_write():
+    """
+    """
+
+    shift_len = 3
+    n_bits = 3
+
+    T = 80  # duration of a phase
+    clk = pylse.inp(start=T/2, period=T, n=21, name='clk')
+
+    # wrt = pylse.inp_at(T+1, 4*T+1, name='wrt')
+    wrt = pylse.inp_at(T+1, 10*T+1, name='wrt')
+
+    # Provided input at T == 1 or 10 * T
+    x_in = []
+    for i in range(shift_len):
+        val = []
+        for j in range(n_bits):
+            if j == 0:
+                val.append(pylse.inp(start=T, period=T, n=1, name=f'x_{i}_j_{j}'))
+            else:
+                val.append(pylse.inp(start=10*T, period=T, n=1, name=f'x_{i}_j_{j}'))
+        x_in.append(val)
+
+    x_out = sr_N_bit_external_write(x_in, wrt, clk, shift_len, n_bits)
+
+    # The signals to monitor
+    pylse.inspect(clk, 'clk')
+    pylse.inspect(clk, 'clk')
+
+    for i in range(shift_len):
+        for j in range(n_bits):
+            pylse.inspect(x_in[i][j], f'x_in__{i}_j_{j}')
+
+    for j in range(n_bits):
+        pylse.inspect(x_out[j], f'x_out_{j}')
+
+    # Run simulation
+    sim = pylse.Simulation()
+    events = sim.simulate()
+    sim.plot()
+
+if __name__ == "__main__":
+
+    # Test the single bit sr case
+    test_sr_single_bit_external_write()
+
+    # Test the multiple bit sr case
+    test_sr_N_bit_external_write()
+
 
