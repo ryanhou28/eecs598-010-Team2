@@ -56,3 +56,14 @@ def twos_complement_bin(num):
     binarr.reverse()
 
     return binarr
+
+def transpose(arr):
+    return [list(row) for row in zip(*arr)]
+
+def pulse_event_in_cycle(events, name, T, j):
+    # Returns 1 if there is a pulse by this name in this cycle
+    # Otherwise return 0
+    for i in range(len(events[name])):
+        if (events[name][i] < j*T and events[name][i] >= (j-1)*T):
+            return 1
+    return 0
