@@ -177,7 +177,7 @@ def replace_slash(code):
     # Regular expression to find \
     pattern = r"\\"
     # Replace the square brackets with underscores
-    code = re.sub(pattern, r"_", code)
+    code = re.sub(pattern, r"", code)
 
     return code
 
@@ -206,10 +206,10 @@ if __name__ == "__main__":
     code = delete_comments(code)
     code = delete_par(code)
     code = reformat_gates(code)
-    code = replace_zero_inputs(code)
-    code = expand_arrays(code)
-    code = replace_square_brackets(code)
-    code = replace_slash(code)
+    # code = replace_zero_inputs(code)
+    # code = expand_arrays(code)
+    # code = replace_square_brackets(code)
+    # code = replace_slash(code)
     code = move_in_out_reg_up(code)
 
     # Write the reformatted code to the output file

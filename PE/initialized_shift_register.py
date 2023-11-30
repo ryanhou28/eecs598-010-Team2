@@ -176,7 +176,6 @@ def create_sr_from_init_states(x, clk, init_states):
     # Transpose the array
     init_states = [list(row) for row in zip(*init_states)]
     
-
     return sr_N_bit_initialized(x, clk, length, n_bits, init_states)
     
 def create_sr_from_int_list(x, clk, int_list):

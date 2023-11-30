@@ -1,5 +1,6 @@
 import pylse
 
+from helpers import *
 from processing_element_8bit import processing_element
 from feedback_mem_w_external_write import sr_N_bit_external_write, mux_s
 from initialized_shift_register import create_sr_from_init_states, create_sr_from_int_list
@@ -52,8 +53,12 @@ def accelerator(input_features, clk, clk_o, clk_e):
     ##########################################################################
     write_control_bits = [[1], [1], [0], [0], [0], [0]] # TODO: This is just a placeholder for now, add actual control signal!
 
-    control_mem = create_sr_from_init_states([pylse.Wire()], clk_spl[curr_clk_count], write_control_bits)
+    control_mem_in = pylse.Wire()
+
+    control_mem = create_sr_from_init_states([control_mem_in], clk_spl[curr_clk_count], write_control_bits)
     curr_clk_count += 1
+
+    control_mem_in = control_mem[0]
 
     # control_mem is (N_num_cycles) deep, 1 bit wide
     curr_wrt_ctrl_count = 0
@@ -181,62 +186,6 @@ def accelerator(input_features, clk, clk_o, clk_e):
 
     return nn_out, control_mem[0], pe_out
 
-def inv(inp):
-    if (inp == 1):
-        return 0
-    else:
-        return 1
-
-def twos_to_dec(binary_array):
-    # Convert a binary array of bits of the 8-bit twos complement to a decimal number
-    if not binary_array:
-        return 0
-
-    # Check if the number is negative (MSB is 1)
-    is_negative = binary_array[-1] == 1
-
-    if is_negative:
-        # Invert the bits
-        inverted_array = [1 - bit for bit in binary_array]
-
-        # Add 1 to the inverted array
-        carry = 1
-        for i in range(len(inverted_array)):
-            inverted_array[i] += carry
-            if inverted_array[i] == 2:
-                inverted_array[i] = 0
-                carry = 1
-            else:
-                carry = 0
-
-        # Convert to number and negate
-        number = -sum(bit * (2 ** i) for i, bit in enumerate(inverted_array))
-    else:
-        # Convert to number directly
-        number = sum(bit * (2 ** i) for i, bit in enumerate(binary_array))
-
-    return number
-
-def twos_complement_bin(num):
-    # Generate a binary array of bits of the 8-bit twos complement of the number
-    # Saturate the bit array if the number is out of range
-    if num < -128:
-        num = -128
-    elif num > 127:
-        num = 127
-
-    if num < 0:
-        num = 256 + num
-
-    bin_str = bin(num)[2:].zfill(8)
-
-    binarr = [int(x) for x in bin_str]
-
-    # Flip the binarr so that the LSB is at the beginning
-    binarr.reverse()
-
-    return binarr
-
 def test_single_input(input_feature_bin_arr):
     # Test a single input
 
@@ -287,11 +236,11 @@ def check_events(events, T, num_cycles):
 
 if __name__ == "__main__":
     # Define clock period
-    T = 500
+    T = 1000
     num_cycles = 5
     clk = pylse.inp(start=T/2, period=T, n=num_cycles, name='clk')
     clk_e = pylse.inp(start=T/2, period=T*2, n=num_cycles, name='clk_e')
-    clk_o = pylse.inp(start=T*2, period=T*2, n=num_cycles, name='clk_o')
+    clk_o = pylse.inp(start=T/2+T*2, period=T*2, n=num_cycles, name='clk_o')
     
     input_features = [0 for i in range(32)]
     

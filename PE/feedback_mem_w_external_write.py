@@ -117,13 +117,11 @@ def sr_single_bit_external_write(x_in, wrt, clk, sr_length):
     circular shift register with external write in for all values
     """
 
-    # Every bit is a mux and a splitter
+    # Every bit is a mux
 
     # split out clk and wrt
     wrt_split = pylse.split(wrt, sr_length)
     clk_split = pylse.split(clk, sr_length)
-
-    x_out = []
 
     fb_wire_delay = pylse.Wire()
     temp_wires = []
@@ -132,9 +130,14 @@ def sr_single_bit_external_write(x_in, wrt, clk, sr_length):
             mux_out_wire = mux_s(fb_wire_delay, x_in[i], wrt_split[i], clk_split[i])
         else:
             mux_out_wire = mux_s(temp_wires[i-1], x_in[i], wrt_split[i], clk_split[i])
-        sr_out_split = pylse.split(mux_out_wire, 2)
-        temp_wires.append(sr_out_split[0])
-        x_out.append(sr_out_split[1])
+        
+        if i == sr_length -1:
+            sr_out_split = pylse.split(mux_out_wire, 2)
+            temp_wires.append(sr_out_split[0])
+            x_out = sr_out_split[1]
+        else:
+            temp_wires.append(mux_out_wire)
+        
     jtl(temp_wires[-1],fb_wire_delay)
 
     return x_out
@@ -177,13 +180,14 @@ if __name__ == "__main__":
     # Call single_bit_sr()
     # x_out = fb_mem_external_write(x_in, wrt, clk, n_bits)
     # x_out = fb_mem_external_write_w_shift(x_in, wrt, clk, shift_len, n_bits)
-    x_out = sr_single_bit_external_write(x_in, wrt, clk, n_bits)
+    x_out = sr_single_bit_external_write(x_in, wrt, clk, shift_len)
 
     # Probe outputs
     pylse.inspect(clk, 'clk')
     for i in range(n_bits):
         pylse.inspect(x_in[i], f'x_in_{i}')
-        pylse.inspect(x_out[i], f'x_out_{i}')
+    
+    pylse.inspect(x_out, f'x_out')
 
     # Run simulation
     sim = pylse.Simulation()
