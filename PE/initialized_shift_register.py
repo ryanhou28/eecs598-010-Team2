@@ -7,7 +7,7 @@ Shift registers that can initialized to a given state.
 
 # imports
 import pylse
-
+from helpers import *
 ###############################
 # make some custom cells
 ###############################
@@ -235,9 +235,10 @@ def create_sr_from_init_states_feedback(clk, init_states):
 
 def twos_comp(val, bits=8):
     """compute the 2's complement of int value """
-    if bits == 0:      # Use as many bits needed for the value.
-        bits = val.bit_length()
-    return f"{str(bin(((val & (2 ** bits) - 1) - (2 ** bits)) * -1))[2:]:08}"
+    # if bits == 0:      # Use as many bits needed for the value.
+        # bits = val.bit_length()
+    # return f"{str(bin(((val & (2 ** bits) - 1) - (2 ** bits)) * -1))[2:]:08}"
+    return twos_complement_bin(val)
 
 
 def create_sr_from_int_list(x, clk, int_list):
@@ -318,12 +319,31 @@ def test_create_sr_from_init_states_feedback():
     events = sim.simulate()
     sim.plot()
 
+def check_events(events, T, num_cycles):
+    print("Output:")
+
+    for i in range(num_cycles):
+        print("Cycle " + str(i) + ":", end="")
+        print("|", end="")
+       
+        bits = []
+        for j in range(8):
+            bit = pulse_event_in_cycle(events, f'x_out_{j}', T, i)
+            bits.append(bit)
+            print(bit, end="")
+
+        int_val = twos_to_dec(bits)
+        print("=" + str(int_val), end="|")
+        
+        print("")
+
 def test_create_sr_from_int_list_feedback():
     """
     """
 
     T = 80  # duration of a phase
-    clk = pylse.inp(start=T/2, period=T, n=20, name='clk')
+    num_cycles = 20
+    clk = pylse.inp(start=T/2, period=T, n=num_cycles, name='clk')
     
     x_out = create_sr_from_int_list_feedback(clk, [1,31,127])
 
@@ -339,7 +359,9 @@ def test_create_sr_from_int_list_feedback():
     events = sim.simulate()
     sim.plot()
 
+    check_events(events, T, num_cycles)
+
 if __name__ == "__main__":
 
-    test_create_sr_from_init_states_feedback()
+    # test_create_sr_from_init_states_feedback()
     test_create_sr_from_int_list_feedback()
