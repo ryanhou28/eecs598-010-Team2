@@ -24,25 +24,16 @@ def relu(input_f_0__p, input_f_0__n, input_f_1__p, input_f_1__n, input_f_2__p, i
     def dro(*args):
         return pylse.dro(*args, firing_delay=5.1)
 
-    input_f_7__p_spl_ = pylse.split(input_f_7__p, n=7, firing_delay=4.3)
+    input_f_7__n_spl_ = pylse.split(input_f_7__n, n=7, firing_delay=4.3)
 
-    g9_n = fa(input_f_0__n, input_f_7__p_spl_[0])
-    g10_n = fa(input_f_1__n, input_f_7__p_spl_[1])
-    g11_n = fa(input_f_2__n, input_f_7__p_spl_[2])
-    g12_n = fa(input_f_3__n, input_f_7__p_spl_[3])
-    g13_n = fa(input_f_4__n, input_f_7__p_spl_[4])
-    g14_n = fa(input_f_5__n, input_f_7__p_spl_[5])
-    g15_n = fa(input_f_6__n, input_f_7__p_spl_[6])
-    output_f_0_ = g9_n
-    output_f_1_ = g10_n
-    output_f_2_ = g11_n
-    output_f_3_ = g12_n
-    output_f_4_ = g13_n
-    output_f_5_ = g14_n
-    output_f_6_ = g15_n
+    output_f_0_ = la(input_f_0__p, input_f_7__n_spl_[0])
+    output_f_1_ = la(input_f_1__p, input_f_7__n_spl_[1])
+    output_f_2_ = la(input_f_2__p, input_f_7__n_spl_[2])
+    output_f_3_ = la(input_f_3__p, input_f_7__n_spl_[3])
+    output_f_4_ = la(input_f_4__p, input_f_7__n_spl_[4])
+    output_f_5_ = la(input_f_5__p, input_f_7__n_spl_[5])
+    output_f_6_ = la(input_f_6__p, input_f_7__n_spl_[6])
     output_f_7_ = pylse.Wire() # Connected to ground, always 0
-
-    # NOTE: ALL BITS ARE FLIPPED EXCEPT FOR THE LAST ONE (bit 7)
 
     return output_f_0_, output_f_1_, output_f_2_, output_f_3_, output_f_4_, output_f_5_, output_f_6_, output_f_7_
 
@@ -101,15 +92,8 @@ def check_events(events, T):
             sums[i] = int(events['output_f_' + str(i) + '_'][0] < T)
         except:
             sums[i] = 0
-    sums[0] = inv(sums[0])
-    sums[1] = inv(sums[1])
-    sums[2] = inv(sums[2])
-    sums[3] = inv(sums[3])
-    sums[4] = inv(sums[4])
-    sums[5] = inv(sums[5])
-    sums[6] = inv(sums[6])
-    # sums[7] = inv(sums[7])
-    print("Binary Results (output flip accounted for):")
+    
+    print("Binary Results:")
     print(sums)
     # print(int(events['SUM_0_'][0] < T), int(events['SUM_1_'][0] < T), int(events['SUM_2_'][0] < T), int(events['SUM_3_'][0] < T), int(events['SUM_4_'][0] < T), int(events['SUM_5_'][0] < T), int(events['SUM_6_'][0] < T), int(events['SUM_7_'][0] < T))
     print("Decimal Results:")
