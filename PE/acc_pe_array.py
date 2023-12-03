@@ -82,8 +82,6 @@ def check_events(events, T, num_cycles):
     for i in range(num_cycles):
         print("Cycle " + str(i) + ":", end="")
 
-        bits = []
-
         # For each integer
         for j in range(32):
             # Print out the corresponding if_mem_in bits going into that memory cell
@@ -112,9 +110,9 @@ def gen_ifmap_inp(input_features):
         bin_sig = twos_complement_bin(input_features[i])
         if_bin.append(bin_sig)
     
-    # For each bit in the weight number
     if_bin_p = []
     if_bin_n = []
+    # For each bit in the weight number
     for i in range(8):
         print("Bit " + str(i) + ":", end="")
         pulses_p = []
@@ -123,9 +121,12 @@ def gen_ifmap_inp(input_features):
         for j in range(len(if_bin)):
             print(if_bin[j][i], end="")
             if if_bin[j][i] == 1:
-                pulses_p.append(j*T)
-                # pulses_n.append(j*T + T)
-                continue
+                pulses_p.append(j*T + inp_delay)
+                pulses_n.append(j*T + T/2 + inp_delay)
+            else:
+                pulses_p.append(j*T + T/2 + inp_delay)
+                pulses_n.append(j*T + inp_delay)
+
             
         print("")
 
@@ -182,9 +183,11 @@ def gen_weight_wrt_ctrl(weight_ints, wrt_ctrl):
             for k in range(len(weights_bin)):
                 print(weights_bin[k][j][i], end="")
                 if weights_bin[k][j][i] == 1:
-                    # pulses_p.append(k*T)
-                    # pulses_n.append(k*T + T)
-                    continue
+                    pulses_p.append(k*T + inp_delay)
+                    pulses_n.append(k*T + T/2 + inp_delay)
+                else:
+                    pulses_p.append(k*T + T/2 + inp_delay)
+                    pulses_n.append(k*T + inp_delay)
                 
             print("")
 
@@ -218,18 +221,16 @@ def gen_weight_wrt_ctrl(weight_ints, wrt_ctrl):
 
         
 if __name__ == "__main__":
-    T = 1000
+    T = 600
     num_cycles = 12
     clk = pylse.inp(start=T, period=T, n=num_cycles, name='clk')
     # clk_pe = pylse.inp(start=T/2, period=T/2, n=num_cycles, name='clk_pe')
 
-    # These are real input features from fnn_32.py
-    input_features_ints = [-8, -5, 8, 0, 8, 7, -2, 7, 9, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                     0, 0, 0, 0, 0, 0, 0, 0]
-    # Flip the array
-    input_features_ints = input_features_ints[::-1]
+    inp_delay = 50
 
-    zero_ins = [0 for i in range(32)]
+    # Put some input feature numbers in
+    input_features_ints = [-8, -5, 8, 0, 8, 7, -2, 7, 9, 7, 9, -2, 6, 2, -1, -2, -5, 0, 8, 0, -1, -2, 4, 2,
+                     1, -1, 6, -4, 2, -5, 23, 12]
 
     wrt_ctrl = [1] + [0 for i in range(6)] + [0 for i in range(5)]
 
@@ -239,8 +240,9 @@ if __name__ == "__main__":
     weight_data_set_nums = [i for i in range(32)]
     weight_data_set_neg_nums = [-i for i in range(32)]
 
-    weight_data_ints = [weight_data_set_one, weight_data_set_zeros, weight_data_set_nums, weight_data_set_neg_nums]
-    
+    weight_data_ints = [weight_data_set_one, weight_data_set_one, weight_data_set_one, weight_data_set_zeros, weight_data_set_nums, weight_data_set_neg_nums, weight_data_set_nums]
+    weight_data_ints += [weight_data_set_neg_nums, weight_data_set_one, weight_data_set_neg_nums]
+
     weight_data, wrt_ctrl = gen_weight_wrt_ctrl(weight_data_ints, wrt_ctrl)
 
     input_features = gen_ifmap_inp(input_features_ints)
@@ -255,7 +257,7 @@ if __name__ == "__main__":
     # Run simulation
     sim = pylse.Simulation()
     events = sim.simulate()
-    sim.plot()
+    # sim.plot()
 
     # Check outputs
     check_events(events, T, num_cycles)
