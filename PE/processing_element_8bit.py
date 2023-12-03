@@ -115,7 +115,7 @@ def processing_element(input_feature, weight_in, reset, clk):
     N_BITS = 8 # len(input_feature)
 
     # split clk
-    clks = pylse.split(clk, n=100, firing_delay=4.3) # Need to adjust n=32 to the actual number of splitters needed
+    clks = pylse.split(clk, n=48, firing_delay=4.3) # Need to adjust n=32 to the actual number of splitters needed
     current_clk_count = 0
 
     # clk_o, clk_e = alt_clk(clks[current_clk_count])
@@ -219,6 +219,9 @@ def processing_element(input_feature, weight_in, reset, clk):
 
     # Note: output of ReLU has all bits flipped except for the MSB
     pe_out = relu(acc_out_p_split[1][0], acc_out_n_split[1][0], acc_out_p_split[1][1], acc_out_n_split[1][1], acc_out_p_split[1][2], acc_out_n_split[1][2], acc_out_p_split[1][3], acc_out_n_split[1][3], acc_out_p_split[1][4], acc_out_n_split[1][4], acc_out_p_split[1][5], acc_out_n_split[1][5], acc_out_p_split[1][6], acc_out_n_split[1][6], acc_out_p_split[1][7], acc_out_n_split[1][7])
+
+    print("@@@ Clk count: " + str(current_clk_count))
+    print("@@@ Rst count: " + str(current_rst_count))
 
     return pe_out
 

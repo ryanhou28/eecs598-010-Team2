@@ -45,34 +45,19 @@ def pe_array(if_data, weight_data, wrt_ctrl, clk):
     wrt_ctrl_spl = pylse.split(wrt_ctrl, n=32, firing_delay=4.3)
 
     # Split the clock
-    clk_spl = pylse.split(clk, n=500, firing_delay=4.3)
+    clk_spl = pylse.split(clk, n=32, firing_delay=4.3)
     curr_clk_count = 0
 
     pe_out = [processing_element(if_data_spl[i], weight_data[i], wrt_ctrl_spl[i], clk_spl[i]) for i in range(32)]
     curr_clk_count += 32
     # pe_out is 32 x 8 bits
-
-    # Use DRO_Cs to get the correct bits of the processing element output
-    ofmap_out = []
-    for i in range(32):
-        # For each PE's output
-        # Take the negative bit since the first 7 are flipped
-        pe_out_arr = [dro_c(pe_out[i][j], clk_spl[curr_clk_count + j])[1] for j in range(7)]
-
-        # Take the positive bit of the last output bit
-        pe_out_7_p, _ = dro_c(pe_out[i][7], clk_spl[curr_clk_count + 7])
-        pe_out_arr.append(pe_out_7_p)
-
-        curr_clk_count += 8
-
-        ofmap_out.append(pe_out_arr)
     
     print("@@@ PE Array Clock Count:", curr_clk_count)
 
     # Transpose the wires to match dimensions of other modules
-    ofmap_out = transpose(ofmap_out)
+    pe_out = transpose(pe_out)
 
-    return ofmap_out
+    return pe_out
 
 def check_events(events, T, num_cycles):
     print("Output:")
@@ -121,11 +106,11 @@ def gen_ifmap_inp(input_features):
         for j in range(len(if_bin)):
             print(if_bin[j][i], end="")
             if if_bin[j][i] == 1:
-                pulses_p.append(j*T + inp_delay)
-                pulses_n.append(j*T + T/2 + inp_delay)
+                pulses_p.append(j*T*2 + inp_delay)
+                pulses_n.append(j*T*2 + T + inp_delay)
             else:
-                pulses_p.append(j*T + T/2 + inp_delay)
-                pulses_n.append(j*T + inp_delay)
+                pulses_p.append(j*T*2 + T + inp_delay)
+                pulses_n.append(j*T*2 + inp_delay)
 
             
         print("")
@@ -183,11 +168,11 @@ def gen_weight_wrt_ctrl(weight_ints, wrt_ctrl):
             for k in range(len(weights_bin)):
                 print(weights_bin[k][j][i], end="")
                 if weights_bin[k][j][i] == 1:
-                    pulses_p.append(k*T + inp_delay)
-                    pulses_n.append(k*T + T/2 + inp_delay)
+                    pulses_p.append(k*T*2 + inp_delay)
+                    pulses_n.append(k*T*2 + T + inp_delay)
                 else:
-                    pulses_p.append(k*T + T/2 + inp_delay)
-                    pulses_n.append(k*T + inp_delay)
+                    pulses_p.append(k*T*2 + T + inp_delay)
+                    pulses_n.append(k*T*2 + inp_delay)
                 
             print("")
 
@@ -221,12 +206,12 @@ def gen_weight_wrt_ctrl(weight_ints, wrt_ctrl):
 
         
 if __name__ == "__main__":
-    T = 600
+    T = 1000
     num_cycles = 12
     clk = pylse.inp(start=T, period=T, n=num_cycles, name='clk')
     # clk_pe = pylse.inp(start=T/2, period=T/2, n=num_cycles, name='clk_pe')
 
-    inp_delay = 50
+    inp_delay = 100
 
     # Put some input feature numbers in
     input_features_ints = [-8, -5, 8, 0, 8, 7, -2, 7, 9, 7, 9, -2, 6, 2, -1, -2, -5, 0, 8, 0, -1, -2, 4, 2,
