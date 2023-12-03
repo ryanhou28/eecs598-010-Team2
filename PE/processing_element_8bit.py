@@ -185,10 +185,10 @@ def processing_element(input_feature, weight_in, reset, clk):
     adder_out = []
     for i in range(8):
         if i == 7:
-            # All output bits of the adder except this bit is flipped
-            adder_out.append(dro1sr_dro_c(adder_sum[i], resets[current_rst_count], clks[current_clk_count]))
-        else:
+            # ONLY THE MSB OF THE ADDER OUTPUT IS FLIPPED
             adder_out.append(dro_sr_dro1_c(adder_sum[i], resets[current_rst_count], clks[current_clk_count]))
+        else:
+            adder_out.append(dro1sr_dro_c(adder_sum[i], resets[current_rst_count], clks[current_clk_count]))
         
         current_rst_count += 1
         current_clk_count += 1
@@ -197,9 +197,9 @@ def processing_element(input_feature, weight_in, reset, clk):
     current_clk_count += N_BITS
     current_rst_count += N_BITS
 
-    # Return the correctly flipped bits, only the last output bit of the adder is correct
-    acc_out_p = [adder_out[0][1], adder_out[1][1], adder_out[2][1], adder_out[3][1], adder_out[4][1], adder_out[5][1], adder_out[6][1], adder_out[7][0]]
-    acc_out_n = [adder_out[0][0], adder_out[1][0], adder_out[2][0], adder_out[3][0], adder_out[4][0], adder_out[5][0], adder_out[6][0], adder_out[7][1]]
+    # Return the correctly flipped bits, only the last output bit of the adder needs to be flipped
+    acc_out_p = [adder_out[0][0], adder_out[1][0], adder_out[2][0], adder_out[3][0], adder_out[4][0], adder_out[5][0], adder_out[6][0], adder_out[7][1]]
+    acc_out_n = [adder_out[0][1], adder_out[1][1], adder_out[2][1], adder_out[3][1], adder_out[4][1], adder_out[5][1], adder_out[6][1], adder_out[7][0]]
 
     # split the accumulator_out into 2 for:
     # 0 -> the accumulator memory
@@ -356,8 +356,8 @@ if __name__ == "__main__":
 
     # input_features, weights, reset = test_single_input(input_feature_bin, weight_bin, reset_bin)
 
-    input_feature_nums = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    weight_nums = [8, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    input_feature_nums = [9, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    weight_nums = [10, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     resets = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
     input_features, weights, reset = test_input(input_feature_nums, weight_nums, resets)
