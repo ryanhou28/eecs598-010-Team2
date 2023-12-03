@@ -87,9 +87,10 @@ def dro_init_1(a: pylse.Wire, clk: pylse.Wire):
     return out
 
 def dro_c_init_1(a: pylse.Wire, clk: pylse.Wire):
-    out = pylse.Wire()
-    pylse.working_circuit().add_node(DRO_C_init_1(), [a, clk], [out])
-    return out
+    out_p = pylse.Wire()
+    out_n = pylse.Wire()
+    pylse.working_circuit().add_node(DRO_C_init_1(), [a, clk], [out_p, out_n])
+    return out_p, out_n
 
 def dro_sr_init_1(a: pylse.Wire, rst: pylse.Wire, clk: pylse.Wire):
     out = pylse.Wire()
@@ -361,7 +362,29 @@ def test_create_sr_from_int_list_feedback():
 
     check_events(events, T, num_cycles)
 
+def test_dro_sr_init_1():
+    T = 80
+    num_cycles = 10
+    clk = pylse.inp(start=T/2, period=T, n=num_cycles, name='clk')
+
+    inp = pylse.inp_at(T)
+    rst = pylse.inp_at(2*T)
+
+    dro_out = dro_sr_init_1(inp, rst, clk)
+
+    pylse.inspect(clk, 'clk')
+    pylse.inspect(inp, 'inp')
+    pylse.inspect(rst, 'rst')
+    pylse.inspect(dro_out, 'dro_out')
+
+    # Run simulation
+    sim = pylse.Simulation()
+    events = sim.simulate()
+    sim.plot()
+
+
 if __name__ == "__main__":
 
     # test_create_sr_from_init_states_feedback()
-    test_create_sr_from_int_list_feedback()
+    # test_create_sr_from_int_list_feedback()
+    test_dro_sr_init_1()
