@@ -25,7 +25,7 @@ def ifmap_mem(input_features, ofmap_in, wrt_ctrl, clk, clk_o, clk_e):
     
     Outputs:
         ifmap_out: one input feature integer for the next layer of computation
-            Dimensions: an array of 16 bits (dual-rail) -> 8 positive, 8 negative
+            Dimensions: an array of 16 bits (dual-rail) -> 8 positive negative pairs
     """
 
     # Merge the input feature and ofmap
@@ -43,20 +43,22 @@ def ifmap_mem(input_features, ofmap_in, wrt_ctrl, clk, clk_o, clk_e):
     clk_o_spl = pylse.split(clk_o, n=8, firing_delay=4.3)
     clk_e_spl = pylse.split(clk_e, n=8, firing_delay=4.3)
 
+    for i in range(8):
+        pylse.inspect(if_data_sr[i], f"if_data_sr_bit{i}")
+
     # Convert single-rail to dual-rail
-    p_list = []
-    n_list = []
+    if_data = []
     for i in range(8):
         if_p, if_n = sr_to_dr(if_data_sr[i], clk_o_spl[i], clk_e_spl[i])
-        p_list.append(if_p)
-        n_list.append(if_n)
-    if_data = p_list + n_list
+        if_data.append(if_p)
+        if_data.append(if_n)
 
     return if_data
 
 def check_events(events, T, num_cycles):
     print("Output:")
-
+    T /= 2
+    num_cycles *= 2
     print("Cycle Num | wrt_ctrl| Cycle E | Cycle O | if_out_p | if_out_n | if_mem_in (int 0 ... 31)")
 
     for i in range(num_cycles):
@@ -197,12 +199,14 @@ def gen_inp(input_features_ints, ofmap_in_ints, wrt_ctrl):
     return input_features, ofmap_in, wrt_ctrl
         
 if __name__ == "__main__":
-    T = 50
+    T = 600
     num_cycles = 12
     clk = pylse.inp(start=T, period=T, n=num_cycles, name='clk')
     # Split the clock
     clk0, clk1 = s(clk)
-    clk_o, clk_e = alt_clock(clk0)
+    # clk_o, clk_e = alt_clock(clk0)
+    clk_o = pylse.inp(start=T*2, period=T, n=num_cycles, name='clk_o')
+    clk_e = pylse.inp(start=T + T/2, period=T, n=num_cycles, name='clk_e')
 
     # These are real input features from fnn_32.py
     input_feats_init = [-8, -5, 8, 0, 8, 7, -2, 7, 9, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -231,10 +235,8 @@ if __name__ == "__main__":
     
     # Inspect the if_out bits
     for i in range(8):
-        pylse.inspect(if_out[i], f"if_out_{i}_p")
-    
-    for i in range(8, 16):
-        pylse.inspect(if_out[i], f"if_out_{i-8}_n")
+        pylse.inspect(if_out[2*i], f"if_out_{i}_p")
+        pylse.inspect(if_out[2*i+1], f"if_out_{i}_n")
 
     # Run simulation
     sim = pylse.Simulation()

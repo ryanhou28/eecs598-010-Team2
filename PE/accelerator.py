@@ -5,26 +5,25 @@ from processing_element_8bit import processing_element
 from feedback_mem_w_external_write import sr_N_bit_external_write, mux_s
 from initialized_shift_register import create_sr_from_init_states, create_sr_from_int_list
 from converters import alt_clock, sr_to_dr, dr_to_sr
+from acc_ifmap_mem import ifmap_mem
+from acc_weight_mem import weight_mem
+from acc_pe_array import pe_array
+from acc_wrt_ctrl import write_control_mem
 
-def accelerator(input_features, clk, clk_o, clk_e):
+def accelerator(input_features, write_control_bits, weights_init, clk, clk_dr, clk_o, clk_e):
     """ Accelerator
     
     Inputs:
-        input_features: 32 x 16 bit array of input features
-            16 bits for 8 positive and 8 negative pulses representing a 8-bit two's complement integer
+        input_features: input_features from the quantum readout circuit
+            Dimensions: 8 bits x 32 ints
+        write_control_bits: array of write control bits
+        weights_init: initial weights for the neural network
+            Dimensions: 32 x N integer 2D array
         clk: clock signal
     Outputs:
         nn_out: 32 x 16 bit array of output features (TODO: or output only the 8 positive bits)
 
     """
-    # Define constants
-    N_PE = 32
-    N_clocks = 578 # TODO: Update this with the actual number of clock splits needed
-    N_clocks_o = 264
-    N_clocks_e = 264
-    N_num_cycles = 4 * 4 * 32 # TODO: Update this with the actual number of total clock cycles needed
-    N_wrt_ctrl = 33
-
     ##########################################################################
     # Define xSFQ cells needed
     ##########################################################################
@@ -41,31 +40,20 @@ def accelerator(input_features, clk, clk_o, clk_e):
 
     # Initialize counting variables
     curr_clk_count = 0
-    curr_clk_o_count = 0
-    curr_clk_e_count = 0
     # Split the clock signal
-    clk_spl = pylse.split(clk, n=N_clocks, firing_delay=4.3)
-    clk_o_spl = pylse.split(clk_o, n=N_clocks_o, firing_delay=4.3)
-    clk_e_spl = pylse.split(clk_e, n=N_clocks_e, firing_delay=4.3)
+    clks = pylse.split(clk, n=3, firing_delay=4.3)
+    clk_o_0, clk_o_1 = s(clk_o)
+    clk_e_0, clk_e_1 = s(clk_e)
 
     ##########################################################################
     # Write Control Memory
     ##########################################################################
-    write_control_bits = [[1], [1], [0], [0], [0], [0]] # TODO: This is just a placeholder for now, add actual control signal!
-
-    control_mem_in = pylse.Wire()
-
-    control_mem = create_sr_from_init_states([control_mem_in], clk_spl[curr_clk_count], write_control_bits)
-    curr_clk_count += 1
-
-    control_mem_in = control_mem[0]
-
-    # control_mem is (N_num_cycles) deep, 1 bit wide
-    curr_wrt_ctrl_count = 0
+    wrt_ctrl_bit = write_control_mem(write_control_bits, clks[0])
+    # wrt_ctrl_bit is 1 bit
 
     # Split the reset signal
     # fanout for the ifmap and the psum buffers in the PEs
-    wrt_ctrl_spl = pylse.split(control_mem[0], n=N_wrt_ctrl, firing_delay=4.3)
+    wrt_ctrl_0, wrt_ctrl_1 = s(wrt_ctrl_bit)
 
     ##########################################################################
     # Input Feature Memory
@@ -74,117 +62,80 @@ def accelerator(input_features, clk, clk_o, clk_e):
     # Input Feature Memory will consist of 1 array of 8-bit wide 32 stages deep shift registers
 
     # Instantiate wires for input to the ifmap memory
-    ofmap_in = [[pylse.Wire() for i in range(8)] for j in range(N_PE)]
+    ofmap_in = [[pylse.Wire() for i in range(32)] for j in range(8)]
 
-    # Merge the input feature and the input from psums 
-    # The merger essentially acts as a mux to select between input features and ofmap
-    # This assumes the psums are initialized to 0s and that the input feature comes in at the first cycle
-    if_mem_in = [[m(input_features[i][j], ofmap_in[i][j]) for i in range(N_PE)] for j in range(8)]
-
-    if_data_sr = sr_N_bit_external_write(if_mem_in, wrt_ctrl_spl[curr_wrt_ctrl_count], clk_spl[curr_clk_count], N_PE, 8)
-
-    curr_clk_count += 1
-    curr_wrt_ctrl_count += 1
-
-    # Convert the single rail output to dual rail
-    p_list = []
-    n_list = []
-    for i in range(8):
-        if_p, if_n = sr_to_dr(if_data_sr[i], clk_o_spl[i], clk_e_spl[i])
-        p_list.append(if_p)
-        n_list.append(if_n)
-    if_data = p_list + n_list
-    
-    curr_clk_o_count += 8
-    curr_clk_e_count += 8
-
-    # Split the if_data 32 ways to each PE
-    if_data_spl = [pylse.split(if_data[i], n=N_PE, firing_delay=4.3) for i in range(16)]
-
-    # Transpose the split if_data for easier indexing
-    if_data_spl = [list(row) for row in zip(*if_data_spl)]
+    if_data = ifmap_mem(input_features, ofmap_in, wrt_ctrl_0, clks[1], clk_o_0, clk_e_0)
     
     ##########################################################################
     # Weight Memory
     ##########################################################################
 
-    # TODO: This is just a placeholder for now, add actual control signal!
-    # Note that this is a single rail memory 8bits * N-num_cycles * N_PE
-    weight_init_states = [[[0 for i in range(8)] for j in range(N_num_cycles)] for k in range(N_PE)] 
-
-    # Weight memory is an array of 4 * 32 * 2 16-bit wide shift registers
-    #   16-bit due to 8-bit positive and 8-bit negative pulses for each weight
-    # We can change this so the bulk of the memory is only 8 bit wide with a final layer of dro_c to get the compliments
-
-    # Create wires for feedback input to the weight memory
-    weight_mem_in = [[pylse.Wire() for i in range(8)] for k in range(N_PE)]
-
-    # Note that sr_weight_data_layers is single rail and needs to be converted to dual rail
-    sr_weight_data_layers = [create_sr_from_init_states(weight_mem_in[i], clk_spl[curr_clk_count + i], weight_init_states[i]) for i in range(N_PE)]
-
-    sr_weight_data = [[pylse.Wire() for i in range(8)] for j in range(N_PE)]
-
-    # Split the output of the weight_memory
-    for i in range(N_PE):
-        for j in range(8):
-            sr_weight_data[i][j], weight_mem_in[i][j] = s(sr_weight_data_layers[i][j])
-
-    # Converts the single rail to dual rail
-    # Dimensions are 32 x 8 x 2
-    dr_weight_data_layers = []
-    for weight in sr_weight_data:
-        p_list = []
-        n_list = []
-        for w in weight:
-            p, n = sr_to_dr(w, clk_o_spl[curr_clk_o_count], clk_e_spl[curr_clk_e_count])
-            p_list.append(p)
-            n_list.append(n)
-            curr_clk_o_count += 1
-            curr_clk_e_count += 1
-        dr_weight_data_layers.append(p_list + n_list)
-    
-    curr_clk_count += N_PE
+    dr_weight_data = weight_mem(weights_init, clks[2], clk_o_1, clk_e_1)
 
     ##########################################################################
     # Array of Processing Elements
     ##########################################################################
 
-    pe_out = [processing_element(if_data_spl[i], dr_weight_data_layers[i], wrt_ctrl_spl[curr_wrt_ctrl_count + i], clk_spl[curr_clk_count + i]) for i in range(N_PE)]
-
-    curr_clk_count += N_PE
-    curr_wrt_ctrl_count += N_PE
-
-    # NOTE: pe_out is structured as an array of 8 wires, where all but the last wire (MSB) are inverted values
-    # so we need to invert the values to get the correct output when connecting to the memories
-    # Use DRO_C s to invert the output and a dro to delay it
-    # This will require two more clock cycles
-    inverted_delayed_pe_out = []
-    for i in range(N_PE):
-        single_pe = pe_out[i]
-        # The ouput from a single PE (8 bits)
-        # We then need to flip all but the last wire
-        inverted_delayed_single_pe = []
-        for j in range(8):
-            if j < 7: # Not the last bit, so we invert
-                inverted_delayed_single_pe.append(pylse.dro(pylse.dro_c(single_pe[j], clk_spl[curr_clk_count])[1], clk_spl[curr_clk_count+1]))
-            else: # The last bit so we don't invert
-                inverted_delayed_single_pe.append(pylse.dro(pylse.dro(single_pe[j], clk_spl[curr_clk_count]), clk_spl[curr_clk_count+1]))
-            curr_clk_count += 2
-        inverted_delayed_pe_out.append(inverted_delayed_single_pe)
-
-    split_inverted_delayed_pe_out = [[s(o) for o in s_pe] for s_pe in inverted_delayed_pe_out]
+    ofmap_out = pe_array(if_data, dr_weight_data, wrt_ctrl_1, clk_dr)
 
     # Connect the output of the PEs to the ifmap memory
-    ofmap_in = [[o[0] for o in s_pe] for s_pe in split_inverted_delayed_pe_out]
+    for i in range(8):
+        for j in range(32):
+            ofmap_in[i][j] <<= ofmap_out[i][j]
 
-    nn_out = [[o[1] for o in s_pe] for s_pe in split_inverted_delayed_pe_out]
+    return ofmap_out
 
-    print("NUM CLOCK SPLITS:", curr_clk_count)
-    print("NUM WRT CTRL SPLITS:", curr_wrt_ctrl_count)
-    print("NUM CLOCK O SPLITS:", curr_clk_o_count)
-    print("NUM CLOCK E SPLITS:", curr_clk_e_count)
 
-    return nn_out, control_mem[0], pe_out
+def gen_inp_feat(input_features_ints):
+    # Generate the PyLSE input signals given arrays of inputs at each clock cycle
+    #   input_features_ints: 2D array of 8-bit integers, each row is an array of ints for each clock cycle
+    
+    # Convert the input ints into binary signals
+    input_feats_bin = []
+    for i in range(len(input_features_ints)):
+        # For each clock cycle
+        pe_bin_arr = []
+        for j in range(len(input_features_ints[i])):
+            # For each integer in this cycle
+            bin_sig = twos_complement_bin(input_features_ints[i][j])
+            pe_bin_arr.append(bin_sig)
+        input_feats_bin.append(pe_bin_arr)
+    print(input_features_ints)
+    print(input_feats_bin)
+    # input_feats_bin = transpose(input_feats_bin)
+    print(len(input_feats_bin))
+    print(len(input_feats_bin[0]))
+    print(len(input_feats_bin[0][0]))
+
+    print("Input features: ")
+    # For each bit in the input feature number
+    input_features = []
+    for i in range(8):
+        print("Bit " + str(i) + ": ")
+        pe_pulse_arr = []
+        # For each input feature number for each PE
+        for j in range(32):
+            print("int " + str(j) + ": ")
+            # For each cycle
+            pulses = []
+            for k in range(len(input_feats_bin)):
+                print(input_feats_bin[k][j][i], end="")
+                if input_feats_bin[k][j][i] == 1:
+                    pulses.append(k*T)
+                
+            print("")
+
+            # Create the input signal
+            inp_sig = pylse.inp_at(*pulses, name=f"input_feature_int{j}_bit{i}")
+            pe_pulse_arr.append(inp_sig)
+        input_features.append(pe_pulse_arr)
+    
+
+    # Print out the dimensions of the input signals
+    print("Dimensions of input signals:")
+    print("input_features: " + str(len(input_features)) + " x " + str(len(input_features[0])))
+    
+    return input_features
 
 def test_single_input(input_feature_bin_arr):
     # Test a single input
@@ -238,33 +189,41 @@ if __name__ == "__main__":
     # Define clock period
     T = 1000
     num_cycles = 5
-    clk = pylse.inp(start=T/2, period=T, n=num_cycles, name='clk')
-    clk_e = pylse.inp(start=T/2, period=T*2, n=num_cycles, name='clk_e')
-    clk_o = pylse.inp(start=T/2+T*2, period=T*2, n=num_cycles, name='clk_o')
+    clk = pylse.inp(start=T, period=T, n=num_cycles, name='clk')
+    clk_e = pylse.inp(start=T*2, period=T, n=num_cycles, name='clk_e')
+    clk_o = pylse.inp(start=T + T/2, period=T, n=num_cycles, name='clk_o')
+    clk_dr = pylse.inp(start=T, period=T/2, n=num_cycles, name='clk_dr')
     
-    input_features = [0 for i in range(32)]
-    
-    input_feature_bin = [twos_complement_bin(input_features[i]) for i in range(len(input_features))]
+    # These are real input features from fnn_32.py
+    input_feats_init = [-8, -5, 8, 0, 8, 7, -2, 7, 9, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                     0, 0, 0, 0, 0, 0, 0, 0]
+    # Flip the array
+    input_feats_init = input_feats_init[::-1]
 
-    # Print out the input features
-    print("Input Features:")
-    print(input_features)
+    zero_ins = [0 for i in range(32)]
+    input_features_ints = [input_feats_init] + [zero_ins for i in range(num_cycles-1)]
 
     # Generate the inputs
-    input_features_pulses = test_single_input(input_feature_bin)
+    input_feature_pulses = gen_inp_feat(input_features_ints)
 
-    nn_out, wrt_ctrl_out, pe_out  = accelerator(input_features_pulses, clk, clk_o, clk_e)
+    # Generate the write control bits
+    write_control_bits = [[1], [0], [0], [0], [0], [0]]
+
+    # Generate some weights
+    weights_set_one = [i for i in range(40)]
+    weights_set_two = weights_set_one[::-1]
+
+    weights_init = [weights_set_one for i in range(16)] + [weights_set_two for i in range(16)]
+
+    # -- INSTANTIATE THE ACCELERATOR MODULE --
+    nn_out = accelerator(input_feature_pulses, write_control_bits, weights_init, clk, clk_dr, clk_o, clk_e)
 
     # Probe outputs
     pylse.inspect(clk, 'clk')
-    # TODO: Add probes for each output
 
     # Inspect the first PE output
     for i in range(8):
         pylse.inspect(nn_out[0][i], name=f"PE0_out_{i}")
-        pylse.inspect(pe_out[0][i], name=f"PE0ReLU_out_{i}")
-        
-    pylse.inspect(wrt_ctrl_out, name=f"wrt_ctrl_out")
 
     # Run Simulation
     sim = pylse.Simulation()
