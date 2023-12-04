@@ -1,19 +1,17 @@
 # eecs598-010-Team2
 
-# TODO:
-- MAC:
-  - [ ] Optimize existing designs
-  - [ ] 4-bit MAC unit
-    - [X] 4-bit Adder
-    - [X] 4-bit Multiplier
-  - [ ] 8-bit MAC unit
-    - [ ] Design 8-bit Adder
-    - [ ] Design 8-bit Multiplier
-  - [ ] Investigate Dataflow, NoC to use
-  - [ ] Investigate Mapping of Weights onto Accelerator
+# Superconducting Accelerator for Machine Learning Assisted Qubit Readout
+
+This is the repo for our SFQ DNN accelerator for quantum readout.
+
+The PE folder contains most of the relevent files:
+- PE/accelerator.py     > Full accelerator design
+- PE/acc_ifmap_mem.py   > Input feature memory
+- PE/acc_pe_array.py    > Array of processing elements
+- PE/acc_weight_mem.py  > Weight memories
+- PE/acc_wrt_mem.py     > Control signal memory
 
 # Helpful Links:
-- Project [Google Drive](https://drive.google.com/drive/u/1/folders/1lGD-EbEd5oGc7vOjrX4MHmwefSjBNjo0)
 - PyLSE [Github](https://github.com/UCSBarchlab/PyLSE)
 - GraphViz [Visualizer](https://dreampuf.github.io/GraphvizOnline/) (Helpful for PyLSE)
 - Paper Links:
