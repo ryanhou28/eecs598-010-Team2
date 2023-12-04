@@ -95,8 +95,7 @@ def gen_ifmap_inp(input_features):
         bin_sig = twos_complement_bin(input_features[i])
         if_bin.append(bin_sig)
     
-    if_bin_p = []
-    if_bin_n = []
+    ifmap_in = []
     # For each bit in the weight number
     for i in range(8):
         print("Bit " + str(i) + ":", end="")
@@ -111,19 +110,16 @@ def gen_ifmap_inp(input_features):
             else:
                 pulses_p.append(j*T*2 + T + inp_delay)
                 pulses_n.append(j*T*2 + inp_delay)
-
             
         print("")
 
         # Create the input signal
         inp_sig_p = pylse.inp_at(*pulses_p, name=f"if_bin_bit{i}_p")
         inp_sig_n = pylse.inp_at(*pulses_n, name=f"if_bin_bit{i}_n")
-        if_bin_p.append(inp_sig_p)
-        if_bin_n.append(inp_sig_n)
-
-    ifmap_inp = if_bin_p + if_bin_n
+        ifmap_in.append(inp_sig_p)
+        ifmap_in.append(inp_sig_n)
     
-    return ifmap_inp
+    return ifmap_in
     
 def gen_weight_wrt_ctrl(weight_ints, wrt_ctrl):
     # Generate the PyLSE input signals given arrays of input features and write control signal at each clock cycle
@@ -153,8 +149,7 @@ def gen_weight_wrt_ctrl(weight_ints, wrt_ctrl):
 
     print("Weights In: ")
     # For each bit in the weight number
-    weights_p = []
-    weights_n = []
+    weights = []
     for i in range(8):
         print("Bit " + str(i) + ": ")
         pe_pulse_arr_p = []
@@ -181,10 +176,8 @@ def gen_weight_wrt_ctrl(weight_ints, wrt_ctrl):
             inp_sig_n = pylse.inp_at(*pulses_n, name=f"weights_int{j}_bit{i}_n")
             pe_pulse_arr_p.append(inp_sig_p)
             pe_pulse_arr_n.append(inp_sig_n)
-        weights_p.append(pe_pulse_arr_p)
-        weights_n.append(pe_pulse_arr_n)
-
-    weights = weights_p + weights_n
+        weights.append(pe_pulse_arr_p)
+        weights.append(pe_pulse_arr_n)
     
     # Generate the input signals for write control bit
     wrt_ctrl_T = []
@@ -203,21 +196,18 @@ def gen_weight_wrt_ctrl(weight_ints, wrt_ctrl):
     
     return weights, wrt_ctrl
 
-
-        
 if __name__ == "__main__":
     T = 1000
     num_cycles = 12
     clk = pylse.inp(start=T, period=T, n=num_cycles, name='clk')
-    # clk_pe = pylse.inp(start=T/2, period=T/2, n=num_cycles, name='clk_pe')
 
-    inp_delay = 100
+    inp_delay = 100 + T
 
     # Put some input feature numbers in
-    input_features_ints = [-8, -5, 8, 0, 8, 7, -2, 7, 9, 7, 9, -2, 6, 2, -1, -2, -5, 0, 8, 0, -1, -2, 4, 2,
+    input_features_ints = [8, -5, 7, 1, 8, 7, -2, 7, 9, 7, 9, -2, 6, 2, -1, -2, -5, 0, 8, 0, -1, -2, 4, 2,
                      1, -1, 6, -4, 2, -5, 23, 12]
 
-    wrt_ctrl = [1] + [0 for i in range(6)] + [0 for i in range(5)]
+    wrt_ctrl = [0] + [0 for i in range(6)] + [0 for i in range(5)]
 
     # Instantiate some weights
     weight_data_set_one = [1 for i in range(32)]
