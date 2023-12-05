@@ -4,11 +4,10 @@ feedback_mem_w_external_write.py
 This is a n-bit memory that writes back to itself every cycle but can be written a value with a signal.
 """
 
-# imports
-import pylse 
-import shift_register
-
-
+import pylse
+import sys
+sys.path.append('../')
+import MEM.shift_register
 
 class Mux(pylse.SFQ):
     """ Synchronous Multiplexer

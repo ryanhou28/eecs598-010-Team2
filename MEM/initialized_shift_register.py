@@ -7,6 +7,8 @@ Shift registers that can initialized to a given state.
 
 # imports
 import pylse
+import sys
+sys.path.append('../')
 from helpers import *
 ###############################
 # make some custom cells

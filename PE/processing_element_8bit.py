@@ -5,14 +5,16 @@ The 8bit processing element is the building block of the systolic array
 """
 
 import pylse
-import shift_register, simple_memory, feedback_mem_w_external_write
 import sys
 
 sys.path.append('../')
+import MEM.shift_register
+import MEM.simple_memory
+import MEM.feedback_mem_w_external_write
+from PE.relu_syn_structural_N_PyLSE import relu
 from MAC.Adder.adder_8bit_syn_structural_N_PyLSE import adder, twos_to_dec, twos_complement_bin
 from MAC.Mult.mult_comb_syn_structural_N_PyLSE import mult
-from relu_syn_structural_N_PyLSE import relu
-from initialized_shift_register import dro_sr_init_1, dro_init_1, dro_c_init_1
+from MEM.initialized_shift_register import dro_sr_init_1, dro_init_1, dro_c_init_1
 from converters import sr_to_dr, alt_clock
 
 def processing_element(input_feature, weight_in, reset, clk):
@@ -142,9 +144,9 @@ def processing_element(input_feature, weight_in, reset, clk):
     current_clk_count += N_BITS * 2
 
     # Inspect mult output
-    for i in range(8):
-        pylse.inspect(mult_out[i][0], name=f"mult_out_{i}_p")
-        pylse.inspect(mult_out[i][1], name=f"mult_out_{i}_n")
+    # for i in range(8):
+    #     pylse.inspect(mult_out[i][0], name=f"mult_out_{i}_p")
+    #     pylse.inspect(mult_out[i][1], name=f"mult_out_{i}_n")
 
     ##########################################################################
     # Partial Sum Register
@@ -168,9 +170,9 @@ def processing_element(input_feature, weight_in, reset, clk):
         current_rst_count += 2
 
     # Inspect psum
-    for i in range(8):
-        pylse.inspect(psum_dros[2*i], name=f"psum_{i}_p")
-        pylse.inspect(psum_dros[2*i + 1], name=f"psum_{i}_n")
+    # for i in range(8):
+        # pylse.inspect(psum_dros[2*i], name=f"psum_{i}_p")
+        # pylse.inspect(psum_dros[2*i + 1], name=f"psum_{i}_n")
 
     ##########################################################################
     # Accumulator
@@ -178,8 +180,8 @@ def processing_element(input_feature, weight_in, reset, clk):
     adder_sum = adder(mult_out[0][0], mult_out[0][1], mult_out[1][0], mult_out[1][1], mult_out[2][0], mult_out[2][1], mult_out[3][0], mult_out[3][1], mult_out[4][0], mult_out[4][1], mult_out[5][0], mult_out[5][1], mult_out[6][0], mult_out[6][1], mult_out[7][1], mult_out[7][0], psum_dros[0], psum_dros[1], psum_dros[2], psum_dros[3], psum_dros[4], psum_dros[5], psum_dros[6], psum_dros[7], psum_dros[8], psum_dros[9], psum_dros[10], psum_dros[11], psum_dros[12], psum_dros[13], psum_dros[14], psum_dros[15])
     
     # Inspect adder output
-    for i in range(8):
-        pylse.inspect(adder_sum[i], name=f"adder_sum_{i}")
+    # for i in range(8):
+        # pylse.inspect(adder_sum[i], name=f"adder_sum_{i}")
 
     # Pipeline adder output
     adder_out = []
@@ -220,8 +222,8 @@ def processing_element(input_feature, weight_in, reset, clk):
     # Note: output of ReLU has all bits flipped except for the MSB
     pe_out = relu(acc_out_p_split[1][0], acc_out_n_split[1][0], acc_out_p_split[1][1], acc_out_n_split[1][1], acc_out_p_split[1][2], acc_out_n_split[1][2], acc_out_p_split[1][3], acc_out_n_split[1][3], acc_out_p_split[1][4], acc_out_n_split[1][4], acc_out_p_split[1][5], acc_out_n_split[1][5], acc_out_p_split[1][6], acc_out_n_split[1][6], acc_out_p_split[1][7], acc_out_n_split[1][7])
 
-    print("@@@ Clk count: " + str(current_clk_count))
-    print("@@@ Rst count: " + str(current_rst_count))
+    # print("@@@ Clk count: " + str(current_clk_count))
+    # print("@@@ Rst count: " + str(current_rst_count))
 
     return pe_out
 
